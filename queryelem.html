@@ -1,4 +1,4 @@
-<ul>
+<!-- <ul>
     <li>The</li>
     <li>test</li>
 </ul>
@@ -11,5 +11,63 @@
 
     for(let elem of elements){
         alert(elem.innerHTML); 
+    }
+</script> -->
+
+
+<!-- <a href="http://example.com/file.zip">...</a>
+<a href="http://ya.ru">...</a>
+
+<script>
+    // 不一定是document.body.children,还可以是任何集合
+    for (let elem of document.body.children) {
+        if (elem.matches('a[href$="zip"]')) {
+            alert("The archive reference: " + elem.href);
+        }
+    }
+</script> -->
+
+
+<!-- <h1>Contents</h1>
+
+<div class="contents">
+    <ul class="book">
+        <li class="chapter">Chapter 1</li>
+        <li class="chapter">Chapter 1</li>
+    </ul>
+</div>
+
+<script>
+    let chapter = document.querySelector('.chapter');
+
+    alert(chapter.closest('.book'));
+    alert(chapter.closest('.contents'));
+
+    alert(chapter.closest('h1'));
+</script> -->
+
+
+<table id="table">
+    <tr>
+        <td>Your age:</td>
+        <td>
+            <label>
+                <input type="radio" name="age" value="young" checked>less than 18
+            </label>
+            <label>
+                <input type="radio" name="age" value="mature">from 18 to 50
+            </label>
+            <label>
+                <input type="radio" name="age" value="senior">more than 60
+            </label>
+        </td>
+    </tr>
+</table>
+
+<script>
+    let inputs = table.getElementsByTagName('input');
+
+    for (let input of inputs) {
+        alert(input.value+ ':' +input.checked);
     }
 </script>
