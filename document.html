@@ -1,0 +1,54 @@
+<!-- <script>
+    alert(document.body.constructor.name);
+    alert( document.body ); // [object HTMLBodyElement]
+    alert(document.body instanceof HTMLBodyElement);
+    alert(document.body instanceof HTMLElement);
+    alert(document.body instanceof Element);
+    alert(document.body instanceof Node);
+    alert(document.body instanceof EventTarget);
+</script> -->
+
+<!-- 
+ <body>
+
+    <script>
+        // for comment
+        alert(document.body.firstChild.tagName);    // undefined(不是一个元素)
+        alert(document.body.firstChild.nodeName);   // #comment
+
+        // for document
+        alert(document.tagName);    // undefined(不是一个元素)
+        alert(document.nodeName);   // #document 
+    </script>
+</body> 
+
+
+<body>
+    <p>A paragraph</p>
+    <div>A div</div>
+
+    <script>
+        alert(document.body.innerHTML); // 读取当前内容
+        document.body.innerHTML = 'The new BODY';   // 替换
+    </script>
+
+</body> -->
+
+<!-- <div id="elem">Hello <b>World</b></div>
+
+<script>
+  alert(elem.innerHTML); // <div id="elem">Hello <b>World</b></div>
+</script> -->
+
+
+<body>
+    Hello
+    <!-- Comment -->
+    <script>
+        let text = document.body.firstChild;
+        alert(text.data);   // Hello
+
+        let comment = text.nextSibling;
+        alert(comment.data);    // Comment
+    </script>
+</body>

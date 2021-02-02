@@ -46,7 +46,7 @@
     alert(chapter.closest('h1'));
 </script> -->
 
-
+<!-- 
 <table id="table">
     <tr>
         <td>Your age:</td>
@@ -70,4 +70,68 @@
     for (let input of inputs) {
         alert(input.value+ ':' +input.checked);
     }
+</script>-->
+
+
+<!-- <form name="my-form">
+    <div class="article">Article</div>
+    <div class="long article">Long article</div>
+</form>
+
+
+<script>
+    // 按 name 特性查找
+    let form = document.getElementsByName('my-form')[0];
+  
+    // 在 form 中按 class 查找
+    let articles = form.getElementsByClassName('article');
+    alert(articles.length); // 2, found two elements with class "article"
+</script> -->
+
+<!-- 
+<div>First div</div>
+
+<script>
+    let divs = document.querySelectorAll('div');
+    alert(divs.length);
 </script>
+
+<div>Second div</div>
+
+<script>
+    alert(divs.length);
+</script> -->
+
+
+<!-- // 1.带有 id="age-table" 的表格。
+<script>
+    let table = document.getElementById('age-table');
+</script>
+
+// 2.表格内的所有 label 元素（应该有三个）。
+<script>
+    let labels = table.getElementsByTagName('label');
+</script>
+
+// 3.表格中的第一个 td（带有 “Age” 字段）。
+<script>
+    let tds = table.getElementsByTagName('td')[0];
+</script>
+
+// 4.带有 name="search" 的 form。
+<script>
+    let forms = document.getElementsByName('search')[0];
+    document.querySelector('form[name="search"]');
+</script>
+
+// 5.表单中的第一个 input
+<script>
+    let input = form.getElementsByTagName('input');
+    form.querySelector('input');
+</script>
+
+// 6.表单中的最后一个 input
+<script>
+    let input = form.querySelectorAll('input');
+    input[inputs.length-1];
+</script> -->
