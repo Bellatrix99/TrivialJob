@@ -10,7 +10,7 @@
 
 <!-- 
  <body>
-
+    <!- Comment ->
     <script>
         // for comment
         alert(document.body.firstChild.tagName);    // undefined(不是一个元素)
@@ -41,9 +41,9 @@
 </script> -->
 
 
-<body>
+<!-- <body>
     Hello
-    <!-- Comment -->
+    <!- Comment ->
     <script>
         let text = document.body.firstChild;
         alert(text.data);   // Hello
@@ -51,4 +51,103 @@
         let comment = text.nextSibling;
         alert(comment.data);    // Comment
     </script>
-</body>
+</body> -->
+
+
+<!-- <div id="news">
+    <h1>Headline!</h1>
+    <p>Martians attack people!</p>
+</div>
+
+<script>
+    // Headline! Martians attack people!
+    alert(news.textContent);
+</script> -->
+
+
+<!-- <div id="elem1"></div>
+<div id="elem2"></div>
+
+<script>
+    let name = prompt("What's your name?","<b>Winnie-the-Pooh!</b>");
+
+    elem1.innerHTML = name;
+    elem2.textContent = name;
+</script> -->
+
+
+<!-- <div>Both divs below are hidden</div>
+<div hidden>With the attribute "hidden"</div>
+<div id = "elem">JavaScript assigned the property "hidden"</div>
+
+<script>
+    elem.hidden = true;
+</script> -->
+
+
+<!-- <body>
+
+    <ul>
+      <li>Animals
+        <ul>
+          <li>Mammals
+            <ul>
+              <li>Cows</li>
+              <li>Donkeys</li>
+              <li>Dogs</li>
+              <li>Tigers</li>
+            </ul>
+          </li>
+          <li>Other
+            <ul>
+              <li>Snakes</li>
+              <li>Birds</li>
+              <li>Lizards</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Fishes
+        <ul>
+          <li>Aquarium
+            <ul>
+              <li>Guppy</li>
+              <li>Angelfish</li>
+            </ul>
+          </li>
+          <li>Sea
+            <ul>
+              <li>Sea trout</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <script>
+        for (let li of document.querySelectorAll('li')) {
+            // get the title from the text node
+            let title = li.firstChild.data;
+
+            title = title.trim();
+
+            let count = li.getElementsByTagName('li').length;
+
+            alert(title+':'+count);
+        }
+    </script> 
+
+    <script>
+      for (const li of document.querySelectorAll('li')) {
+        let title = li.firstChild.data;
+
+        title = title.trim();
+
+        let count = li.getElementsByTagName('li').length;
+
+        alert(title+':'+count);
+      }
+    </script>
+
+
+</body> -->

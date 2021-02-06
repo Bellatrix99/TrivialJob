@@ -1,0 +1,34 @@
+<!-- <body>
+    <div id="elem" about="Elephant"></div>
+
+    <script>
+        alert(elem.getAttribute('About'));
+
+        elem.setAttribute('Test',123);
+
+        alert(elem.outerHTML);
+
+        for (const attr of elem.attributes) {
+            alert(`${attr.name} = ${attr.value}`);
+        }
+    </script>
+</body> -->
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+  <div data-widget-name="menu">Choose the genre</div>
+
+  <script>
+    // 获取它
+    let elem = document.querySelector('[data-widget-name]');
+
+    // 读取值
+    alert(elem.dataset.widgetName);
+    // 或
+    alert(elem.getAttribute('data-widget-name'));
+  </script>
+</body>
+</html>
