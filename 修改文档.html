@@ -1,5 +1,5 @@
 <body>
-    <head>
+    <!-- <head>
         <title>
             test
         </title>
@@ -12,7 +12,7 @@
         color: #3c763d;
         background-color: #dff0d8;
     }    
-    </style>
+    </style> -->
 
     <!-- 插入节点 -->
     <!-- <script>
@@ -67,5 +67,156 @@
         elem2.innerHTML = text;
         elem3.textContent = text;
     </script> -->
+
+
+    <!-- <ol id="elem">
+        <li>Hello</li>
+        <li>World</li>
+    </ol>
+
+    <script>
+        function clear(elem){
+            // while (elem.firstChild) {
+            //     elem.firstChild.remove();
+            // }
+            elem.innerHTML = '';
+        }
+        clear(elem);
+    </script> -->
+
+
+    <!-- <table id="table">
+        aaa
+        <tr>
+          <td>Test</td>
+        </tr>
+      </table>
+      
+      <script>
+        alert(table); // 表格，就是它应有的样子
+      
+        table.remove();
+        // 为什么 aaa 还存在于文档中？
+        // 因为aaa并不是table的标签，会被自动添加到<table>前面
+      </script> -->
+
+
+      <!-- <h1>Create a list</h1>
+
+      <script>
+        let ul = document.createElement('ul');
+        document.body.append(ul);
+
+        while(1){
+            let data = prompt("Enter the text for the list item","");
+
+            if (!data) {
+                break;
+            }
+
+            let li = document.createElement('li');
+            li.textContent = data;
+            ul.append(li);
+        }
+      </script> -->
+
+
+      <!-- <h1>Please input the text what you want to mark</h1>
+
+      <script>
+          let ul = document.createElement('ul');
+          document.body.append(ul);
+
+          while(1){
+            let data = prompt("Enter the text what you want","");
+            if (!data) {
+                break;
+            }
+
+            let li = document.createElement('li');
+            li.textContent = data;
+            ul.append(li);
+          }
+      </script> -->
+
+  <div id="container"></div>
+
+  <!-- The result should be:
+<div id="tree">
+<ul>
+  <li>Fish
+    <ul>
+      <li>trout</li>
+      <li>salmon</li>
+    </ul>
+  </li>
+  <li>Trees
+    <ul>
+      <li>Huge
+        <ul>
+          <li>sequoia</li>
+          <li>oak</li>
+        </ul>
+      </li>
+      <li>Flowering
+        <ul>
+          <li>apple tree</li>
+          <li>magnolia</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+</div>
+-->
+
+  <script>
+    let data = {
+      "Fish": {
+        "trout": {},
+        "salmon": {}
+      },
+
+      "Tree": {
+        "Huge": {
+          "sequoia": {},
+          "oak": {}
+        },
+        "Flowering": {
+          "apple tree": {},
+          "magnolia": {}
+        }
+      }
+    };
+
+    function createTree(container, obj) {
+      container.append(createTreeDom(obj));
+    }
+
+    function createTreeDom(obj){
+        if (!Object.keys(obj).length) {
+            return;
+        }
+        let ul = document.createElement('ul');
+
+        for (let key in obj) {
+            let li = document.createElement('li');
+            li.innerHTML = key;
+
+            let childrenUl = createTreeDom(obj[key]);
+            if (childrenUl) {
+                li.append(childrenUl);
+            }
+
+            ul.append(li);
+        }
+
+        return ul;
+    }
+
+    let container = document.getElementById('container');
+    createTree(container, data);
+  </script>
+
 
 </body>
