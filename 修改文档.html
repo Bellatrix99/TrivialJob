@@ -1,4 +1,4 @@
-<body>
+<!-- <body> -->
     <!-- <head>
         <title>
             test
@@ -218,7 +218,7 @@
     createTree(container, data);
   </script> -->
 
-  <ul>
+  <!-- <ul>
     <li>Animals
       <ul>
         <li>Mammals
@@ -265,6 +265,150 @@
 
       li.firstChild.data +=' [' + count + ']';
     }
+  </script> -->
+<!-- </body> -->
+
+
+
+<!-- <head>
+  <style>
+    table{
+      border-collapse: collapse;
+    }
+
+    td,th{
+      border:1px solid black;
+      padding: 3px;
+      text-align: center;
+    }
+
+    th{
+      font-weight: bold;
+      background-color: #E6E6E6;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div id="calendar"></div>
+
+  <script>
+    function createCalendar(elem, year, month) {
+
+      let mon = month - 1; // months in JS are 0..11, not 1..12
+      let d = new Date(year, mon);
+
+      let table = '<table><tr><th>MO</th><th>TU</th><th>WE</th><th>TH</th><th>FR</th><th>SA</th><th>SU</th></tr><tr>';
+
+      // spaces for the first row
+      // from Monday till the first day of the month
+      // * * * 1  2  3  4
+      for (let i = 0; i < getDay(d); i++) {
+        table += '<td></td>';
+      }
+
+      // <td> with actual dates
+      while (d.getMonth() == mon) {
+        table += '<td>' + d.getDate() + '</td>';
+
+        if (getDay(d) % 7 == 6) { // sunday, last day of week - newline
+          table += '</tr><tr>';
+        }
+
+        d.setDate(d.getDate() + 1);
+      }
+
+      // add spaces after last days of month for the last row
+      // 29 30 31 * * * *
+      if (getDay(d) != 0) {
+        for (let i = getDay(d); i < 7; i++) {
+          table += '<td></td>';
+        }
+      }
+
+      // close the table
+      table += '</tr></table>';
+
+      elem.innerHTML = table;
+    }
+
+    function getDay(date) { // get day number from 0 (monday) to 6 (sunday)
+      let day = date.getDay();
+      if (day == 0) day = 7; // make Sunday (0) the last day
+      return day - 1;
+    }
+
+    createCalendar(calendar, 1999, 11);
   </script>
 
-</body>
+</body> -->
+
+
+<html>
+  <head>
+    <style>
+      .hour{
+        color:red;
+      }
+      .min{
+        color:green;
+      }
+      .sec{
+        color:blue;
+      }
+    </style>
+  </head>
+
+  <body>
+    
+    <div id="clock">
+      <span class="hour">hh</span>:<span class="min">mm</span>:<span class="sec">ss</span>
+    </div>
+
+    <input type="button" onclick="clockStart()" value="Start">
+
+    <input type='button' onclick="clockStop()" value="Stop">
+
+    <script>
+      let timerId;
+
+      function Update() {
+        let clock = document.getElementById('clock');
+        let date  = new Date();
+
+        let hours = date.getHours();
+        if (hours < 10) {
+          hours = '0' + hours;
+        }
+        clock.children[0].innerHTML = hours;
+
+        let minutes = date.getMinutes();
+        if (minutes < 10) {
+          minutes = '0' + minutes;
+        }
+        clock.children[1].innerHTML = minutes;
+
+        let seconds = date.getSeconds();
+        if (seconds < 10) {
+          seconds = '0' + seconds;
+        }
+        clock.children[2].innerHTML = seconds;
+      }
+
+      function clockStart() {
+        timerId = setInterval(Update,1000);
+        Update();
+      }
+
+      function clockStop() {
+        clearInterval(timerId);        
+      }
+
+      clockStart();
+
+    </script>
+  </body>
+
+</html>
