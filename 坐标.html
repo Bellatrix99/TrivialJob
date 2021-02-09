@@ -1,0 +1,47 @@
+<!-- getBoundingClientRect();
+elementFromPoint(x,y); -->
+
+<!-- <body>
+    <script>
+        // let elem = document.elementFromPoint(x,y);
+
+        let centerX = document.documentElement.clientWidth / 2;
+        let centerY = document.documentElement.clientHeight / 2;
+
+        let elem = document.elementFromPoint(centerX,centerY);
+
+        elem.style.background = "red";
+        alert(elem.tagName);
+    </script>
+</body> -->
+
+
+<body>
+    <button id="coords-show-mark">Button with id=“coords-show-mark”, the message will appear under it</button>
+    <script>
+        let elem = document.getElementById("coords-show-mark");
+
+        function createMessageUnder(elem,html) {
+            // 创建 message 元素
+            let message = document.createElement('div');
+            // 在这里最好使用 CSS class 来定义样式
+            message.style.cssText = "position:fixed;color:red";
+
+            // 分配坐标， 不要忘记 ”px“!
+            let coords = elem.getBoundingClientRect();
+
+            message.style.left = coords.left + "px";
+            message.style.top = coords.bottom + "px";
+
+            message.innerHTML = html;
+
+            return message;
+        }
+
+        // 用法：
+        // 在文档中添加 message 保持 5 秒
+        let message = createMessageUnder(elem,'Hello,world!');
+        document.body.append(message);
+        setTimeout(() => message.remove(),5000);
+    </script>
+</body>
