@@ -45,3 +45,56 @@
     alert(i);
 
 </script> -->
+
+
+<!-- <script>
+    let scrollBottom = elem.scrollHeight - elem.scrollTop - elem.clientHeight;
+</script> -->
+
+
+<!-- <body>
+<script>
+    let div = document.createElement('div');
+    
+    div.style.overflowY = 'scroll';
+    div.style.width = '50px';
+    div.style.height = '50px';
+
+    document.body.append(div);
+    let scrollWidth = div.offsetWidth - div.clientWidth;
+
+    div.remove();
+
+    alert(scrollWidth);
+</script>
+</body> -->
+
+
+<html>
+    <head>
+        <style>
+            #field{
+                width:200px;
+                border: 10px groove black;
+                background-color: #00FF00;
+                position: relative;
+            }
+
+            #ball{
+                position: absolute;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="field">
+            <img src="http://en.js.cx/clipart/ball.svg" width="40" height="40" id="ball">
+            . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+            . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+        </div>
+
+        <script>
+            ball.style.left = Math.round(field.clientWidth / 2 -  ball.offsetWidth / 2) + 'px';
+            ball.style.top = Math.round(field.clientHeight /2 - ball.offsetHeight / 2) + 'px';
+        </script>
+    </body>
+</html>

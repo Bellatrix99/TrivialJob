@@ -1,0 +1,14 @@
+<body>
+    <button onclick="window.scrollBy(0,10)">window.scrollBy(0,10)</button>
+    <script>
+        let scrollHeight = Math.max(
+            document.body.scrollHeight,
+            document.documentElement.scrollHeight,
+            document.body.offsetHeight,
+            document.documentElement.offsetHeight,
+            document.body.clientHeight,
+            document.documentElement.clientHeight
+        );
+        alert('Full document height, with scrolled out part: ' + scrollHeight);
+    </script>
+</body>
