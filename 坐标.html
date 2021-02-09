@@ -16,19 +16,27 @@ elementFromPoint(x,y); -->
 </body> -->
 
 
-<body>
+<!-- <body>
     <button id="coords-show-mark">Button with id=“coords-show-mark”, the message will appear under it</button>
     <script>
         let elem = document.getElementById("coords-show-mark");
 
-        function createMessageUnder(elem,html) {
-            // 创建 message 元素
-            let message = document.createElement('div');
-            // 在这里最好使用 CSS class 来定义样式
-            message.style.cssText = "position:fixed;color:red";
+        function getCoords(elem) {
+            let box = elem.getBoundingClientRect();
 
-            // 分配坐标， 不要忘记 ”px“!
-            let coords = elem.getBoundingClientRect();
+            return {
+                top:box.top + window.pageYOffset,
+                right:box.right + window.pageXOffset,
+                bottom:box.bottom + window.pageYOffset,
+                left:box.left + window.pageXOffset
+            };
+        }
+
+        function createMessageUnder(elem,html) {
+            let message = document.createElement('div');
+            message.style.cssText = "position:absolute;color:red";
+
+            let coords = getCoords(elem);
 
             message.style.left = coords.left + "px";
             message.style.top = coords.bottom + "px";
@@ -44,4 +52,99 @@ elementFromPoint(x,y); -->
         document.body.append(message);
         setTimeout(() => message.remove(),5000);
     </script>
-</body>
+</body> -->
+
+
+<!-- <body>
+
+    <script>
+        function getCoords(elem) {
+            let box = elem.getBoundingClientRect();
+
+            return {
+                top:box.top + window.pageYOffset,
+                right:box.right + window.pageXOffset,
+                bottom:box.bottom + window.pageYOffset,
+                left:box.left + window.pageXOffset
+            };
+        }
+
+        function createMessageUnder(elem,html) {
+            let message = document.createElement('div');
+            message.style.cssText = "position:absolute;color:red";
+
+            let coords = getCoords(elem);
+
+            message.style.left = coords.left + "px";
+            message.style.top = coords.bottom + "px";
+
+            message.innerHTML = html;
+
+            return message;
+        }
+
+    </script>
+</body> -->
+
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="index.css">
+        <script>
+            document.onclick = function(e){
+                coords.innerHTML = e.clientX + ':' + e.clientY;
+            };
+        </script>
+    </head>
+
+    <body>
+        点击任意位置来获取窗口坐标。
+        <br> 这仅用于测试，用来检查你通过 Javascript 获得的结果。
+        <br>
+        <div id="coords">
+            (点击坐标显示在这里)
+        </div>
+
+        <div id="field">
+            . . . . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+            . . . . . . . . . . . . . . . . . . . . . . . . . .
+            . . . . . . . . . . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . . . . . . .
+        </div>
+
+        <div class="triangle-right" style="left:-20px;top:-176px">1</div>
+        <div class="triangle-right" style="left:-10px;top:-178px">3</div>
+        <div class="triangle-right" style="left: 190px;top: -40px">4</div>
+        <div class="triangle-right" style="left: 200px;top: -42px">2</div>
+
+        <script>
+            let fieldCoords = field.getBoundingClientRect();
+
+            let answer = [
+                [   // 1
+                    fieldCoords.left,
+                    fieldCoords.top
+                ],
+                [   // 2
+                    fieldCoords.right,
+                    fieldCoords.bottom
+                ],
+                [   // 3
+                    fieldCoords.left + field.clientLeft,
+                    fieldCoords.top + field.clientTop
+                ]
+                [ // 4
+                    fieldCoords.left + field.clientLeft + field.clientWidth,
+                    fieldCoords.top + field.clientTop + field.clientHeight
+                ]
+            ];
+
+            alert(answer.join('  '));
+        </script>
+
+    </body>
+</html>
