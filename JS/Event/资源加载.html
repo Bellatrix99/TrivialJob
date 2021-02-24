@@ -1,0 +1,27 @@
+<!-- <script>
+    let script = document.createElement('script');
+
+// 可以从任意域（domain），加载任意脚本
+
+document.head.append(script);
+
+script.onload = function() {
+  // 该脚本创建了一个变量 "_"
+  alert("123"); // 显示库的版本
+};
+</script> -->
+
+<p>点击按钮，3 秒后会弹出 "Hello"。</p>
+<button onclick="myFunction()">点我</button>
+<script>
+  var myVar;
+ 
+ function myFunction() {
+     myVar = setTimeout(alertFunc);
+     alert("123");
+ }
+  
+ function alertFunc() {
+     alert("Hello!");
+ }
+</script>
