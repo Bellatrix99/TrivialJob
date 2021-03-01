@@ -3,17 +3,23 @@
     <title>answer</title>
 </head>
 <body>
-    <h1>So do I</h1>
+    <h1 id="too">So do I</h1>
 </body>
 
 <script>
     "use strict";globalThis.__codeBoxId = "e7eyyg8w7w";
 
     let answer;
+    let too = document.getElementById('too');
 
     do {
     answer = prompt("Do you love me?", "");
     } while ((answer != 'yes') && (answer != 'I do'));
 
+    // if (answer == 'yes' || answer =="I do") {
+    //     too.style.display ="none";
+    // }
 
+    too.style.color = '#7fccde';
+    too.style.
 </script>
