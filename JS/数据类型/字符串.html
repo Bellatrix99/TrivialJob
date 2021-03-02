@@ -1,0 +1,20 @@
+<script>
+    // function ucFirst(key) {
+    //     if(!key) return key;
+
+    //     let newKey = key[0].toUpperCase() + key.slice(1);
+    //     return newKey;
+    // }
+    // alert(ucFirst("john"));
+
+
+    function checkSpam(str) {
+        let lowerStr = str.toLowerCase();
+
+        return lowerStr.includes('viagra') || lowerStr.includes('xxx');
+    }
+
+    alert( checkSpam('buy ViAgRA now') );
+    alert( checkSpam('free xxxxx') );
+    alert( checkSpam('innocent rabbit') );
+</script>
