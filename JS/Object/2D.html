@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+            div{
+                margin:0 auto; 
+            }
+			.box{
+                width: 50px;
+				height: 200px;
+                position: relative;
+			}
+            .box div {
+                width: 50px;
+				height: 200px;
+				transition: all 3s;
+				opacity: 0.7;
+                transform-origin: 50% 100%;
+                position: absolute; 
+            }
+
+            .box01{
+				background-color: rgb(202, 120, 120);
+			} 
+            .box02{
+				background-color: blue;
+			} 
+            .box03{
+				background-color: green;
+			} 
+            .box04{
+				background-color: yellow;
+			} 
+            .box05{
+				background-color: burlywood;
+			} 
+            .box06{
+				background-color: aqua;
+			} 
+            .box07{
+				background-color: hotpink;
+			} 
+            .box08{
+				background-color: wheat;
+			} 
+            .box09{
+                background-color:rgb(228, 224, 224);
+            }
+            .box10{
+                background-color:rgb(121, 192, 119);
+            }
+            .box11{
+                background-color:rgb(72, 177, 151);
+            }
+            .box12{
+                background-color:rgb(49, 98, 145);
+            }
+            .box13{
+                background-color:rgb(160, 190, 52);
+            }
+            
+            .box:hover div:nth-child(13){
+                transform: rotate(15deg);
+            }
+            .box:hover div:nth-child(10){
+                transform: rotate(-15deg);
+            }
+            .box:hover div:nth-child(11){
+                transform: rotate(75deg);
+            }
+            .box:hover div:nth-child(12){
+                transform: rotate(-75deg);
+            }
+            .box:hover div:nth-child(1){
+                transform: rotate(30deg);
+            }
+            .box:hover div:nth-child(2){
+                transform: rotate(45deg);
+            }
+            .box:hover div:nth-child(3){
+                transform: rotate(60deg);
+            }
+            .box:hover div:nth-child(4){
+                transform: rotate(90deg);
+            }
+            .box:hover div:nth-child(5){
+                transform: rotate(-30deg);
+            }
+            .box:hover div:nth-child(6){
+                transform: rotate(-45deg);
+            }
+            .box:hover div:nth-child(7){
+                transform: rotate(-60deg);
+            }
+            .box:hover div:nth-child(8){
+                transform: rotate(-90deg);
+            }
+            
+		</style>
+	</head>
+	<body>
+		<!-- transform  2D变换
+		 属性：
+		translate(x, y)位移 分左右位移，上下位移
+		rotate()旋转，默认中心旋转，数值单位是deg 
+		scale()缩放，默认上下左右全缩放，数值不加单位，且是大于0的数 
+		skew(x,y)倾斜，单位是deg-->
+		<div class="box">
+            <div class="box01"></div>
+            <div class="box02"></div>
+            <div class="box03"></div>
+            <div class="box04"></div>
+            <div class="box05"></div>
+            <div class="box06"></div>
+            <div class="box07"></div>
+            <div class="box08"></div>
+            <div class="box09"></div>
+            <div class="box10"></div>
+            <div class="box11"></div>
+            <div class="box12"></div>
+            <div class="box13"></div>
+        </div>
+	</body>
+</html>

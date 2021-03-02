@@ -1,0 +1,77 @@
+<script>
+    // let user = { name: 'John'};
+
+    // let admin = user;
+
+    // admin.name = 'Pete';
+
+    // alert(user.name);
+
+    //------------------------------
+    // let a = {};
+    // let b = a;
+
+    // alert ( a == b );   // true
+    // alert ( a === b );  // true
+
+    //------------------------------
+    // let a = {};
+    // let b = {};
+    
+    // alert( a == b );    // false
+
+    //------------------------------
+    // let user = {
+    //     name: "John",
+    //     age: 30,
+    // };
+
+    // let clone = {};
+
+    // for(let key in user) {
+    //     clone[key] = user[key];
+    // }
+
+    // clone.name = "Pete";
+
+    // alert( user.name );
+
+    //------------------------------
+    // let user = { name: "John" };
+
+    // let permissions1 = { canView: true };
+    // let permissions2 = { canEdit: true };
+
+    // Object.assign(user, permissions1, permissions2);
+
+    // for(let key in user) {
+    //     alert(user[key]);
+    // }
+
+    //------------------------------
+    // let user = { name: "John" };
+
+    // Object.assign(user, { name: "Pete" });
+
+    // alert(user.name);
+
+    //------------------------------
+    let calculator = {
+        sum() {
+            return this.a + this.b;
+        },
+        
+        mul() {
+            return this.a + this.b;
+        },
+
+        read() {
+            this.a = +prompt('a?', 0);
+            this.b = +prompt('b?', 0);
+        }
+    };
+
+    calculator.read();
+    alert( calculator.sum() );
+    alert( calculator.mul() );
+</script>
