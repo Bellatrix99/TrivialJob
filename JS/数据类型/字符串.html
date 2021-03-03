@@ -1,4 +1,5 @@
 <script>
+    // 首字母大写
     // function ucFirst(key) {
     //     if(!key) return key;
 
@@ -8,13 +9,32 @@
     // alert(ucFirst("john"));
 
 
-    function checkSpam(str) {
-        let lowerStr = str.toLowerCase();
+    // 检查 spam
+    // function checkSpam(str) {
+    //     let lowerStr = str.toLowerCase();
 
-        return lowerStr.includes('viagra') || lowerStr.includes('xxx');
+    //     return lowerStr.includes('viagra') || lowerStr.includes('xxx');
+    // }
+
+    // alert( checkSpam('buy ViAgRA now') );
+    // alert( checkSpam('free xxxxx') );
+    // alert( checkSpam('innocent rabbit') );
+
+    
+    // 截断文本
+    // function truncate(str, maxlength) {
+    //     // let newStr = str.slice(0, maxlength);
+    //     // return newStr;
+
+    //     return (str.length > maxlength) ?
+    //         str.slice(0,maxlength - 1) + '…' : str;
+    // }
+    // alert(truncate("Hi everyone!", 20));
+
+
+    // 提取货币
+    function extractCurrencyValue(str) {
+        return +str.slice(1);
     }
-
-    alert( checkSpam('buy ViAgRA now') );
-    alert( checkSpam('free xxxxx') );
-    alert( checkSpam('innocent rabbit') );
+    
 </script>

@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    overflow: hidden;
+}
+
+div{
+    position: absolute;
+}
+
+img{
+     border: none;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+a:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+button{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5%;
+    background: #F06060;
+    color: #fff;
+}
+
+#bg {
+    /* margin: 0 auto; */
+    width: 320px;
+    height: 480px;
+    position: relative;
+    background: url(../img/game_bg.jpg) no-repeat;
+    margin-top: 100px;
+    left: calc(50% - 160px);
+}
+
+#score {
+    font-weight: bold;
+    left: 64px;
+    top: 15px;
+    color: white;
+}
+
+#time {
+    background: url(../img/progress.png);
+    width: 180px;
+    height: 16px;
+    left: 63px;
+    top: 66px;
+}
+
+#menu {
+    left: 0;
+    top: 200px;
+    width: 320px;
+    text-align: center;
+    font-size: 2em;
+}
+
+#start,
+#handle,
+#gameover {
+    font-weight: bold;
+    color: #f60;
+    text-shadow: 0 0 3px yellow;
+}
+
+#gameover {
+    font-size: 2em;
+    width: 320px;
+    text-align: center;
+    top: 200px;
+    left: 0px;
+    display: none;
+}
+
+.button {
+    width: 80px;
+    height: 80px;
+    background-image: url(../img/bg.jpg);
+    background-size: 100% 100%;
+    bottom: 100px;
+    left: 120px;
+    font-style: 24px;
+    text-align: center;
+    line-height: 80px;
+    font-weight: 900;
+    color: #FF4500;
+}
+
+#wolf img {
+    position: absolute;
+}
+
+#pause {
+    width: 70px;
+    height: 70px;
+    top: 60px;
+    right: -10px;
+    background: url(../img/button2.png) no-repeat;
+    background-size: 50% 50%;
+    cursor: pointer;
+}
+
+#gameover {
+    cursor: pointer;
+}
