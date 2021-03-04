@@ -1,0 +1,231 @@
+<script>
+    //---将 border-left-width 转换成 borderLeftWidth----------------------------------------
+    // function camelize(str) {
+    //     return str
+    //         .split('-')
+    //         .map(
+    //             (word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1)
+    //         )
+    //         .join('');
+    // }
+
+    // alert(camelize('a-a'));
+
+
+    //---过滤范围----------------------------------------
+    // let arr = [5, 3, 8, 1];
+
+    // alert( filterRange(arr, 1, 4) );
+    // alert( arr );
+
+    // function filterRange(arr, a, b) {
+    //     return arr.filter(item => (a <= item && item <=b));
+    // }
+
+
+    //---原位（in place）过滤范围----------------------------------------
+    // function filterRangeInPlace(arr, a, b) {
+
+    //     for (let i = 0; i < arr.length; i++) {
+    //         let val = arr[i];
+
+    //         if(val < a || val > b) {
+    //             arr.splice(i, 1);
+    //             i--;
+    //         }
+    //     }
+
+    // }
+
+    // let arr = [5, 3, 8, 1];
+
+    // filterRangeInPlace(arr, 1, 4);
+
+    // alert( arr );
+
+
+    //---降序排列----------------------------------------
+    // function compareNum(a, b) {
+    //     return (b - a);
+    // }
+
+    // let arr = [ 1, 2, 15 ];
+
+    // arr.sort(compareNum);
+
+    // alert(arr);
+
+
+    //---复制和排序数组----------------------------------------
+    // function copySorted(arr) {
+    //     return arr.slice().sort();
+    // }
+
+    // let arr = ["HTML", "JavaScript", "CSS"];
+
+    // let sorted = copySorted(arr);
+
+    // alert( sorted );
+    // alert( arr );
+
+
+    //---创建一个可扩展的 calculator----------------------------------------
+    // function Calculator() {
+
+    //     this.methods = {
+    //         "-": (a, b) => a - b,
+    //         "+": (a, b) => a + b
+    //     };
+
+    //     this.Calculate = function(str) {
+
+    //         let split = str.split(' ');
+    //         a = +split[0];
+    //         op = split[1];
+    //         b = +split[2];
+
+    //         if (!this.methods[op] || isNaN(a) || isNaN(b)) {
+    //             return NaN;
+    //         }
+
+    //         return this.methods[op](a, b);
+    //     };
+
+    //     this.addMethod = function(name, func) {
+    //         this.methods[name] = func;
+    //     };
+    // }
+
+
+    //---映射到 names----------------------------------------
+    // let john = { name: "John", age: 25};
+    // let pete = { name: "Pete", age: 30};
+    // let mary = { name: "Mary", age: 28};
+
+    // let users = [ john, pete, mary ];
+
+    // let names = users.map(item => item.name);
+
+    // alert( names );
+
+
+    //---映射到对象----------------------------------------
+    // let john = { name: "John", surname: "Smith", id: 1 };
+    // let pete = { name: "Pete", surname: "Hunt", id: 2 };
+    // let mary = { name: "Mary", surname: "Key", id: 3 };
+
+    // let users = [ john, pete, mary ];
+
+    // let usersMapped = users.map(user => ({
+    //     fullName: `${user.name} ${user.surname}`,
+    //     id: user.id
+    // }));
+
+
+    //---按年龄对用户排序----------------------------------------
+    // let john = { name: "John", age: 25 };
+    // let pete = { name: "Pete", age: 30 };
+    // let mary = { name: "Mary", age: 28 };
+
+    // let arr = [ pete, john, mary ];
+
+    // function sortByAge(arr) {
+    //     arr.sort((a, b) => a.age-b.age);
+    // }
+
+    // sortByAge(arr);
+
+    // alert(arr[0].name);
+    // alert(arr[1].name);
+    // alert(arr[2].name);
+
+
+    //---随机排列数组----------------------------------------
+    // function shuffle(arr) {
+    //     arr.sort(() => Math.random() - 0.5);
+    // }
+
+    // let count = {
+    //     '123': 0,
+    //     '132': 0,
+    //     '213': 0,
+    //     '231': 0,
+    //     '321': 0,
+    //     '312': 0
+    // };
+
+    // for( let i = 0; i < 1000000; i++ ) {
+    //     let arr = [1, 2, 3];
+    //     shuffle(arr);
+    //     count[arr.join('')]++;
+    // }
+
+    // for (let key in count) {
+    //     alert(`${key}: ${count[key]}`);
+    // }
+
+
+    //---获取平均年龄----------------------------------------
+    // let john = { name: "John", age: 25 };
+    // let pete = { name: "Pete", age: 30 };
+    // let mary = { name: "Mary", age: 29 };
+
+    // let arr = [ john, pete, mary ];
+
+    // alert( getAverageAge(arr) ); // (25 + 30 + 29) / 3 = 28
+
+    // function getAverageAge(users) {
+    //     return users.reduce((prev, user) => prev + user.age, 0) / users.length;
+    // }
+
+
+    //---数组去重----------------------------------------
+    // function unique(arr) {
+    //     let result = [];
+
+    //     for (const str of arr) {
+    //         if (!result.includes(str)) {
+    //             result.push(str);
+    //         }
+    //     }
+    //     return result;
+    // }
+
+    // let strings = ["Hare", "Krishna", "Hare", "Krishna",
+    //     "Krishna", "Krishna", "Hare", "Hare", ":-O"
+    // ];
+
+    // alert(unique(strings)); // Hare, Krishna, :-O
+
+
+    //---从数组创建键（值）对象----------------------------------------
+
+    // function groupById(arr) {
+    //     return arr.reduce((obj, value) =>  {
+    //         obj[value.id] = value;
+    //         return obj;
+    //     }, {})
+    // }
+
+    // let users = [
+    //     { id: 'john', name: "John Smith", age: 20 },
+    //     { id: 'ann', name: "Ann Smith", age: 24 },
+    //     { id: 'pete', name: "Pete Peterson", age: 31 },
+    // ];
+
+    // let usersById = groupById(users);
+
+
+
+    //---数组去重----------------------------------------------
+    let arr = [1, 2, 1, 2, 3, 5, 4, 5, 3, 4, 4, 4, 4];
+    let result = arr.sort().reduce((init, current) => {
+        if (init.length === 0 || init[init.length - 1] !== current) {
+            init.push(current);
+        }
+        return init;
+    }, []);
+    console.log(result); //[1,2,3,4,5]
+
+
+</script>

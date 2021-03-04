@@ -1,0 +1,94 @@
+<script>
+
+    //---range的完整实现----------------------------------------
+    // let range = {
+    //     from: 1,
+    //     to: 5
+    // };
+
+    // range[Symbol.iterator] = function() {
+    //     return {
+    //         current: this.from,
+    //         last: this.to,
+
+    //         next() {
+    //             if (this.current <= this.last) {
+    //                 return { done: false, value: this.current++ };
+    //             } else {
+    //                 return { done: true };
+    //             }
+    //         }
+    //     };
+    // };
+
+    // for (let num of range) {
+    //     alert(num);
+    // }
+
+
+    //---range的简化代码----------------------------------------
+    let range = {
+        from: 1,
+        to: 5,
+
+        [Symbol.iterator]() {
+            this.current = this.from;
+            this.last = this.to;
+            return this;
+        },
+
+        next() {
+            if (this.current <= this.last) {
+                return { done: false, value: this.current++ };
+            } else {
+                return { done: true };
+            }
+        }
+    };
+
+    for ( let num of range ) {
+        alert(num);
+    }
+
+
+    //---字符串是可迭代的-------------------------------------------------
+    // for (let char of "test") {
+    //     alert( char );
+    // }
+
+    // let str = '𝒳😂';
+    // for (char char of str) {
+    //     alert( char );
+    // }
+
+
+    //---显式调用迭代器-------------------------------------------------------
+    // let str = "Hello";
+
+    // let iterator = str[Symbol.iterator]();
+
+    // while(true) {
+    //     let res = iterator.next();
+    //     if (res.done) {
+    //         break;
+    //     }
+    //     alert(res.value);
+    // }
+
+
+    //---Array.from-------------------------------------------------------
+    // let arrayLike = {
+    //     0: "Hello",
+    //     1: "World",
+    //     length: 2
+    // };
+
+    // let arr = Array.from(arrayLike);
+    // alert(arr.pop());
+
+    
+    //----------------------------------------------------------
+    let arr = Array.from(range, num => num * num);
+
+    alert(arr);
+</script>

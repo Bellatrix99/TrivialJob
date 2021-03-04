@@ -1,0 +1,36 @@
+<script>
+    let arr1 = [1, 4, 9, 16];
+
+    // pass a function to map
+    //let map1 = array1.map(x => x * 2);
+
+    //console.log(map1);
+    // expected output: Array [2, 8, 18, 32]
+
+    //使用 reduce 实现数组 map 方法
+    const newMap = function (fn, context) {
+        let arr = Array.prototype.slice.call(this)
+        // 这种实现方法和循环的实现方法有异曲同工之妙，利用reduce contact起数组中每一项
+        // 不过这种有个弊端，会跳过稀疏数组中为空的项
+        return arr.reduce((pre, cur, index) => {
+            return [...pre, fn.call(context, cur, index, this)]
+        }, [])
+    }
+
+    Array.prototype.selfMap = newMap
+    //arr1.length = 5
+
+    let arrMap = arr1.selfMap(function (x) {
+        return x * 2
+    })
+    console.log(arrMap);
+
+    // Array.prototype.myMap = function (fn, thisArg) {
+    //     var res = [];
+    //     thisArg = thisArg || [];
+    //     this.reduce(function (pre, cur, index, arr) {
+    //         res.push(fn.call(thisArg, cur, index, arr));
+    //     }, []);
+    //     return res;
+    // }
+</script>
