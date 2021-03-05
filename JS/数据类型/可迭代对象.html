@@ -27,28 +27,28 @@
 
 
     //---range的简化代码----------------------------------------
-    let range = {
-        from: 1,
-        to: 5,
+    // let range = {
+    //     from: 1,
+    //     to: 5,
 
-        [Symbol.iterator]() {
-            this.current = this.from;
-            this.last = this.to;
-            return this;
-        },
+    //     [Symbol.iterator]() {
+    //         this.current = this.from;
+    //         this.last = this.to;
+    //         return this;
+    //     },
 
-        next() {
-            if (this.current <= this.last) {
-                return { done: false, value: this.current++ };
-            } else {
-                return { done: true };
-            }
-        }
-    };
+    //     next() {
+    //         if (this.current <= this.last) {
+    //             return { done: false, value: this.current++ };
+    //         } else {
+    //             return { done: true };
+    //         }
+    //     }
+    // };
 
-    for ( let num of range ) {
-        alert(num);
-    }
+    // for ( let num of range ) {
+    //     alert(num);
+    // }
 
 
     //---字符串是可迭代的-------------------------------------------------
@@ -86,9 +86,41 @@
     // let arr = Array.from(arrayLike);
     // alert(arr.pop());
 
-    
-    //----------------------------------------------------------
-    let arr = Array.from(range, num => num * num);
 
-    alert(arr);
+    //----------------------------------------------------------
+    // let arr = Array.from(range, num => num * num);
+
+    // alert(arr);
+
+
+    //---用Array.from将一个字符串传换成单个字符的数组-----------------
+    // let str = '𝒳😂';
+
+    // let chars = Array.from(str);
+    // alert(chars);
+    // alert(chars[0]);
+    // alert(chars[1]);
+    // alert(chars.length);
+
+
+    //-----------------------------------------------------------
+    // let str = '𝒳😂';
+
+    // let chars =[];
+    // for (const char of str) {
+    //     chars.push(char);
+    // }
+
+    // alert(chars);
+    // alert(chars.length);
+
+
+    //------------------------------------------------------------
+    function slice(str, start, end) {
+        return Array.from(str).slice(start, end).join('');
+    }
+
+    let str = '𝒳😂𩷶';
+
+    alert( slice(str, 1, 3) );
 </script>

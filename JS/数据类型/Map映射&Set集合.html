@@ -1,0 +1,132 @@
+<script>
+    //---例子----------------------------------------
+    // let map = new Map();
+
+    // map.set('1', 'str1');
+    // map.set(1, 'num1');
+    // map.set(true, 'bool1');
+
+    // alert( map.get(1) );
+    // alert( map.get('1') );
+    // alert( map.size );
+
+    // !!不要使用map[key]
+
+    //---Map 可以使用对象作为键----------------------------------------
+    // let john = { name: "John" };
+
+    // let visitsCountMap = new Map();
+
+    // visitsCountMap.set(john, 123);
+
+    // alert( visitsCountMap.get(john) );
+
+    // 每一次 map.set 调用都会返回 map 本身，所以我们可以进行“链式”调用：
+    // let map = new Map();
+
+    // map.set('1', 'str1')
+    //     .set(1, 'num1')
+    //     .set(true, 'bool1');
+
+    // alert( map.get(1) );
+
+    //----------------------------------------------------------
+    // let recipeMap = new Map([
+    //     ['cucumber', 500],
+    //     ['tomatoes', 350],
+    //     ['onion', 50]
+    // ]);
+
+    // for (const vegetable of recipeMap.keys()) {
+    //     alert(vegetable);
+    // }
+
+    // for (const amount of recipeMap.values()) {
+    //     alert(amount);
+    // }
+
+    // // for...of 默认情况下使用这个↓
+    // for (const entry of recipeMap.entries()) {     // 同recipeMap()
+    //     alert(entry);
+    // }
+
+    // recipeMap.forEach((value, key, map) => {
+    //     alert(`${key}: ${value}`);
+    // });
+
+
+    //----------------------------------------------------------
+    // let map = new Map([
+    //     ['1', 'str1'],
+    //     [1, 'num1'],
+    //     [true, 'bool1']
+    // ]);
+
+    // alert( map.get('1') );
+
+
+    //---Object.entries：从对象创建 Map-------------------------------------------------------
+    // let obj = {
+    //     name: "John",
+    //     age: 30
+    // };
+
+    // let map = new Map(Object.entries(obj));
+
+    // alert( map.get('name') );
+
+
+    //---Object.fromEntries：从 Map 创建对象------------------------------------------------------------
+    // let prices = Object.fromEntries([
+    //     ['banana', 1],
+    //     ['orange', 2],
+    //     ['meat', 4]
+    // ]);
+
+    // alert(prices.orange);
+
+    // let map = new Map();
+    // map.set('banana', 1);
+    // map.set('orange', 2);
+    // map.set('meat', 4);
+
+    // let obj = Object.fromEntries(map.entries());
+
+    // alert(obj.orange);
+
+
+    //---Set--------------------------------------------------------
+    // let set = new Set();
+
+    // let john = { name: "John" };
+    // let pete = { name: "Pete" };
+    // let mary = { name: "Mary" };
+
+    // set.add(john);
+    // set.add(pete);
+    // set.add(mary);
+    // set.add(john);
+    // set.add(mary);
+
+    // alert( set.size );
+
+    // for (const user of set) {
+    //     alert(user.name);
+    // }
+
+
+    //---Set 迭代-----------------------------------------------------
+    let set = new Set([
+        "oranges",
+        "apples",
+        "bananas"
+    ]);
+
+    for (const value of set) {
+        alert(value);
+    }
+
+    set.forEach((value, valueAgain, set) => {
+        alert(value);
+    });
+</script>

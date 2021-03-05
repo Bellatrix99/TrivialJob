@@ -1,0 +1,64 @@
+<script>
+    //--- 创建Date ----------------------------------------------------
+    // let now = new Date();
+    // alert(now);
+
+    // let Jan01_1970 = new Date(0);
+    // alert(Jan01_1970);
+
+    // let Jan02_1970 = new Date(24 * 3600 * 1000);
+    // alert(Jan02_1970);
+
+    // let Dec31_1969 = new Date(-24 * 3600 * 1000);
+    // alert(Dec31_1969);
+
+    // let date = new Date('2017-01-26');
+    // alert(date);
+
+    // let date = new Date();
+
+    // alert(date.getHours());
+
+    // alert( date.getUTCHours() );
+
+
+    //--- 度量 Benchmark ----------------------------------------------------
+    function diffSubtract(date1, date2) {
+        return date2 - date1;
+    }
+
+    function diffGetTime(date1, date2) {
+        return date2.getTime() - date1.getTime();
+    }
+
+    function bench(func) {
+        let date1 = new Date(0);
+        let date2 = new Date();
+
+        let start = Date.now();
+        for (let i = 0; i < 100000; i++) {
+            func(date1, date2);
+        }
+        return Date.now() - start;
+    }
+
+    // 可能 第一个函数比第二个函数缺少CPU资源（当时有CPU在并行处理其他事务
+    // alert( 'Time of diffSubtract: ' + bench(diffSubtract) + 'ms' );
+    // alert( 'Time of diffGetTime: ' + bench(diffGetTime) + 'ms');
+
+
+    // 为了更加可靠的数据，多次运行
+    let time1 = 0;
+    let time2 = 0;
+
+    bench(diffSubtract);
+    bench(diffGetTime);
+
+    for (let i = 0; i < 10; i++) {
+        time1 += bench(diffSubtract);
+        time2 += bench(diffGetTime);
+    }
+
+    alert('Total time for diffSubtract: ' + time1 + 'ms');
+    alert('Total time for diffGetTime: ' + time2 + 'ms');
+</script>

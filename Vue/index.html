@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+
+    <style>
+        .active {
+            background-color: aqua;
+        }
+        .active1 {
+            background-color: aqua;
+        }
+
+        .isSize {
+            font-size: larger;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        {{ msg }}
+        <div>
+            {{ num + 666 }}
+        </div>
+    </div>
+    <div class="box1" v-bind:class="{ 'active': active1, 'size': isSize}">
+        动态设置类名1
+    </div>
+    <div v-bind:class = "[active]">
+        动态设置类名2
+    </div>
+</body>
+<script type="text/javascript">
+    var app = new Vue({
+        el: "#app",
+        data: {
+            msg: 'hello world!',
+            num: 666,
+            active1: true,
+            isSize: true,
+            active: true
+        }
+    });
+</script>
+
+</html>
