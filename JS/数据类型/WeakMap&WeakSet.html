@@ -1,0 +1,31 @@
+<script>
+    // let message = [
+    //     {text: "Hello", from: "John"},
+    //     {text: "How goes?", from: "John"},
+    //     {text: "See you soon", from: "Alice"}
+    // ];
+
+    // let readMessages = new WeakSet();
+
+    // readMessages.add(message[0]);
+    // readMessages.add(message[1]);
+
+    // readMessages.add(message[0]);
+
+    // alert("Read message 0: " + readMessages.has(message[0]));
+
+    // message.shift();
+
+
+    let messages = [
+        { text: "Hello", from: "John" },
+        { text: "How goes?", from: "John" },
+        { text: "See you soon", from: "Alice" }
+    ];
+
+    let readMap = new WeakMap();
+
+    readMap.set(messages[0], new Date(2021, 1, 1));
+
+    alert(readMap.get(messages[0]));
+</script>

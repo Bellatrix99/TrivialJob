@@ -1,0 +1,151 @@
+<script>
+
+    //--- 循环 ------------------------------------------------------
+    // function sumTo(n) {
+    //     let sum = 0;
+    //     for (let i = n; i > 0; i--) {
+    //         sum += i;
+    //     }
+    //     return sum;
+    // }
+
+    // alert( sumTo(100) );
+
+
+    //--- 递归 ------------------------------------------------------
+    // function sumTo(n) {
+    //     if (n === 1) return 1;
+    //     return n + sumTo(n - 1);
+    // }
+
+    // alert(sumTo(100));
+
+
+    //--- 等差数列求和 ------------------------------------------------------
+    // function sumTo(n) {
+    //     return n * (n + 1) / 2;
+    // }
+
+    // alert(sumTo(100));
+
+
+    //--- 计算阶乘 ------------------------------------------------------
+    // alert(factorial(5));
+
+    // function factorial(n) {
+    //     return n > 1 ? n * factorial(n - 1) : 1;
+    // }
+
+
+    //--- 斐波那契数 ------------------------------------------------------
+    // 解法 1：
+    // function fib(n) {
+    //     return n > 1 ? fib(n - 1) + fib(n - 2) : n;
+    // }
+
+    // alert(fib(3)); // 2
+    // alert(fib(7)); // 13
+    // alert(fib(77)); // 5527939700884757
+
+    // 解法 2：
+    // function fib(n) {
+    //     let a = 1;
+    //     let b = 1;
+    //     for (let i = 3; i <= n; i++) {
+    //         let c = a + b;
+    //         a = b;
+    //         b = c;
+    //     }
+    //     return b;
+    // }
+
+    // alert(fib(3)); // 2
+    // alert(fib(7)); // 13
+    // alert(fib(77)); // 5527939700884757
+
+
+    //--- 输出一个单链表 ----------------------------------------------------
+    // let list = {
+    //     value: 1,
+    //     next: {
+    //         value: 2,
+    //         next: {
+    //             value: 3,
+    //             next: {
+    //                 value: 4,
+    //                 next: null
+    //             }
+    //         }
+    //     }
+    // };
+
+    // 解法 1：
+    // function printList(list) {
+    //     let tmp = list;
+
+    //     while(tmp) {
+    //         alert(tmp.value);
+    //         tmp = tmp.next;
+    //     }
+    // }
+
+    // 解法 2：
+    // function printList(list) {
+
+    //     alert(list.value);
+
+    //     if(list.next) {
+    //         printList(list.next);
+    //     }
+    // }
+
+    // printList(list);
+
+
+    //--- 反向输出单链表 -----------------------------------------------------
+    let list = {
+        value: 1,
+        next: {
+            value: 2,
+            next: {
+                value: 3,
+                next: {
+                    value: 4,
+                    next: null
+                }
+            }
+        }
+    };
+
+
+    // 解法 1：
+    // function printReverseList(list) {
+
+    //     if(list.next) {
+    //         printReverseList(list.next);
+    //     }
+
+    //     alert(list.value);
+    // }
+
+    // printReverseList(list);
+
+
+    // 解法 2：
+    function printReverseList(list) {
+        let arr = [];
+        let tmp = list;
+
+        while (tmp) {
+            arr.push(tmp.value);
+            tmp = tmp.next;
+        }
+
+        for (let i = arr.length - 1; i >= 0; i--) {
+            alert(arr[i]);
+        }
+    }
+
+    printReverseList(list);
+
+</script>

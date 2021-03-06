@@ -1,0 +1,38 @@
+<script>
+    let salaries = {
+        "John": 100,
+        "Pete": 300,
+        "Mary": 250
+    };
+
+    //---Object.values--------------------------------
+    // function sumSalaries(salaries) {
+    //     let sum = 0;
+    //     for (const salary of Object.values(salaries)) {
+    //         sum += salaries;
+    //     }
+
+    //     return sum;
+    // }
+
+
+    //--- reduce --------------------------------------
+    // function sumSalaries(salaries) {
+    //     return Object.values(salaries).reduce((a, b) => a + b, 0);
+    // }
+
+    // alert( sumSalaries(salaries) ); // 650
+
+
+    //--- 计算属性数量 -----------------------------------
+    function count(obj) {
+        return Object.keys(obj).length;
+    }
+
+    let user = {
+        name: 'John',
+        age: 30
+    };
+
+    alert(count(user)); // 2
+</script>

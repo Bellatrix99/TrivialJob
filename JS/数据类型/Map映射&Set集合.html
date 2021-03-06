@@ -116,17 +116,58 @@
 
 
     //---Set 迭代-----------------------------------------------------
-    let set = new Set([
-        "oranges",
-        "apples",
-        "bananas"
-    ]);
+    // let set = new Set([
+    //     "oranges",
+    //     "apples",
+    //     "bananas"
+    // ]);
 
-    for (const value of set) {
-        alert(value);
-    }
+    // for (const value of set) {
+    //     alert(value);
+    // }
 
-    set.forEach((value, valueAgain, set) => {
-        alert(value);
-    });
+    // set.forEach((value, valueAgain, set) => {
+    //     alert(value);
+    // });
+
+
+    //--- 过滤数组中的唯一元素 -----------------------------------------------------
+    // function unique(arr) {
+    //     return Array.from(new Set(arr));
+    // }
+
+    // let values = ["Hare", "Krishna", "Hare", "Krishna",
+    //     "Krishna", "Krishna", "Hare", "Hare", ":-O"
+    // ];
+
+    // alert( unique(values) );
+
+
+    //--- 过滤字谜 -------------------------------------------------------
+    // let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+
+    // alert( newClean(arr) );
+
+    // function newClean(arr) {
+    //     let map = new Map();
+
+    //     for (const word of arr) {
+    //         let sorted = word.toLowerCase().split('').sort().join('');
+    //         map.set(sorted, word);
+    //     }
+
+    //     return Array.from(map.values());
+    // }
+
+
+    //--- 迭代键 --------------------------------------------------------------
+    let map = new Map();
+
+    map.set("name", "John");
+
+    let keys = Array.from(map.keys());
+
+    keys.push("more");
+
+    alert(keys); // name, more
 </script>
