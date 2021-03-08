@@ -1,0 +1,23 @@
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="../vue.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+    <div id="example-1">
+        <p>{{ times }}</p>
+        <button v-on:click="counter += 1">Add 1</button>
+        <p>The button above has been clicked {{ counter }} times.</p>
+    </div>
+</body>
+
+<script>
+    var example1 = new Vue({
+        el: '#example-1',
+        data: {
+            counter: 0,
+            times: 100
+        }
+    })
+</script>

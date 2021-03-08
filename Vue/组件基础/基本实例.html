@@ -1,0 +1,29 @@
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="../vue.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+    <div id="components-demo">
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+    </div>
+</body>
+
+<script>
+    Vue.component('button-counter', {
+        data: function () {
+            return {
+                count: 0
+            }
+        },
+        template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+    })
+
+    new Vue({ el: '#components-demo' })
+</script>
+
+<!-- data 必须是一个函数 -->
+<!-- 一个组件的 data 选项必须是一个函数，因此每个实例可以维护一份被返回对象的独立拷贝 -->

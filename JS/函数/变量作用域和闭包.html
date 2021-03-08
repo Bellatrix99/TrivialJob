@@ -1,0 +1,61 @@
+<script>
+    // function makeWorker() {
+    //     //let name = "Pete";
+
+    //     return function () {
+    //         alert(name);
+    //     };
+
+    // }
+
+    // let name = "John";
+
+    // // create a function
+    // let work = makeWorker();
+
+    // // call it
+    // work(); // 会显示什么？
+
+
+    //----------------------------------------------------
+    // function sum(a) {
+    //     return function (b) {
+    //         return a + b;
+    //     };
+    // }
+
+    // alert(sum(1)(2)); // 3
+    // alert(sum(5)(-1)); // 4
+
+
+    //--- 通过函数筛选 -------------------------------------------------
+    // let arr = [1, 2, 3, 4, 5, 6, 7];
+
+    // alert(arr.filter(inBetween(3, 6)));
+    // alert(arr.filter(inArray([1, 2, 10])));
+
+    // function inBetween(a,b) {
+    //     return x => (x >= a && x <= b);
+    // }
+
+    // function inArray(arr) {
+    //     return x => arr.includes(x);
+    // }
+
+
+    //--- 按字段排序 ------------------------------------------------------
+    let users = [
+        { name: "John", age: 20, surname: "Johnson" },
+        { name: "Pete", age: 18, surname: "Peterson" },
+        { name: "Ann", age: 19, surname: "Hathaway" }
+    ];
+
+    users.sort(byField('name'));
+    users.sort(byField('age'));
+
+    function byField(fieldName) {
+        return (a, b) => a[fieldName] > b[fieldName] ? 1 : -1;
+    }
+
+    alert(JSON.stringify(users));
+</script>

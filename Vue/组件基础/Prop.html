@@ -1,0 +1,21 @@
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="../vue.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+    <blog-post title="My journey with Vue"></blog-post>
+    <blog-post title="Blogging with Vue"></blog-post>
+    <blog-post title="Why Vue is so fun"></blog-post>
+</body>
+
+<script>
+    Vue.component('blog-post', {
+        props: ['title'],
+        template: '<h3>{{ title }}</h3>'
+    })
+    new Vue({
+        el: 'blog-post'
+    })
+</script>
