@@ -1,0 +1,41 @@
+<script>
+    //--- 为 counter 添加 set 和 decrease 方法 ------------------------------------------------
+    // function makeCounter() {
+    //     let count = 0;
+
+    //     function counter() {
+    //         return count++;
+    //     }
+
+    //     counter.set = value => count = value;
+
+    //     counter.decrease = () => count--;
+
+    //     return counter;
+    // }
+
+
+    //--- 任意数量的括号求和 ----------------------------------------------------
+    function sum(a) {
+        let currentSum = a;
+
+        function f(b) {
+            currentSum += b;
+            return f;
+        }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+        alert (f);
+
+        f.toString = function () {
+            return currentSum;
+        };
+
+        return f;
+    }
+
+
+    alert(sum(1)(2)); // 3
+    alert(sum(5)(-1)(2)); // 6
+    alert(sum(6)(-1)(-2)(-3)); // 0
+    alert(sum(0)(1)(2)(3)(4)(5)); // 15
+</script>

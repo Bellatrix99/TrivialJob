@@ -1,0 +1,33 @@
+<script>
+    // let sum = new Function('a', 'b', 'return a + b');
+
+    // alert(sum(1, 2));
+
+    // let sayHi = new Function('alert("Hello")');
+
+    // sayHi();
+
+
+    //--- 闭包 ------------------------------------------------
+    function getFunc() {
+        let value = "test";
+
+        let func = new Function('alert(value)');
+
+        return func;
+    }
+
+    getFunc()(); // error: value is not defined
+
+
+    //--- 常规 ----------------------------------------------------
+    function getFunc() {
+        let value = "test";
+
+        let func = function () { alert(value); };
+
+        return func;
+    }
+
+    getFunc()(); // "test"，从 getFunc 的词法环境中获取的
+</script>

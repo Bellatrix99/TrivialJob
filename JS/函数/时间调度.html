@@ -1,0 +1,44 @@
+<script>
+
+    //--- 每秒输出一次 -----------------------------------------------------------
+    //--- 使用Interval ------------------------------------------
+    // function printNumbers(from, to) {
+    //     let current = from;
+
+    //     let timeId = setInterval(function () {
+    //         alert(current);
+    //         if (current == to) {
+    //             clearInterval(timeId);
+    //         }
+    //         current++;
+    //     }, 1000);
+    // }
+
+
+    //--- 使用setTimeout ------------------------------------------
+    // function printNumbers(from, to) {
+    //     let current = from;
+
+    //     let timeId = setTimeout(function go() {
+    //         alert(current);
+    //         if (current < to) {
+    //             setTimeout(go, 1000);
+    //         }
+    //         current++;
+    //     }, 1000);
+
+    // }
+
+    // printNumbers(5, 10);
+
+    let i = 0;
+
+    setTimeout(() => alert(i), 100); // 100000000
+
+    // 假设这段代码的运行时间 >100ms
+    for (let j = 0; j < 100000000; j++) {
+        i++;
+    }
+
+
+</script>
