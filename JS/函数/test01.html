@@ -31,26 +31,65 @@
     // const arr2 = [1, 2, 3, 4].myMap((val) => val * 2);
     // console.log(arr, arr2)
 
+    // 方法 1：
+    // Array.prototype.myMap = function (fn, thisArg) {    // 给原生的数组原型添加新方法 myMap
+    //     var res = [];                                   // 设置一个返回数组
+    //     thisArg = thisArg || [];                        // 若传入 this = null， 则 this指向全局对象
+    //     this.reduce(function (pre, cur, index, arr) {   // 传入 map回调函数拥有的全部参数
+    //         res.push(fn.call(thisArg, cur, index, arr));    // 将每一项的结果 push到新数组中
+    //     }, res, thisArg);
+    //     return res;
+    // }
 
-    
-    //--------------------------------------
-    Array.prototype.myMap = function (fn, thisArg = []) {
-        return this.reduce((prev, curr, index, arr) => {
-            return [...prev, fn.call(prev, curr, index, arr)];
-        }, [], thisArg)
+    // const arr1 = [1, 2, 3, 4].myMap((val) => val * 2);
+    // console.log(arr1);
+
+
+    // 方法 2：
+    // Array.prototype.myMap = function (fn, thisArg = []) {
+    //     return this.reduce((prev, curr, index, arr) => {
+    //         return [...prev, fn.call('', prev, curr, index, arr)];
+    //     }, [], thisArg)
+    // }
+
+    // const arr2 = [1, 2, 3, 4].myMap((val) => val * 2);
+    // console.log(arr2);
+
+
+
+
+    class User {
+
+        constructor(name) {
+            this.name = name;
+        }
+
+        sayHi() {
+            alert(this.name);
+        }
+
     }
 
+    // 用法：
+    let user = new User("John");
+    // user.sayHi();
+    setTimeout(user.sayHi, 1000);
 
-    //----------------------------------------
-    // Array.prototype.myMap = (fn, thisArg = []) =>
-    //     this.reduce((prev, curr, index, arr) =>
-    //         [...prev, fn.call(prev, curr, index, arr)], [], thisArg)
 
 
-    //-------------------------------------------
-    const ArrMapper = (arr, fn, thisArg = []) => arr.reduce((prev, curr, index, arr) => [...prev, fn.call(prev, curr, index, arr)], [], thisArg)
+    class Button {
+        constructor(value) {
+            this.value = value;
+        }
 
-    const arr = ArrMapper([1, 2, 3, 4], (val) => val * 2);
+        click() {
+            alert(this.value);
+        }
+    }
+
+    let button = new Button("hello");
+
+    setTimeout(button.click, 1000); // undefined
 
 
 </script>
