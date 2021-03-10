@@ -1,0 +1,32 @@
+<script>
+    function Rabbit() { }
+    Rabbit.prototype = {
+        eats: true
+    };
+
+    let rabbit = new Rabbit();
+
+    // Rabbit.prototype = {};   // true
+
+    // Rabbit.prototype.eats = false;  // false
+
+    // delete rabbit.eats; // true ( 所有 delete 操作都直接应用于对象 )
+
+    delete Rabbit.prototype.eats;   // false
+
+    alert(rabbit.eats);
+
+
+    //---  使用相同的构造函数创建一个对象---------------------------
+    function User(name) {
+        this.name = name;
+    }
+
+    // User.prototype = {};    // 这样就无法正确工作
+
+    let user = new User('John');
+    let user2 = new user.constructor('Pete');
+
+    alert(user2.name);
+
+</script>

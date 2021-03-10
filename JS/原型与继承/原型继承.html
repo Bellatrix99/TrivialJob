@@ -1,0 +1,66 @@
+<script>
+    // let head = {
+    //     glasses: 1
+    // };
+
+    // let table = {
+    //     pen: 3,
+    //     __proto__: head
+    // };
+
+    // let bed = {
+    //     sheet: 1,
+    //     pillow: 2,
+    //     __proto__: table
+    // };
+
+    // let pockets = {
+    //     money: 2000,
+    //     __proto__: bed
+    // };
+
+    // alert(pockets.pen); // 3
+    // alert(bed.glasses); // 1
+    // alert(table.money); // undefined
+
+
+    //--- 在现代引擎中，从性能的角度来看，
+    // 我们是从对象还是从原型链获取属性都是没区别的。
+    // 它们（引擎）会记住在哪里找到的该属性，并在下一次请求中重用它。 ------------------------------------------
+    // let now = Date.now();
+
+    // alert(head.glasses);
+
+    // alert(pockets.glasses);
+
+    // let time = Date.now() - now;
+
+    // alert(time);
+
+
+    //--- 喂仓鼠 ---------------------------------------------
+    let hamster = {
+        stomach: [],
+
+        eat(food) {
+            this.stomach.push(food);
+        }
+    };
+
+    let speedy = {
+        stomach: [],    // 如果不给每只仓鼠单独的 stomach
+                        // 则在 push 时都会默认使用
+                        // 仓鼠类中共同的 stomach
+        __proto__: hamster
+    };
+
+    let lazy = {
+        stomach: [],
+        __proto__: hamster
+    };
+
+    speedy.eat('apple');
+    alert(speedy.stomach);
+
+    alert(lazy.stomach);
+</script>

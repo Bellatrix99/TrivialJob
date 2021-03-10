@@ -1,0 +1,49 @@
+<script>
+    // function askPassword(ok, fail) {
+    //     let password = prompt("Password?", "");
+    //     if (password == "rockstar") {
+    //         ok();
+    //     } else fail();
+    // }
+
+    // let user = {
+    //     name: 'John',
+
+    //     login(result) {
+    //         alert(this.name + (result ? ' logged in' : ' failed to log in '));
+    //     }
+    // };
+
+    // 解法 1： 箭头函数
+    // askPassword(() => user.login(true), () => user.login(false));
+    // 解法 2： partial
+    // askPassword(user.login.bind(user, true), user.login.bind(user, false));
+
+
+
+    // 间谍装饰器                                                                                                                                                                                                                                                                                                   
+    function spy(func) {
+
+        function wrapper(...args) {
+            wrapper.calls.push(args);
+            return func.apply(this, args);
+        }
+
+        wrapper.calls = [];
+
+        return wrapper;
+    }
+
+    function work(a, b) {
+        alert(a + b); // work 是一个任意的函数或方法
+    }
+
+    work = spy(work);
+
+    work(1, 2); // 3
+    work(4, 5); // 9
+
+    for (let args of work.calls) {
+        alert('call:' + args.join()); // "call:1,2", "call:4,5"
+    }
+</script>

@@ -1,0 +1,40 @@
+<script>
+
+    //--- 使用原型方法来代替__proto__ ---------------------------
+    // let animal = {
+    //     eats: true
+    // };
+
+    // let rabbit = Object.create(animal);
+
+    // alert(rabbit.eats);
+
+    // alert(Object.getPrototypeOf(rabbit) == animal);
+
+    // Object.setPrototypeOf(rabbit, {});
+
+    // alert(rabbit.eats);
+
+    // alert(Object.getPrototypeOf(rabbit) == animal);
+
+
+    //--- Object.create 的第二参数: 属性描述符--------------------
+    // let animal = {
+    //     eats: true
+    // };
+
+    // let rabbit = Object.create(animal, {
+    //     jumps: {
+    //         value: true
+    //     }
+    // });
+
+    // alert(rabbit.jumps);
+
+
+    //--- 使用 Object.create 来实现强大的对象克隆方式---------------
+    let clone = Object.create(
+        Object.getPrototypeOf(obj),
+        Object.getOwnPropertyDescriptor(obj));
+
+</script>

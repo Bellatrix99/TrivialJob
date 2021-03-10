@@ -1,0 +1,56 @@
+<script>
+    //--- 用 reduce()完成 map() --------------------------------------------------------------
+    // Array.prototype.myMap = function (fn, thisArg) {
+    //     var res = [];
+    //     thisArg = thisArg || [];
+    //     this.reduce(function (pre, cur, index, arr) {
+    //         res.push(fn.call(thisArg, cur, index, arr));
+    //     }, []);
+    //     return res;
+    // }
+
+
+    //--- 只是用return -------------------------------------------------------------------------
+    // Array.prototype.myMap = function (fn, thisArg = []) {
+    //     return this.reduce((prev, curr, index, arr) => {
+    //         return [...prev, fn.call(prev, curr, index, arr)];
+    //     }, [])
+    // }
+
+    // const arr = [1, 2, 3, 4].myMap((val) => val * 2);
+
+    // Array.prototype.myMap = function (fn, thisArg) {
+    //     var res = [];
+    //     thisArg = thisArg || [];
+    //     this.reduce(function (pre, cur, index, arr) {
+    //         res.push(fn.call(thisArg, cur, index, arr));
+    //     }, []);
+    //     return res;
+    // }
+
+    // const arr2 = [1, 2, 3, 4].myMap((val) => val * 2);
+    // console.log(arr, arr2)
+
+
+    
+    //--------------------------------------
+    Array.prototype.myMap = function (fn, thisArg = []) {
+        return this.reduce((prev, curr, index, arr) => {
+            return [...prev, fn.call(prev, curr, index, arr)];
+        }, [], thisArg)
+    }
+
+
+    //----------------------------------------
+    // Array.prototype.myMap = (fn, thisArg = []) =>
+    //     this.reduce((prev, curr, index, arr) =>
+    //         [...prev, fn.call(prev, curr, index, arr)], [], thisArg)
+
+
+    //-------------------------------------------
+    const ArrMapper = (arr, fn, thisArg = []) => arr.reduce((prev, curr, index, arr) => [...prev, fn.call(prev, curr, index, arr)], [], thisArg)
+
+    const arr = ArrMapper([1, 2, 3, 4], (val) => val * 2);
+
+
+</script>
