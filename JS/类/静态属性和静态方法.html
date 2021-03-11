@@ -1,0 +1,77 @@
+<script>
+    //--- 静态属性和静态方法 ---------------------------------
+    // class User {
+    //     static staticMethod() {
+    //         console.log(this === User);
+    //     }
+    // }
+
+    // User.staticMethod();
+
+
+    //--- 这实际上跟直接将其作为属性赋值的作用相同:----------------
+    // class User { }
+
+    // User.staticMethod = function() {
+    //     console.log(this === User);
+    // };
+
+    // User.staticMethod();
+
+
+    //--- 例子 -----------------------------------------------
+    // 通过 constructor 来实现
+    // class Article {
+    //     constructor(title, date) {
+    //         this.title = title;
+    //         this.date = date;
+    //     }
+
+    //     static compare(articleA, articleB) {
+    //         return articleA.date - articleB.date;
+    //     }
+    // }
+
+    // let articles = [
+    //     new Article("HTML", new Date(2019, 1, 1)),
+    //     new Article("CSS", new Date(2019, 0, 1)),
+    //     new Article("JavaScript", new Date(2019, 11, 1))
+    // ];
+
+    // articles.sort(Article.compare);
+
+    // alert(articles[0].title);
+
+
+    // 通过创建类的一个静态方法来实现
+    // class Article {
+    //     constructor(title, date) {
+    //         this.title = title;
+    //         this.date = date;
+    //     }
+
+    //     static createTodays() {
+    //         return new this("Today's digest", new Date());
+    //     }
+    // }
+
+    // let article = Article.createTodays();
+
+    // alert(article.title);
+    
+
+    //--- 静态属性 -------------------------------------------
+    // class Article {
+    //     static publisher = 'Levi Ding';
+    // }
+
+    // console.log(Article.publisher);
+
+    // // 这等同于直接给 Article 赋值：
+    // Article.publisher = 'Levi Ding';
+
+
+    //--- 继承静态属性和方法 ------------------------------------
+    
+
+</script>
