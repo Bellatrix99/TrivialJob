@@ -1,0 +1,129 @@
+<script>
+
+    //--- 受保护的属性通常以下划线 _ 作为前缀-----------------------
+    // class CoffeeMachine {
+    //     _waterAmount = 0;
+
+    //     set waterAmount(value) {
+    //         if (value < 0) throw new Error("Negative water");
+    //         this._waterAmount = value;
+    //     }
+
+    //     get waterAmount() {
+    //         return this._waterAmount;
+    //     }
+
+    //     constructor(power) {
+    //         this._power = power;
+    //     }
+
+    // }
+
+    // // 创建咖啡机
+    // let coffeeMachine = new CoffeeMachine(100);
+
+    // // 加水
+    // coffeeMachine.waterAmount = -10; // Error: Negative water
+
+
+    //--- 只读的“power” ---------------------------------------
+    // class CoffeeMachine {
+    //     // ...
+    //     constructor(power) {
+    //         this._power = power;
+    //     }
+
+    //     get power() {
+    //         return this._power;
+    //     }
+    // }
+
+    // let coffeeMachine = new CoffeeMachine(100);
+
+    // alert(`Power is: ${coffeeMachine.power}W`);
+
+    // coffeeMachine.power = 25;
+
+
+    //--- get.../set... 函数 ----------------------------------
+    // class CoffeeMachine {
+    //     _waterAmount = 0;
+
+    //     setWaterAmount(value) {
+    //         if (value < 0) throw new Error("Negative water");
+    //         this._waterAmount = value;
+    //     }
+
+    //     getWaterAmount() {
+    //         return this._waterAmount;
+    //     }
+    // }
+
+    // new CoffeeMachine().setWaterAmount(100);
+
+
+
+    //--- 私有的 “#waterLimit”
+    // class CoffeeMachine {
+    //     #waterLimit = 200;
+
+    //     #checkWater(value) {
+    //         if (value < 0) {
+    //             throw new Error("Negative water");
+    //         }
+    //         if (value > this.#waterLimit) {
+    //             throw new Error("Too much water")
+    //         }
+    //     }
+    // }
+
+    // let coffeeMachine = new CoffeeMachine();
+
+    // coffeeMachine.#checkWater();    // Error
+    // coffeeMachine.#waterLimit = 1000;   // Error
+
+
+    //--- 使 waterAmount 成为 #waterAmount 的一个访问器----------
+    // class CoffeeMachine {
+    //     #waterAmount = 0;
+
+    //     get waterAmount() {
+    //         return this.#waterAmount;
+    //     }
+
+    //     set waterAmount(value) {
+    //         if (value < 0) {
+    //             throw new Error("Negative water");
+    //         }
+    //         this.#waterAmount = value;
+    //     }
+    // }
+
+    // let machine = new CoffeeMachine();
+
+    // machine.waterAmount = 100;
+    // alert(machine.waterAmount);    // 100
+    // alert(machine.#waterAmount);    // Error
+
+
+    //--- 如果我们继承自 CoffeeMachine，
+    //    那么我们将无法直接访问 #waterAmount。
+    //    我们需要依靠 waterAmount getter/setter --------------
+    // class MegaCoffeeMachine extends CoffeeMachine {
+    //     method() {
+    //         alert( this.#waterAmount);  //  Error: can only access from CoffeeMachine
+    //     }
+    // }
+
+
+    //--- 私有字段不能通过 this[name] 访问
+    class User {
+        //...
+        sayHi() {
+            let fieldName = 'name';
+            alert(`Hello, ${this[fieldName]}`);
+        }
+    }
+    // 对于私有字段来说，this['#name'] 不起作用
+    // 这是确保私有性的语法限制
+</script>
