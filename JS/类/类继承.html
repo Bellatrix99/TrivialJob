@@ -1,0 +1,160 @@
+<script>
+
+    //--- 重写方法 -------------------------------------------------
+    // class Animal {
+    //     constructor(name) {
+    //         this.speed = 0;
+    //         this.name = name;
+    //     }
+    //     run(speed) {
+    //         this.speed = speed;
+    //         alert(`${this.name} runs with speed ${this.speed}.`);
+    //     }
+    //     stop() {
+    //         this.speed = 0;
+    //         alert(`${this.name} stands still.`);
+    //     }
+
+    //     sayName() {
+    //         alert(this.name);
+    //     }
+    //     hide() {
+    //         alert(`${this.name} Animals hides!`);
+    //     }
+    // }
+
+    // let animal = new Animal("My animal");
+    // animal.sayName();
+
+
+
+    // class Rabbit extends Animal {
+    //     hide() {
+    //         alert(`${this.name} hides!`);
+    //     }
+
+    //     stop() {
+    //         super.stop();
+    //         this.hide();
+    //     }
+    // }
+
+    // let rabbit = new Rabbit("White Rabbit");
+
+    // rabbit.run(5); // White Rabbit runs with speed 5.
+    // rabbit.hide(); // White Rabbit hides!
+    // rabbit.stop(); // White Rabbit 停止了。White rabbit hide 了！
+
+
+    //--- 重写 constructor --------------------------------------
+    // class Animal {
+    //     constructor(name) {
+    //         this.speed = 0;
+    //         this.name = name;
+    //     }
+
+    //     //...
+
+    // }
+
+    // class Rabbit extends Animal {
+    //     constructor(name, earLength) {
+    //         super(name);
+    //         this.speed = 0;
+    //         this.name = name;
+    //         this.earLength = earLength;
+    //     }
+
+    //     //...
+    // }
+
+    // let rabbit = new Rabbit("White Rabbit", 10);
+    // alert(rabbit.name); // White Rabbit
+    // alert(rabbit.earLength); // 10是的是的
+
+
+    //--- 创建实例时出错 ----------------------------------------
+    // class Animal {
+
+    //     constructor(name) {
+    //         this.name = name;
+    //     }
+    // }
+
+    // class Rabbit extends Animal {
+    //     constructor(name) {
+    //         super(name);
+    //         this.name = name;
+    //         this.created = Date.now();
+    //     }
+    // }
+
+    // let rabbit = new Rabbit("White Rabbit");
+    // alert(rabbit.name);
+
+
+    //--- 拓展clock --------------------------------------------
+    class Clock {
+        constructor({ template }) {
+            this.template = template;
+        }
+
+        render() {
+            let date = new Date();
+
+            let hours = date.getHours();
+            if (hours < 10) {
+                hours = '0' + hours;
+            }
+
+            let mins = date.getMinutes();
+            if (mins < 10) {
+                min = '0' + mins;
+            }
+
+            let secs = date.getSeconds();
+            if (secs < 10) {
+                secs = '0' + secs;
+            }
+
+            let output = this.template
+                .replace('h', hours)
+                .replace('m', mins)
+                .replace('s', secs);
+
+            console.log(output);
+        }
+
+        stop() {
+            clearInterval(this.timer);
+        }
+
+        start() {
+            this.render();
+            this.timer = setInterval(() => this.render(), 1000);
+        }
+    }
+
+
+    class ExtendedClock extends Clock {
+        constructor(options) {
+            super(options);
+            let { precision = 1000 } = options;
+            this.precision = precision;
+        }
+
+        start() {
+            this.render();
+            this.timer = setInterval(() => this.render(), this.precision);
+        }
+    };
+
+
+    let lowResolutionClock = new ExtendedClock({
+        template: 'h:m:s',
+        precision: 10000
+    });
+
+    lowResolutionClock.start();
+
+</script>
