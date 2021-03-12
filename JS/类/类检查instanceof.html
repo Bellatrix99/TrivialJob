@@ -1,0 +1,68 @@
+<script>
+
+    //=== 判断类的衍生 ======================================
+    // class Rabbit {}
+    // let rabbit = new Rabbit();
+
+    // alert(rabbit instanceof Rabbit);     // true
+
+
+    //=== 和构造函数一起使用 =================================
+    // function Rabbit() {}
+
+    // console.log( new Rabbit() instanceof Rabbit);    // true
+
+    //=== 与 Array 等内建 class 一起使用 ======================
+    // let arr = [1, 2, 3];
+    // alert( arr instanceof Array );  // true
+    // alert( arr instanceof Object);  // true
+
+
+    //=== 使用 obj instanceof Class 算法 =====================
+    // 设置 instanceOf 检查
+    // 并假设具有 canEat 属性的都是animal
+    // class Animal {
+    //     static [symbol.hasInstance](obj) {
+    //         if (obj.canEat) {
+    //             return true;
+    //         }
+    //     }
+    // }
+
+    // let obj = { canEat: true };
+
+    // alert(obj instanceof Animal);   //true
+
+
+    //=== 没有 Symbol.hasInstance 情况下的逻辑 ==================
+    // obj.__proto__ === Class.prototype?
+    // obj.__proto__.__proto__ === Class.prototype?
+    // obj.__proto__.__proto__.__proto__ === Class.prototype
+    // // 如果任意一个的答案为 true，则返回 true
+    // // 否则，如果我们已经检查到了原型链的尾端，则返回 false
+
+
+    //=== 例如 ===============================================
+    // class Animal {}
+    // class Rabbit extends Animal {}
+
+    // let rabbit = new Rabbit();
+    // alert(rabbit instanceof Animal);
+
+    // // rabbit.__proto__ === Rabbit.prototype
+    // // rabbit.__proto__.__proto__ === Animal.prototype (匹配!)
+
+
+    //=== 可以使用 objA.isPrototypeOf(objB)
+    //      如果 objA 处在 objB 的原型链中，则返回 true============
+    
+    //=== 创建对象后，如果更改 prototype 属性，可能会导致有趣的结果====
+    function Rabbit() {
+        let rabbit = new Rabbit();
+    }
+
+    Rabbit.prototype = {};
+
+    alert(rabbit instanceof Rabbit);
+    
+</script>

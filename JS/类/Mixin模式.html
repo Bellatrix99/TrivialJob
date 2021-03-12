@@ -1,0 +1,66 @@
+<script>
+
+    //=== 一个 Mixin 实例=====================================
+    // // mixin
+    // let sayHiMixin = {
+    //     sayHi() {
+    //         alert(`Hello ${this.name}`);
+    //     },
+    //     sayBye() {
+    //         alert(`Bye ${this.name}`);
+    //     }
+    // };
+
+    // class User {
+    //     constructor(name) {
+    //         this.name = name;
+    //     }
+    // }
+
+    // Object.assign(User.prototype, sayHiMixin);
+
+    // new User("Dude").sayHi();
+
+
+    //=== Mixin 内部使用继承 ==================================
+    let sayMixin = {
+        say(phrase) {
+            alert(phrase);
+        }
+    };
+
+    let sayHiMixin = {
+        __proto__: sayMixin, 
+
+        sayHi() {
+            // 调用父类方法
+            super.say(`Hello ${this.name}`); // (*)
+        },
+        sayBye() {
+            super.say(`Bye ${this.name}`); // (*)
+        }
+    };
+
+    let sayHiMixin = Object.create(sayMixin, {
+        sayHi() {
+            // 调用父类方法
+            super.say(`Hello ${this.name}`); // (*)
+        },
+        sayBye() {
+            super.say(`Bye ${this.name}`); // (*)
+        }
+    });
+
+    class User {
+        constructor(name) {
+            this.name = name;
+        }
+    }
+
+    Object.assign(User.prototype, sayHiMixin);
+
+    new User("Dude").sayHi();
+
+
+    
+</script>
