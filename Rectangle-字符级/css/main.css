@@ -1,0 +1,28 @@
+body html{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    color: rgb(137, 228, 172);
+}
+
+.inputElem{
+    width: 40%;
+    margin: 150 auto;
+}
+
+.inputIn{
+    line-height: 38px;
+    font-size: large;
+}
+
+.inputOut{
+    line-height: 38px;
+    font-size: large;
+}
+
+.btn-outline-success{
+    margin-left:54px;
+}
+

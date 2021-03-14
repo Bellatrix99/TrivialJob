@@ -1,0 +1,47 @@
+<head>
+    <title>矩形计算器</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    
+    <div class="inputElem">
+        <h1>矩形计算器</h1>
+        <div class="input-group mb-3 ">
+            <span class="inputIn">长度：</span>
+            <input id="height" type="text" class="form-control" placeholder="在此输入矩形长度" aria-label="矩形宽度"
+                aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group mb-3 ">
+            <span class="inputIn">宽度：</span>
+            <input id="width" type="text" class="form-control" placeholder="在此输入矩形宽度" aria-label="矩形长度"
+                aria-describedby="basic-addon1">
+        </div>
+
+        <input id="compute" type="button" class="btn btn-outline-success" value="计算结果">
+        <br>
+        <br>
+
+        <div class="input-group mb-3 ">
+            <span class="inputOut">周长：</span>
+            <input id="perimeter" type="text" class="form-control" placeholder="此处输出周长" aria-label="矩形宽度"
+                aria-describedby="basic-addon1" disabled>
+        </div>
+
+        <div class="input-group mb-3 ">
+            <span class="inputOut">面积：</span>
+            <input id="area" type="text" class="form-control" placeholder="此处输出面积" aria-label="矩形宽度"
+                aria-describedby="basic-addon1" disabled>
+        </div>
+
+        <div id="alert"></div>
+
+
+    </div>
+</body>
+<script src="js/main.js"></script>
