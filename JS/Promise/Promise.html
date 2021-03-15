@@ -1,0 +1,100 @@
+<head>
+    <meta charset="utf-8">
+    <style>
+        .message-ball {
+            font-size: 20px;
+            line-height: 200px;
+            text-align: center;
+        }
+
+        .circle {
+            transition-property: width, height, margin-left, margin-top;
+            transition-duration: 2s;
+            position: fixed;
+            transform: translateX(-50%) translateY(-50%);
+            background-color: rgb(248, 56, 56);
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="go()">Click me</button>
+</body>
+
+<script>
+    // function loadScript(src, callback) {
+    //     let script = document.createElement('script');
+    //     script.src = src;
+
+    //     script.onload = () => callback(null, script);
+    //     script.onerror = () => callback(new Error(`Script load error for ${src}`));
+
+    //     document.head.append(script);
+    // }
+
+    //=== 使用 promise 重写 ===================================
+    // function loadScript(src) {
+    //     return new Promise(function(resolve, reject) {
+    //         let script = document.createElement('script');
+    //         script.src = src;
+
+    //         script.onload = () => resolve(script);
+    //         script.onerror = () => reject(new Error(`Script load error for ${src}`));
+
+    //         document.head.append(script);
+    //     });
+    // }
+
+    // 用法
+    // let promise = loadScript("https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js");
+
+    // promise.then(
+    //     script => alert(`${script.src} is loaded!`),
+    //     error => alert(`Error: ${error.message}`)
+    // );
+
+    // promise.then(script => alert('Another handler...'));
+
+
+    //= 只有第一次的 reject/resolve 的调用才会被处理
+
+
+    //=== 基于 promise 的延时 =================================
+    // function delay(ms) {
+    //     return new Promise(resolve => setTimeout(resolve, ms));
+    // }
+    // delay(3000).then(() => alert('runs after 3 seconds'));
+
+
+    //=== 带有 promise 的圆形动画 ==============================
+    function go() {
+        showCircle(150, 150, 100).then(div => {
+            div.classList.add(`message-ball`);
+            div.append("Hello, world!");
+        });
+    }
+
+    function showCircle(cx, cy, radius) {
+        let div = document.createElement('div');
+        div.style.width = 0;
+        div.style.height = 0;
+        div.style.left = cx + 'px';
+        div.style.top = cy + 'px';
+        div.className = 'circle';
+        document.body.append(div);
+
+        return new Promise(resolve => {
+            setTimeout(() => {
+                div.style.width = radius * 2 + 'px';
+                div.style.height = radius * 2 + 'px';
+
+                div.addEventListener('transitionend', function handler() {
+                    div.removeEventListener('transitionend', handler);
+                    resolve(div);
+                });
+            }, 0);
+        })
+    }
+
+</script>

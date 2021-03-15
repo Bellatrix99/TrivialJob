@@ -1,0 +1,53 @@
+<script>
+    //=== 使用给定的 src 加载脚本=============================
+    // function loadScript(src) {
+    //     let script = document.createElement('script');
+    //     script.src = src;
+    //     document.head.append(script);
+    // }
+
+
+    //=== 使用 callback 函数， 该函数在脚本加载完成时执行 =========
+    // function loadScript(src, callback) {
+    //     let script = document.createElement('script');
+    //     script.src = src;
+
+    //     script.onload = () => callback(script);
+
+    //     document.head.append(script);
+    // }
+    // // 如果我们想调用该脚本中的新函数，我们应该写在回调函数中：
+    // loadScript('/my/script.js', function() {
+    //     // 在脚本加载完成后，回调函数才会执行
+    //     newFunction();  // 现在可以正常工作
+    //     // ...
+    // });
+
+
+
+    //=== 真实脚本的可运行示例 ==================================
+    // function loadScript(src, callback) {
+    //     let script = document.createElement('script');
+    //     script.src = src;
+    //     script.onload = () => callback(script);
+    //     document.head.append(script);
+    // }
+
+    // loadScript('https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js', script => {
+    //     alert(`Cool, the script ${script.src} is loaded`);
+    //     alert(_); // 所加载的脚本中声明的函数
+    // });
+
+
+    //=== 在回调中回调 =========================================
+    loadScript('/my/script.js', function(script) {
+        alert(`Cool, the ${script.src} is loaded, let's load one more`);
+
+        loadScript('/my/script.js', function(script) {
+            alert(`Cool,the second script is loaded`);
+        });
+    });
+    
+
+
+</script>

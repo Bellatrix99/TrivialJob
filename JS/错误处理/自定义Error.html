@@ -1,0 +1,102 @@
+<script>
+    //=== ValidationError 继承 Error =======================
+    // class ValidationError extends Error {
+    //     constructor(message) {
+    //         super(message);
+    //         this.name = 'ValidationError';
+    //     }
+    // }
+
+    // function test() {
+    //     throw new ValidationError("Whoops!");
+    // }
+
+    // try {
+    //     test();
+    // } catch(err) {
+    //     alert(err.message);
+    //     alert(err.name);
+    //     alert(err.stack);
+    // }
+
+
+    //=== 另一种用法 =========================================
+    // class ValidationError extends Error {
+    //     constructor(message) {
+    //         super(message);
+    //         this.name = "ValidationError";
+    //     }
+    // }
+
+    // function readUser(json) {
+    //     let user = JSON.parse(json);
+
+    //     if (!user.age) {
+    //         throw new ValidationError("No field: age");
+    //     }
+
+    //     if (!user.name) {
+    //         throw new ValidationError("No field: name");
+    //     }
+
+    //     return user;
+    // }
+
+
+    // try {
+    //     let user = readUser('{"age":25}');
+    // } catch (err) {
+    //     if (err instanceof ValidationError) {
+    //         alert("Invalid data: " + err.message); // Invalid data: No field: name
+    //     } else if (err instanceof SyntaxError) { // (*)
+    //         alert("JSON Syntax Error: " + err.message);
+    //     } else {
+    //         throw err; // 未知的 error，再次抛出 (**)
+    //     }
+    // }
+
+
+    //=== 深入继承 ========================================
+    class ValidationError extends Error {
+        constructor(message) {
+            super(message);
+            this.name = "ValidationError";
+        }
+    }
+
+    class PropertyRequiredError extends ValidationError {
+        constructor(property) {
+            super("No property: " + property);
+            this.name = "PropertyRequiredError";
+            this.property = property;
+        }
+    }
+
+    function readUser(json) {
+        let user = JSON.parse(json);
+
+        if (!user.age) {
+            throw new PropertyRequiredError("age");
+        }
+        if (!user.name) {
+            throw new PropertyRequiredError("name");
+        }
+
+        return user;
+    }
+
+    try {
+        let user = readUser('{"age": 25}');
+    } catch (err) {
+        if (err instanceof ValidationError) {
+            alert("Invalid data: " + err.message);
+            alert(err.name);
+            alert(err.property);
+        } else if (err instanceof SyntaxError) {
+            alert("JSON Syntax Error: " + err.message);
+        } else {
+            throw err;
+        }
+    }
+
+</script>
