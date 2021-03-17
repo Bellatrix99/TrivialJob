@@ -1,0 +1,204 @@
+<script>
+    // let target = {};
+    // let proxy = new Proxy(target, {});
+
+    // proxy.test = 5;
+    // alert(target.test);
+
+    // alert(proxy.test);
+
+    // for (const key in proxy) {
+    //     alert(key);
+    // }
+
+
+    //=== 带有 “get” 捕捉器的默认值 ============================
+    // let numbers = [0, 1, 2];
+
+    // numbers = new Proxy(numbers, {
+    //     get(target, prop) {
+    //         if (prop in target) {
+    //             return target[prop];
+    //         } else {
+    //             return 0;
+    //         }
+    //     }
+    // });
+
+    // alert(numbers[1]);
+    // alert(numbers[123]);
+
+
+    //=== 使用 get 设置翻译 ==================================
+    // let dictionary = {
+    //     'Hello' : 'Hola',
+    //     'Bye' : 'Adios'
+    // };
+
+    // dictionary = new Proxy(dictionary, {
+    //     get(target, phrase) {
+    //         if(phrase in target) {
+    //             return target[phrase];
+    //         } else {
+    //             return phrase;
+    //         }
+    //     }
+    // });
+
+    // alert(dictionary['Hello']);
+    // alert(dictionary['Not this']);
+
+
+    //=== 使用 ”set“ 捕捉器进行验证 ==============================
+    // let numbers = [];
+
+    // numbers = new Proxy(numbers, { // (*)
+    //     set(target, prop, val) { // 拦截写入属性操作
+    //         if (typeof val == 'number') {
+    //             target[prop] = val;
+    //             return true;
+    //         } else {
+    //             return false;
+    //         }
+    //     }
+    // });
+
+    // numbers.push(1); // 添加成功
+    // numbers.push(2); // 添加成功
+    // alert("Length is: " + numbers.length); // 2
+
+    // numbers.push("test"); // TypeError（proxy 的 'set' 返回 false）
+    // alert("This line is never reached (error in the line above)");
+
+
+    //=== 使用 ownKeys 捕捉器拦截遍历 ===========================
+    // let user = {
+    //     name: "John",
+    //     age: 30,
+    //     _password: "***"
+    // };
+
+    // user = new Proxy(user, {
+    //     ownKeys(target) {
+    //         return Object.keys(target).filter(key => !key.startsWith('_'));
+    //     }
+    // });
+
+    // for (let key in user) alert(key);
+
+    // alert(Object.keys(user));
+    // alert(Object.values(user));
+
+
+    //=== 具有“deleteProperty”和其他捕捉器的受保护属性 ============
+    // let user = {
+    //     name: "John",
+    //     _password: "***"
+    // };
+
+    // user = new Proxy(user, {
+    //     get(target, prop) {
+    //         if (prop.startsWith('_')) {
+    //             throw new Error("Access denied");
+    //         }
+    //         let value = target[prop];
+    //         return (typeof value === 'function') ? value.bind(target) : value;
+    //     },
+    //     set(target, prop, val) {
+    //         if (prop.startsWith('_')) {
+    //             throw new Error("Access denied");
+    //         } else {
+    //             target[prop] = val;
+    //             return true;
+    //         }
+    //     },
+    //     deleteProperty(target, prop) {
+    //         if (prop.startsWith('_')) {
+    //             throw new Error("Access denied");
+    //         } else {
+    //             delete target[prop];
+    //             return true;
+    //         }
+    //     },
+    //     ownKeys(target) {
+    //         return Object.keys(target).filter(key => !key.startsWith('_'));
+    //     }
+    // });
+
+    // try {
+    //     alert(user._password);
+    // } catch (e) {
+    //     alert(e.message);
+    // }
+
+    // try {
+    //     user._password = "test";
+    // } catch (e) {
+    //         alert(e.message);
+    // }
+
+    // try {
+    //     delete user._password;
+    // } catch(e) {
+    //     alert(e.message);
+    // }
+
+    // for(let key in user) alert(key);
+
+
+    //=== 带有“has”捕捉器的“in range” ==========================
+    // let  range = {
+    //     start: 1,
+    //     end: 10
+    // };
+
+    // range = new Proxy(range, {
+    //     has(target, prop) {
+    //         return prop >= target.start && prop <= target.end;
+    //     }
+    // });
+
+    // alert(5 in range);
+    // alert(50 in range);
+
+
+    //=== 包装函数：apply ======================================
+    // function delay(f, ms) {
+    //     return function () {
+    //         setTimeout(() => f.apply(this, arguments), ms);
+    //     };
+    // }
+
+    // function sayHi(user) {
+    //     alert(`Hello, ${user}!`);
+    // }
+
+    // alert(sayHi.length);
+
+    // sayHi = delay(sayHi, 3000);
+    // sayHi("John");
+
+    // alert (sayHi.length);
+
+
+    //=== 使用 Proxy 来替换包装函数 ============================
+    function delay(f, ms) {
+        return new Proxy(f, {
+            apply(target, thisArg, args) {
+                setTimeout(() => {
+                    target.apply(thisArg, args)
+                }, ms);
+            }
+        });
+    }
+
+    function sayHi(user) {
+        alert(`Hello, ${user}!`);
+    }
+
+    sayHi = delay(sayHi, 3000);
+
+    alert(sayHi.length);
+
+    sayHi("John");
+</script>

@@ -1,0 +1,47 @@
+<script>
+    //=== 示例 ============================================
+    // let result = eval(code);
+    // let code = 'alert("Hello")';
+    // eval(code);
+
+
+    //=== 可以访问外部变量 ===================================
+    // let a = 1;
+    // function f() {
+    //     let a = 2;
+
+    //     eval('alert(2)');
+    // }
+
+    // f();
+
+
+    //=== 可以更改外部变量 ===================================
+    // let x = 5;
+    // eval("x = 10");
+    // alert(x);   // 10
+
+
+    // // 严格模式下，eval 有属于自己的词法环境 不能再外部访问 =======
+    // eval("let x = 5; function f() {}");
+
+    // alert(typeof x);    // undefined (没有这个变量)
+
+
+    //=== 使用 window.eval(...) 来调用全局变量 ================
+    // let x = 1;
+    // {
+    //     let x = 5;
+    //     window.eval('alert(x)');    // 1 (全局变量)
+    // }
+
+    // let f = new Function('a', 'alert(a)');
+
+    // f(5);
+
+
+    //=== Eval-计算器 ========================================
+    let expr = prompt("Type an arithmetic expresssion?", '2*3+2');
+
+    alert(eval(expr));
+</script>

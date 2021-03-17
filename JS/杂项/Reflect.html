@@ -1,0 +1,180 @@
+<script>
+    // let user = {};
+
+    // Reflect.set(user, 'name', 'John');
+
+    // alert(user.name);
+
+
+    //=== get&set =========================================
+    // let user = {
+    //     name: "John",
+    // };
+
+    // user = new Proxy(user, {
+    //     get(target, prop, receiver) {
+    //         alert(`GET ${prop}`);
+    //         return Reflect.get(target, prop, receiver);
+    //     },
+    //     set(target, prop, val, receiver) {
+    //         alert(`SET ${prop}=${val}`);
+    //         return Reflect.set(target, prop, val, receiver);
+    //     }
+    // });
+
+    // let name = user.name;
+    // user.name = "Pete";
+
+
+    //=== 代理一个 getter ===================================
+    // let user = {
+    //     _name: "Guest",
+    //     get name() {
+    //         return this._name;
+    //     }
+    // };
+
+    // let userProxy = new Proxy(user, {
+    //     get(target, prop, receiver) {
+    //         // return target[prop];
+    //         // return Reflect.get(target, prop, receiver);
+    //         return Reflect.get(...arguments);
+    //     }
+    // });
+
+    // alert(userProxy.name);
+
+    // let admin = {
+    //     __proto__: userProxy,
+    //     _name: "Admin"
+    // };
+
+    // alert(admin.name);
+
+
+    //=== Proxy 的局限性 ======================================
+    // let map = new Map();
+
+    // let proxy = new Proxy(map, {});
+
+    // proxy.set('test', 1);   // Error
+
+    //=== 解决内部对象-插槽问题 =================================
+    // let map = new Map();
+
+    // let proxy = new Proxy(map, {
+    //     get(target, prop, receiver) {
+    //         let value = Reflect.get(...arguments);
+    //         return typeof value == 'function' ? value.bind(target) : value;
+    //     }
+    // });
+
+    // proxy.set('test', 1);
+    // alert(proxy.get('test'));
+
+
+    //=== 私有字段 ==============================================
+    // class User {
+    //     #name = "Guest";
+
+    //     getName() {
+    //         return this.#name;
+    //     }
+    // }
+
+    // let user = new User();
+
+    // user = new Proxy(user, {});
+
+    // alert(user.getName());  // Error
+
+
+    //=== 使用 bind 方法恢复正常 ================================
+    // class User {
+    //     #name = "Guest";
+
+    //     getName() {
+    //         return this.#name;
+    //     }
+    // }
+
+    // let user = new User();
+
+    // user = new Proxy(user, {
+    //     get(target, prop, receiver) {
+    //         let value = Reflect.get(...arguments);
+    //         return typeof value == 'function' ? value.bind(target) : value;
+    //     }
+    // });
+
+    // alert(user.getName());
+
+
+    //=== 可撤销 Proxy ========================================
+    // let object = {
+    //     data: "Valuable data"
+    // };
+
+    // let {proxy, revoke} = Proxy.revocable(object, {});
+
+    // alert(proxy.data);
+
+    // revoke();
+
+    // alert(proxy.data);  // Error
+
+
+    //=== 将 revoke 存储在 WeakMap 中 ==========================
+    // let revokes = new WeakMap();
+
+    // let object = {
+    //     data: "Valuable data"
+    // };
+
+    // let { proxy, revoke } = Proxy.revocable(object, {});
+
+    // revokes.set(proxy, revoke);
+
+    // // ...稍后，在我们的代码中...
+    // revoke = revokes.get(proxy);
+    // revoke();
+
+    // alert(proxy.data);  // Error (revoked)
+
+
+    //=== 读取不存在的属性时出错 ===============================
+    // let user = {
+    //     name: "John"
+    // };
+
+    // function wrap(target) {
+    //     return new Proxy(target, {
+    //         get(target, prop, receiver) {
+    //             if (prop in target) {
+    //                 return Reflect.get(...arguments);
+    //             }else {
+    //                 throw new ReferenceError(`Property doesn't exist: "${prop}"`)
+    //             }
+    //         }
+    //     });
+    // }
+
+    // user = wrap(user);
+    // alert(user.age);
+
+
+    //=== 访问 array[-1] ====================================
+    let array = [1, 2, 3];
+
+    array = new Proxy(array, {
+        get(target, prop, receiver) {
+            if (prop < 0) {
+                prop = +prop + target.length;
+            }
+            return  Reflect.get(target, prop, receiver);
+        }
+    });
+
+    alert(array[-1]);
+    alert(array[-2]);
+</script>
