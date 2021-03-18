@@ -1,0 +1,51 @@
+<script>
+    // 弹窗被阻止
+    // window.open('http://javascript.info');
+
+    // 弹窗被允许
+    // button.onclick = () => {
+    //     window.open('http://javascript.info');
+    // };
+
+    // 3 秒后打开弹窗
+    // setTimeout(() => {
+    //     window.open('http://google.com')
+    // }, 3000);
+
+
+    // open('/', 'test');
+
+
+    // let newWin = window.open("about:blank", "hello", "width=200,height=200");
+
+    // newWin.document.write("Hello, world!");
+
+
+    // let newWindow = open('/', 'example', 'width=300,height=300');
+    // newWindow.focus();
+
+    // alert(newWindow.location.href);
+
+    // newWindow.onload = function() {
+    //     let html = `<div style = "font-size:30px">Welcome!</div>`;
+    //     newWindow.document.body.insertAdjacentElement('afterbegin', html);
+    // }
+
+
+    //=== 从弹窗访问窗口 ======================================
+    // let newWin = window.open("about:blank", "hello", "width:300,height=200");
+
+    // newWin.document.write(
+    //     "<script>window.opener.document.body.innerHTML = 'Test'<\/script>"
+    // );
+
+
+    //=== 关闭弹窗 ==============================================
+    let newWindow = open('/', 'example', 'width=300,height=300');
+
+    newWindow.onload = function () {
+        newWindow.close();
+        alert(newWindow.closed); // true
+    };
+
+</script>
