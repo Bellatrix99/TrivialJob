@@ -1,0 +1,57 @@
+<script>
+    //=== 贪婪搜索 =======================================
+    // let reg = /".+"/g;
+
+    // let str = 'a "witch" and her "broom" is one';
+
+    // alert(str.match(reg));  // "witch" and her "broom"
+
+
+    //=== 懒惰模式 ======================================
+    // let reg = /".+?"/g;
+    // let str = 'a "witch" and her "broom" is one';
+
+    // alert(str.match(reg));  // "witch", "broom"
+    // // 懒惰模式只能够通过带 ? 的量词启用
+
+    // alert("123 456".match(/\d+ \d+?/g));    //123 4
+
+
+    //=== 替代方法 ======================================
+    // let reg = /"[^"]+"/g;
+
+    // let str = 'a "witch" and her "broom" is one';
+
+    // alert(str.match(reg));  // "witch", "broom"
+
+
+    //=== 懒惰模式的弊端 =================================
+    // let str1 = '...<a href="link1" class="wrong">... <p style="" class="doc">...';
+    // let str2 = '...<a href="link1" class="doc">... <a href="link2" class="doc">...';
+    // let reg = /<a href="[^"]+" class="doc">/g;
+
+    // // Works!
+    // alert(str1.match(reg)); // 没有匹配项，是正确的
+    // alert(str2.match(reg)); // <a href="link1" class="doc">, <a href="link2" class="doc">
+
+
+    //=== 对于 /d+? d+?/ 的匹配 ================================
+    // alert("123 456".match(/\d+? \d+?/g));   // 123 4
+
+
+    // //=== 查找 HTML 注释 ======================================
+    // let reg = /<!--[\s\S]*?-->/g;
+    // let str = `... <!-- My -- comment
+    //     test --> ..  <!----> ..
+    //     `;
+
+    // alert(str.match(reg));
+
+
+    //=== 寻找 HTML 标签 =======================================
+    let reg = /<[^<>]+>/g;
+
+    let str = '<> <a href = "/"> <input type = "radio" checked> <b>';
+
+    alert(str.match(reg));
+</script>

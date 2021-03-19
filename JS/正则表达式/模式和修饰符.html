@@ -1,0 +1,38 @@
+<script>
+    // 较长一点的语法：
+    // regexp = new Regexp("pattern", "flags");
+
+    // 较短一点的语法：
+    // regexp = /pattern/;
+    // regexp = /pattern/gmi;
+
+
+    //=== 用法 =================================================
+
+    //=== 用 search 在字符串中进行搜索 ================
+    // let str = "I love JavaScript!";
+
+    // let regexp = /love/;
+    // alert(str.search(regexp));  // 2
+
+    // 等价于：
+    // let substr = 'love';
+    // alert(str.search(substr));  // 2
+
+
+    //=== 什么时候使用 new RegExp？ =================
+    let search = prompt("What you want to search?", "love");
+    let regexp = new RegExp(search);
+
+    alert("I love JavaScript".search(regexp));
+
+
+    //=== 修饰符 =============================================
+    
+    //=== "i"修饰符(不区分大小写) ==================
+    let str = "I love JavaScript!";
+
+    alert(str.search(/LOVE/));  // -1(not found)
+    alert(str.search(/LOVE/i)); // 2
+
+</script>

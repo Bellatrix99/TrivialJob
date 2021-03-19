@@ -1,0 +1,30 @@
+<script>
+    // 有三种不同的位置可作为词边界：
+
+    // 在字符串开头，如果第一个字符是单词字符 \w。
+    // 在字符串中的两个字符之间，其中一个是单词字符 \w，另一个不是。
+    // 在字符串末尾，如果最后一个字符是单词字符 \w。
+
+    // 示例：
+    // alert("Hello,Java!".match(/\bJava\b/)); // Java
+    // alert("Hello,JavaScript!".match(/\bJava\b/));   // null
+
+    // alert("Hello,Java!".match(/\bHello\b/));    // Hello
+    // alert("Hello,Java!".match(/\bJava\b/));     // Java
+    // alert("Hello,Java!".match(/\bHell\b/));     // null
+    // alert("Hello,Java!".match(/\bJava!\b/));    // null
+
+
+    // // \b 既可以用于单词，也可以用于数字
+    // // 例如 \b\d\d\b 查找独立的两位数字
+    // alert("1 23 456 78".match(/\b\d\d\b/g));    // 23,78
+    // alert("12,34,45".match(/\b\d\d\b/g));   //12,34,56
+
+
+
+    //=== 任务: 查找时间 =====================================
+    let str = 'Breakfast at 09:00 in the room 123:456';
+
+    alert(str.match(/\b\d\d:\d\d\b/));
+
+</script>

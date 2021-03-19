@@ -1,0 +1,27 @@
+<script>
+    //=== 行的开头 ^ =======================================
+//     let str = `1st place: Winnie
+// 2nd place: Piglet
+// 33rd place: Eeyore`;
+                
+//     alert(str.match(/^\d+/gm)); // 1,2,33
+//     alert(str.match(/^\d+/g));  // 1
+
+
+    //=== 行的结尾 $ =======================================
+    // let str = `1st place: Winnie
+    // 2nd place: Piglet
+    // 33rd place: Eeyore`;
+    
+    // alert(str.match(/\w+$/gim));    // Winnie,Piglet,Eeyore
+
+
+    //=== 锚符 ^$ 对比 \n ====================================
+    let str = `1st place: Winnie
+    2nd place: Piglet
+    33rd place: Eeyore`;
+
+    alert(str.match(/\w+\n/gim));
+
+    // \n 不会匹配字符串结尾
+</script>

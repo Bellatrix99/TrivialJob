@@ -1,0 +1,21 @@
+<script>
+    // 特殊字符需要转义，在前面加一个'\'
+    //=== 使用 new RegExp 创建正则实例 ========================
+    let reg = new RegExp("\d\.\d");
+
+    alert("Chapter 5.1".match(reg));    // null
+    
+    // 因为 alert 内容是字符串，需要通过'\'转义
+
+    let regStr = "\\d\\.\\d";
+    alert(regStr);
+
+    let regexp = new RegExp(regStr);
+
+    alert("Chapter 5.1".match(regexp)); // 5.1
+
+    //=== 总结 ==============================================
+    // 注意转义问题
+    // 在 /.../ 内部需要对'/'进行转义
+    // 在 new RegExp 中需要双反斜杠'\\' 抵消转义问题
+</script>

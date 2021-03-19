@@ -1,0 +1,139 @@
+<!-- <iframe src="http://example.com" frameborder="0" id="iframe"></iframe>
+<script>
+    iframe.onload = function() {
+        // 我们可以获取对内部 window 的引用
+        let iframeWindow = iframe.contentWindow;    // OK
+        try {
+            // ...但是无法获取其中的文档
+            let doc = iframe.contentDocument;
+        } catch(e) {
+            alert(e);
+        }
+
+        // 我们无法 **读取** iframe 中页面的 URL
+        try {
+            // 无法从 location 对象中读取 URL
+            let href = iframe.contentWindow.location.href;  // Error
+        } catch(e) {
+            alert(e);   // Security Error
+        }
+
+        // 我们可以 **写入** location（ 所以，在 iframe 中加载了其他内容）
+        iframe.contentWindow.location = '/';    // OK
+
+        iframe.onload = null;   // 清空处理程序，在 location 更改后不要再运行它
+    }
+
+    // 除了以下操作都会报错：
+    // 通过 iframe.contentWindow 获取对内部 window 的引用
+    // 对 location 进行写入
+</script> -->
+
+
+<!-- iframe 有相同的源，我们可以使用它做任何事情： -->
+<!-- <iframe src="/" frameborder="0" id="iframe"></iframe>
+
+<script>
+    iframe.onload = function () {
+        iframe.contentDocument.body.prepend("Hello, world!");
+    };
+</script> -->
+
+
+
+<!-- Iframe：错误文档陷阱 -->
+<!-- <iframe src="/" frameborder="0" id="iframe"></iframe>
+
+<script>
+    let oldDoc = iframe.contentDocument;
+    iframe.onload = function() {
+        let newDoc = iframe.contentDocument;
+        // 加载的文档与初始的文档不同！
+        alert(oldDoc == newDoc);    // false
+    };
+</script> -->
+
+
+<!-- 可以使用 setInterval 进行检查 -->
+<!-- <iframe src="/" id="iframe" frameborder="0"></iframe>
+
+<script>
+    let oldDoc = iframe.contentDocument;
+
+    let timer = setInterval(() => {
+        let newDoc = iframe.contentDocument;
+        if (newDoc == oldDoc) {
+            return;
+        }
+        alert("New document is here!");
+
+        clearInterval(timer);   // 取消 setInterval
+    }, 100);
+</script> -->
+
+
+<!-- 集合：window.frames -->
+<!-- <iframe src="/" name="win" style="height:80px" frameborder="0" id="iframe"></iframe>
+
+<script>
+    alert(iframe.contentWindow == frames[0]);    // true
+    alert(iframe.contentWindow == frames.win);  // true
+    alert(window.frames[0].parent === window);  // true
+
+    if (window == top) {
+        alert('The script is in the topmost window, not in a frame')
+    } else {
+        alert('The script runs in a frame!');
+    }
+</script> -->
+
+
+<!-- postMessage 的使用 -->
+<!-- <iframe src="http://example.com" name="example" frameborder="0"></iframe>
+
+<script>
+    let win = window.frames.example;
+
+    win.postMessage("message", "http://example.com");
+
+    // 如果我们不希望做这个检查, 可以把 targetOrigin 设置为 *
+    win.postMessage("message", "*");
+</script> -->
+
+<!-- onmessage 的使用 -->
+<!-- <script>
+    window.addEventListener("message", function(event) {
+        if (event.origin != 'http://javascript.info') {
+            return;
+        }
+
+        alert("received: " + event.data);
+
+        // 可以使用 event.source.postMessage(...) 向回发送信息
+    })
+</script> -->
+
+
+<!-- 显示禁用的功能 -->
+<style>
+    #protector {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 99999999;
+    }
+</style>
+
+<div id="protector">
+    <a href="/" target="_blank">前往网站</a>
+</div>
+
+<script>
+    // 如果顶级窗口来自其他源，这里则会出现一个 error
+    // 但是在本例中没有问题
+    if (top.document.domain == document.domain) {
+        protector.remove();
+    }
+</script>

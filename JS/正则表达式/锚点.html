@@ -1,0 +1,20 @@
+<script>
+    // ^ 和 $ 被称为“锚点”
+    //=== ^ 匹配文本开头 ==========
+    // let str1 = "Mary had a little lamb";
+    // alert(/^Mary/.test(str1));  // true
+
+    //=== $ 匹配文本末尾 ==========
+    // let str2 = "It's a fleece was white as snow";
+    // alert(/snow$/.test(str2));  // true
+
+
+    //=== 测试完全匹配 ========================================
+    let goodInput = "12:34";
+    let badInput = "12:345";
+
+    let regexp = /^\d\d:\d\d$/;
+    alert(regexp.test(goodInput));  // true
+    alert(regexp.test(badInput));   // false
+    
+</script>

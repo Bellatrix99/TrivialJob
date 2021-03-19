@@ -1,0 +1,35 @@
+<script>
+    //=== Unicode 属性 \p{...} ================================
+    // let str = "A ბ ㄱ";
+
+    // alert(str.match(/\p{L}/gu));    // A,ბ,ㄱ
+    // alert(str.match(/\p{L}/g)); // null
+
+
+    //=== 实例：16 进制数字 ====================================
+    // let regexp = /x\p{Hex_Digit}\p{Hex_Digit}/u;
+
+    // alert("Number: xAF".match(regexp)); // xAF
+
+
+    //=== 实例：中文字符 =======================================
+    // let regexp = /\p{sc=Han}/gu;
+
+    // let str = `Hello JSHDJH 你好 123_456`;
+
+    // alert(str.match(regexp));   // 你,好
+
+
+    //=== 实例: 货币 ==========================================
+    let regexp = /\p{Sc}\d/gu;
+
+    let str = `Prices: $2, €1, ¥9`;
+
+    alert(str.match(regexp));   // $2,€1,¥9
+
+    
+    //=== 总结 ===============================================
+    // 修饰符 u 在正则表达式中提供对 Unicode 的支持
+    // 1. 4 个字节长的字符将被正确处理
+    // 2. Unicode 属性可以被用于查找中 \p{...}
+</script>
