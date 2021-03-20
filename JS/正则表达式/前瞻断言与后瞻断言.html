@@ -1,0 +1,15 @@
+<script>
+    //=== 找到非负数 ==========================================
+    // let regexp = /(?<![-\d])\d+/g;
+
+    // let str = "0 12 -5 123 -18";
+
+    // alert(str.match(regexp));   // 0, 12, 123
+
+
+    //=== 摘录后插入 ===========================================
+    let str = '...<body style="...">...';
+    str = str.replace(/(?<=<body.*>)/, `<h1>Hello</h1>`);
+
+    alert(str); // ...<body style="..."><h1>Hello</h1>...
+</script>

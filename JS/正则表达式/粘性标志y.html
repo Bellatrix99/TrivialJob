@@ -1,0 +1,13 @@
+<script>
+    //=== **标记 y 使 regexp.exec 正好在 lastIndex 位置
+    //=== 而不是在它之前，也不是在它之后。
+    let str = 'let varName = "value"';
+
+    let regexp = /\w+/y;
+
+    regexp.lastIndex = 3;
+    alert(regexp.exec(str)); // null（位置 3 有一个空格，不是单词）
+
+    regexp.lastIndex = 4;
+    alert(regexp.exec(str)); // varName（在位置 4 的单词）
+</script>

@@ -1,0 +1,25 @@
+<script>
+    //=== 查找编程语言 ==============================
+    // let reg = /Java(Script)?|PHP|C(\+\+)?/g;
+
+    // alert("Java JavaScript PHP C++ C".match(reg));
+
+
+    //=== 查找 bbtag 对 ============================
+    // let reg = /\[(b|url|quote)\][\s\S]*?\[\/\1\]/g;
+
+    // let str = `
+    //     [b]hello![/b]
+    //     [quote]
+    //         [url]http://google.com[/url]
+    //     [/quote]
+    // `;
+    // alert(str.match(reg));
+
+
+    //=== 查询引用字符串 ================================
+    let str = '"" .. "test me" .. "Say \\"Hello\\"!" .. "\\\\ \\"" .. ';
+    let reg = /"(\\.|[^"\\])*"/g;
+
+    alert(str.match(reg));
+</script>

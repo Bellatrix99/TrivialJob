@@ -1,0 +1,10 @@
+<script>
+    let regexp = /^((?=(\w+))\2\s?)*$/;
+
+    alert(regexp.test("A good string")); // true
+
+    let str = "An input string that takes a long time or even makes this regex to hang";
+    let result = str.match(regexp);
+    alert(result[0]); // <span class="my">
+    alert(regexp.test(str)); // false，执行得很快！
+</script>
