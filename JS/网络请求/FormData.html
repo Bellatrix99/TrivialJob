@@ -1,0 +1,50 @@
+<!-- <form action="" id="formElem">
+    <input type="text" name="name" value="John">
+    <input type="text" name="surname" value="Smith">
+    <input type="submit">
+</form> -->
+<form action="" id="formElem">
+    <input type="text" name="firstName" value="John">
+    Picture: <input type="file" name="picture" accept="image/*">
+    <input type="submit">
+</form>
+<script>
+    // formElem.onsubmit = async (e) => {
+    //     e.preventDefault();
+
+    //     let response = await fetch('/article/formdata/post/user', {
+    //         method: 'POST',
+    //         body: new FormData(formElem)
+    //     });
+
+    //     let result = await response.json();
+
+    //     alert(result.message);
+    // };
+
+
+    //=== FormData 方法 =======================================
+    let formData = new FormData();
+    formData.append('key1','value1');
+    formData.append('key2','value2');
+
+    for (const [name, value] of formData) {
+        alert(`${name} = ${value}`);
+    }
+
+
+    //=== 发送带有文件的表单 =====================================
+    // formElem.onsubmit = async(e) => {
+    //     e.preventDefault();
+    //     let response = await fetch('/article/formdata/post/user-avatar', {
+    //         method: 'POST',
+    //         body: new FormData(formElem)
+    //     });
+
+    //     let result = await response.json();
+
+    //     alert(result.message);
+    // };
+
+
+</script>

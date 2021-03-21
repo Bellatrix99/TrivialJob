@@ -1,0 +1,153 @@
+<body style="margin: 0;">
+    <canvas id="canvasElem" width="100" height="80" style="border:1px solid"></canvas>
+
+    <input type="button" value="Submit" onclick="submit()">
+</body>
+
+<script>
+    //=== 基本语法 ========================================
+    // let promise = fetch(url, [options]);
+
+    // 例子：
+    // let response = await fetch(url);
+
+    // if (response.ok) { // 如果 HTTP 状态码为 200-299
+    //     // 获取 response body（此方法会在下面解释）
+    //     let json = await response.json();
+    // } else {
+    //     alert("HTTP-Error: " + response.status);
+    // }
+
+    // 为了获取 response body, 我们需要使用一个其他的方法调用
+    // response.text() —— 读取 response，并以文本形式返回
+    // response.json() —— 将 response 解析为 JSON，
+    // response.formData() —— 以 FormData 对象的形式返回 response，
+    // response.blob() 以 Blob（具有类型的二进制数据）形式返回 response，
+    // response.arrayBuffer() —— 以 ArrayBuffer（低级别的二进制数据）形式返回 response，
+
+
+    //=== 例如，从 GitHub 获取最新 commits 的 JSON 对象
+    // let url = 'http://api.github.com/repos/javascript-tutorial/en.javascript.info/commits';
+    // let response = await fetch(url);
+
+    // let commits = await response.json();
+
+    // alert(commits[0].author.login);
+
+
+    // 也可以使用纯 promise 语法，不使用 await
+    // fetch('http://api.github.com/repos/javascript-tutorial/en.javascript.info/commits')
+    // .then(response => response.json())
+    // .then(commits => alert(commits[0].author.login));
+
+
+    //=== 要获取文本可以使用 .text() 代替.json() ===================
+    // let response = await fetch('http://api.github.com/repos/javascript-tutorial/en.javascript.info/commits');
+
+    // let text = await response.text();   // 将 response body 读取为文本
+
+    // alert(text.slice(0,80) + '...');
+
+
+    //=== 作为一个二进制格式使用 ====================================
+    // let response = await fetch('/article/fetch/logo-fetch.svg');
+
+    // let blob = await response.blob();
+
+    // let img = document.createElement('img');
+    // img.style = 'position:fixed;top:10px;left:10px;width:100px';
+    // document.body.append(img);
+
+    // img.src = URL.createObjectURL(blob);
+
+    // setTimeout(() => {
+    //     img.remove();
+    //     URL.revokeObjectURL(img.src);
+    // }, 3000);
+
+
+    //=== 只能选择一种读取 body 的方法 =============================
+
+
+    //=== Response header =====================================
+    // let response = await fetch("https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits");
+
+    // alert(response.headers.get('Content-Type'));
+
+    // for (const [key,value] of response.headers) {
+    //     alert(`${key} = ${value}`);
+    // }
+
+
+    //=== Request header ======================================
+    // let response = fetch(protectedUrl, {
+    //     headers: {
+    //         Authentication: 'secret'
+    //     }
+    // });
+
+
+    //=== POST 请求 ===========================================
+    // 例如 以 JSON 形式发送 user 对象
+    // let user = {
+    //     name: 'John',
+    //     surname: 'Smith'
+    // };
+
+    // let response = await fetch('/article/fetch/post/user', {
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type' : 'application/json;charset=utf-8'
+    //     },
+    //     body: JSON.stringify(user)
+    // });
+
+    // let result = await response.json();
+    // alert(result.message); 
+
+
+    //=== 发送图片 =============================================
+    // canvasElem.onmousemove = function (e) {
+    //     let ctx = canvasElem.getContext('2d');
+    //     ctx.lineTo(e.clientX, e.clientY);
+    //     ctx.stroke();
+    // };
+
+    // async function submit() {
+    //     let blob = await new Promise(resolve => canvasElem.toBlob(resolve, 'image/png'));
+    //     let response = await fetch('/article/fetch/post/image', {
+    //         method: 'POST',
+    //         body: blob
+    //     });
+
+    //     // 服务器给出确认信息和图片大小作为响应
+    //     let result = await response.json();
+    //     alert(result.message);
+    // }
+
+
+    //=== 从 GitHub fetch 用户信息 =============================
+    async function getUser(names) {
+        let jobs = [];
+
+        for (const name of names) {
+            let job = fetch(`http://api.github.com/users/${name}`).then(
+                successResponse => {
+                    if (successResponse.status != 200) {
+                        return null;
+                    } else {
+                        return successResponse.json();
+                    }
+                },
+                failResponse => {
+                    return null;
+                }
+            );
+            jobs.push(job);
+        }
+
+        let results = await Promise.all(jobs);
+
+        return results;
+    }
+</script>

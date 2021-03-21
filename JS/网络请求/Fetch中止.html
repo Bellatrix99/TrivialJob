@@ -1,0 +1,37 @@
+<script>
+    //=== AbortController 对象 ===============================
+    // let controller = new AbortController();
+    // let signal = controller.signal;
+
+    // signal.addEventListener('abort', () => alert("abort!"));
+
+    // controller.abort();
+
+    // alert(signal.aborted);
+
+
+    //=== 与 fetch 一起使用 ===================================
+    // let controller = new AbortController();
+    // fetch(url, {
+    //     signal: controller.signal
+    // });
+
+
+    //=== 例子 ===============================================
+    // let controller = new AbortController();
+    // setTimeout(() => controller.abort(), 1000);
+
+    // try {
+    //     let response = await fetch('/article/fetch-abort/demo/hang', {
+    //         signal: controller.signal
+    //     });
+    // } catch(err) {
+    //     if (err.name == 'AbortError') {
+    //         alert("Aborted!");
+    //     }else {
+    //         throw err;
+    //     }
+    // }
+
+
+</script>

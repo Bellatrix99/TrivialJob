@@ -1,0 +1,39 @@
+<script>
+    //=== 使用表单
+    
+    //=== 使用 script 会产生 JSONP 问题
+
+    //=== 用于简单请求的 CORS
+
+    // 请求 
+    // GET /request
+    // Host: anywhere.com
+    // Origin: http://javascript.info
+
+    // 响应
+    // 200 OK
+    // Content-Type:text/html; charset=UTF-8
+    // Access-Control-Allow-Origin: http://javascript.info
+
+
+    // 要对其他 response header 有访问权限
+    // 必须发送 Access-Control-Expose-Headers
+    // 200 OK
+    // Content-Type:text/html;charset=UTF-8
+    // Content-Length: 12345
+    // API-Key: 1231232123123
+    // Access-Control-Allow-Origin: http://javascript.info
+    // Accsee-Control-Expose-Headers: Content-Length,API-Key
+
+
+
+    //=== "非简单" 请求
+    // Access-Control-Request-Method 带有非简单请求的方法
+    // Access-Control-Request-Headers 提供非简单 HTTP-header 列表
+
+    //=== "非简单"响应
+    // Access-Control-Allow-Origin 必须为 * 或进行请求的源
+    // Access-Control-Allow-Methods 必须具有允许的方法
+    // Access-Control-Allow-Headers 必须具有一个允许的 header 列表
+    // Access-Control-Max-Age 可以指定缓存此权限的秒数
+</script>
