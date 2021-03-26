@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>查找对话框</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div class="notepad">
+        <span id="title">记事本</span>
+        <div class="header-item">
+            <ul>
+                <li>文件(F)</li>
+                <li>编辑(E)</li>
+                <li>格式(O)</li>
+                <li>查看(V)</li>
+                <li>帮助(H)</li>
+            </ul>
+        </div>
+        <hr>
+        <textarea name="" id="txtArea" cols="50" rows="30"></textarea><br>
+        <input type="button" value="查询" id="searchButton" autofocus>
+    </div>
+</body>
+
+<link rel="stylesheet" href="http://apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+<script src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+    $(function () {
+        var $btnTest = $('div.notepad>input[type="button"]');
+
+        $btnTest.click(function () {
+            $dlgSearch.show(function (content) {
+                console.log("Below is a list of related properties");
+                console.log(content);
+                let inputValue = document.getElementById('inputValues');
+                alert(`You looked for `  + inputValue.value);
+                alert("The related properties are displayed in the console")
+            });
+        });
+    });
+</script>
+
+</html>
