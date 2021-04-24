@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+123
+</body>
+<script>
+    // function sumTo(num) {
+    //     return num > 1 ? num + sumTo(num - 1) : num;
+    // }
+    //
+    // console.log(sumTo(100));
+
+
+    // function factorial(n) {
+    //     return n > 1 ? n * factorial(n - 1) : 1;
+    // }
+    //
+    // console.log(factorial(-1));
+
+
+    // function fib(n) {
+    //     return n > 1 ? fib(n - 1) + fib(n - 2) : n;
+    // }
+    //
+    // console.log(fib(3));
+
+
+    // function fib(n) {
+    //     let a = 1,
+    //         b = 1;
+    //     for (let i = 3; i <= n; i++) {
+    //         let c = a + b;
+    //         a = b;
+    //         b = c;
+    //     }
+    //     return b;
+    // }
+    //
+    // console.log(fib(3));
+
+
+    // let list = {
+    //     value: 1,
+    //     next: {
+    //         value: 2,
+    //         next: {
+    //             value: 3,
+    //             next: {
+    //                 value: 4,
+    //                 next: null
+    //             }
+    //         }
+    //     }
+    // };
+    //
+    // function printList(list) {
+    //     let tmp = list;
+    //     while (tmp) {
+    //         console.log(tmp.value);
+    //         tmp = tmp.next;
+    //     }
+    // }
+    //
+    // printList(list);
+
+
+    // let list = {
+    //     value: 1,
+    //     next: {
+    //         value: 2,
+    //         next: {
+    //             value: 3,
+    //             next: {
+    //                 value: 4,
+    //                 next: null
+    //             }
+    //         }
+    //     }
+    // };
+    //
+    // function printReverseList(list) {
+    //     if (list.next) {
+    //         printReverseList(list.next);
+    //     }
+    //
+    //     console.log(list.value);
+    // }
+    //
+    // printReverseList(list);
+
+
+    // let list = {
+    //     value: 1,
+    //     next: {
+    //         value: 2,
+    //         next: {
+    //             value: 3,
+    //             next: {
+    //                 value: 4,
+    //                 next: null
+    //             }
+    //         }
+    //     }
+    // };
+    //
+    // function printReverseList(list) {
+    //     let arr = [];
+    //     let tmp = list;
+    //
+    //     while (tmp) {
+    //         arr.push(tmp.value);
+    //         tmp = tmp.next;
+    //     }
+    //
+    //     for (let i = arr.length - 1; i >= 0; i--) {
+    //         console.log(arr[i]);
+    //     }
+    // }
+    //
+    // printReverseList(list);
+
+
+    // let x = 1;
+    //
+    // function func() {
+    //     console.log(x); // ReferenceError: Cannot access 'x' before initialization
+    //
+    //     let x = 2;
+    //
+    // }
+    //
+    // func();
+
+
+    // function inBetween(a, b) {
+    //     return function (x) {
+    //         return x >= a && x <= b;
+    //     };
+    // }
+    //
+    // let arr = [1, 2, 3, 4, 5, 6, 7];
+    // console.log(arr.filter(inBetween(3,6)));
+
+
+    // function inArray(arr) {
+    //     return function (x) {
+    //         return arr.includes(x);
+    //     };
+    // }
+    //
+    // let arr = [1, 2, 3, 4, 5, 6, 7];
+    // console.log(arr.filter(inArray([1, 2, 10])));
+
+
+    // let users = [
+    //     {name: "John", age: 20, surname: "Johnson"},
+    //     {name: "Pete", age: 18, surname: "Peterson"},
+    //     {name: "Ann", age: 19, surname: "Hathaway"}
+    // ];
+    //
+    // function byField(fieldName) {
+    //     return (a, b) => a[fieldName] > b[fieldName] ? 1 : -1;
+    // }
+
+
+    // function makeArmy() {
+    //     let shooters = [];
+    //
+    //     let i = 0;
+    //     while (i < 10) {
+    //         let j = i;
+    //         let shooter = function () { // 创建一个 shooter 函数，
+    //             alert(j); // 应该显示其编号
+    //         };
+    //         shooters.push(shooter); // 将此 shooter 函数添加到数组中
+    //         i++;
+    //     }
+    //
+    //     // ……返回 shooters 数组
+    //     return shooters;
+    // }
+    //
+    // let army = makeArmy();
+    //
+    // // ……所有的 shooter 显示的都是 10，而不是它们的编号 0, 1, 2, 3...
+    // army[0](); // 编号为 0 的 shooter 显示的是 10
+    // army[1](); // 编号为 1 的 shooter 显示的是 10
+    // army[2](); // 10，其他的也是这样。
+
+
+    // function spy(func) {
+    //     function wrapper(...args) {
+    //         wrapper.calls.push(args);
+    //         return func.apply(this, args);
+    //     }
+    //
+    //     wrapper.calls = [];
+    //
+    //     return wrapper;
+    // }
+
+
+    // function delay(f, ms) {
+    //     return function () {
+    //         setTimeout(() => f.apply(this, arguments), ms);
+    //     };
+    //
+    // }
+
+
+    // // 防抖
+    // function debounce(func, ms) {
+    //     let timeout;
+    //     return function () {
+    //         clearTimeout(timeout);
+    //         timeout = setTimeout(() => func.apply(this, arguments), ms);
+    //     };
+    // }
+
+
+    // 节流
+    // function throttle(func, ms) {
+    //     let isThrottled = false,
+    //         savedArgs,
+    //         savedThis;
+    //
+    //     function wrapper() {
+    //         if (isThrottled) {
+    //             savedArgs = arguments;
+    //             savedThis = this;
+    //             return;
+    //         }
+    //
+    //         func.apply(this, arguments);
+    //
+    //         isThrottled = true;
+    //
+    //         setTimeout(function() {
+    //             isThrottled = false;
+    //             if (savedArgs) {
+    //                 wrapper.apply(savedThis, savedArgs);
+    //                 savedArgs = savedThis = null;
+    //             }
+    //         }, ms);
+    //     }
+    //
+    //     return wrapper;
+    // }
+
+    let user = {
+        name: "John",
+        surname: "Smith",
+
+        get fullName() {
+            return `${this.name} ${this.surname}`;
+        }
+    };
+
+    alert(user.fullName); // John Smith
+
+
+</script>
+</html>
