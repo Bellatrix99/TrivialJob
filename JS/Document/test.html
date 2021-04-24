@@ -1,0 +1,722 @@
+<!--&lt;!&ndash;<html>&ndash;&gt;-->
+<!--&lt;!&ndash;<body>&ndash;&gt;-->
+<!--&lt;!&ndash;<div>Users:</div>&ndash;&gt;-->
+<!--&lt;!&ndash;<ul>&ndash;&gt;-->
+<!--&lt;!&ndash;    <li>John</li>&ndash;&gt;-->
+<!--&lt;!&ndash;    <li>Pete</li>&ndash;&gt;-->
+<!--&lt;!&ndash;</ul>&ndash;&gt;-->
+<!--&lt;!&ndash;</body>&ndash;&gt;-->
+<!--&lt;!&ndash;<script>&ndash;&gt;-->
+<!--&lt;!&ndash;    let div = document.body.firstElementChild;&ndash;&gt;-->
+<!--&lt;!&ndash;    // let div = document.body.children[0];&ndash;&gt;-->
+<!--&lt;!&ndash;    // document.body.childNodes[1]&ndash;&gt;-->
+
+<!--&lt;!&ndash;    &ndash;&gt;-->
+<!--&lt;!&ndash;</script>&ndash;&gt;-->
+<!--&lt;!&ndash;</html>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;<!DOCTYPE html>&ndash;&gt;-->
+<!--&lt;!&ndash;<html>&ndash;&gt;-->
+<!--&lt;!&ndash;<body>&ndash;&gt;-->
+<!--&lt;!&ndash;<div data-widget-name="menu">Choose the genre</div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<script>&ndash;&gt;-->
+<!--&lt;!&ndash;    let elem = document.querySelector('[data-widget-name]');&ndash;&gt;-->
+
+<!--&lt;!&ndash;    console.log(elem.dataset.widgetName);&ndash;&gt;-->
+<!--&lt;!&ndash;</script>&ndash;&gt;-->
+<!--&lt;!&ndash;</body>&ndash;&gt;-->
+<!--&lt;!&ndash;</html>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;<!doctype html>&ndash;&gt;-->
+<!--&lt;!&ndash;<body>&ndash;&gt;-->
+<!--&lt;!&ndash;<style>&ndash;&gt;-->
+<!--&lt;!&ndash;    .alert {&ndash;&gt;-->
+<!--&lt;!&ndash;        padding: 15px;&ndash;&gt;-->
+<!--&lt;!&ndash;        border: 1px solid #d6e9c6;&ndash;&gt;-->
+<!--&lt;!&ndash;        border-radius: 4px;&ndash;&gt;-->
+<!--&lt;!&ndash;        color: #3c763d;&ndash;&gt;-->
+<!--&lt;!&ndash;        background-color: #dff0d8;&ndash;&gt;-->
+<!--&lt;!&ndash;    }&ndash;&gt;-->
+<!--&lt;!&ndash;</style>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<script>&ndash;&gt;-->
+<!--&lt;!&ndash;    let div = document.createElement('div');&ndash;&gt;-->
+<!--&lt;!&ndash;    div.className = "alert";&ndash;&gt;-->
+<!--&lt;!&ndash;    div.innerHTML = "<strong>Hi there!</strong> You've read an important message.";&ndash;&gt;-->
+
+<!--&lt;!&ndash;    document.body.append(div);&ndash;&gt;-->
+<!--&lt;!&ndash;</script>&ndash;&gt;-->
+<!--&lt;!&ndash;</body>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;<body>&ndash;&gt;-->
+<!--&lt;!&ndash;<ol id="ol">&ndash;&gt;-->
+<!--&lt;!&ndash;    <li>0</li>&ndash;&gt;-->
+<!--&lt;!&ndash;    <li>1</li>&ndash;&gt;-->
+<!--&lt;!&ndash;    <li>2</li>&ndash;&gt;-->
+<!--&lt;!&ndash;</ol>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<div id="div"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;</body>&ndash;&gt;-->
+<!--&lt;!&ndash;<script>&ndash;&gt;-->
+<!--&lt;!&ndash;    ol.before('before');&ndash;&gt;-->
+<!--&lt;!&ndash;    ol.after('after');&ndash;&gt;-->
+
+<!--&lt;!&ndash;    let liFirst = document.createElement('li');&ndash;&gt;-->
+<!--&lt;!&ndash;    liFirst.innerHTML = 'prepend';&ndash;&gt;-->
+<!--&lt;!&ndash;    ol.prepend(liFirst); // 将 liFirst 插入到 <ol> 的最开始&ndash;&gt;-->
+
+<!--&lt;!&ndash;    let liLast = document.createElement('li');&ndash;&gt;-->
+<!--&lt;!&ndash;    liLast.innerHTML = 'append';&ndash;&gt;-->
+<!--&lt;!&ndash;    ol.append(liLast);&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;</script>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;<div id="first">First</div>&ndash;&gt;-->
+<!--&lt;!&ndash;<div id="second">Second</div>&ndash;&gt;-->
+<!--&lt;!&ndash;<script>&ndash;&gt;-->
+<!--&lt;!&ndash;    second.after(first);&ndash;&gt;-->
+<!--&lt;!&ndash;</script>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;<style>&ndash;&gt;-->
+<!--&lt;!&ndash;    .alert {&ndash;&gt;-->
+<!--&lt;!&ndash;        padding: 15px;&ndash;&gt;-->
+<!--&lt;!&ndash;        border: 1px solid #d6e9c6;&ndash;&gt;-->
+<!--&lt;!&ndash;        border-radius: 4px;&ndash;&gt;-->
+<!--&lt;!&ndash;        color: #3c763d;&ndash;&gt;-->
+<!--&lt;!&ndash;        background-color: #dff0d8;&ndash;&gt;-->
+<!--&lt;!&ndash;    }&ndash;&gt;-->
+<!--&lt;!&ndash;</style>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<div class="alert" id="div">&ndash;&gt;-->
+<!--&lt;!&ndash;    <strong>Hi there!</strong> You've read an important message,&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<script>&ndash;&gt;-->
+<!--&lt;!&ndash;    let div2 = div.cloneNode(true);&ndash;&gt;-->
+<!--&lt;!&ndash;    div2.querySelector('strong').innerHTML = 'Bye there!';&ndash;&gt;-->
+
+<!--&lt;!&ndash;    div.after(div2); &ndash;&gt;-->
+<!--&lt;!&ndash;</script>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;<ol id="elem">&ndash;&gt;-->
+<!--&lt;!&ndash;    <li>Hello</li>&ndash;&gt;-->
+<!--&lt;!&ndash;    <li>World</li>&ndash;&gt;-->
+<!--&lt;!&ndash;</ol>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<script>&ndash;&gt;-->
+<!--&lt;!&ndash;    function clear(elem) {&ndash;&gt;-->
+<!--&lt;!&ndash;        // while (elem.firstChild) {&ndash;&gt;-->
+<!--&lt;!&ndash;        //     elem.firstChild.remove();&ndash;&gt;-->
+<!--&lt;!&ndash;        // }&ndash;&gt;-->
+<!--&lt;!&ndash;        elem.innerHTML = '';&ndash;&gt;-->
+<!--&lt;!&ndash;    }&ndash;&gt;-->
+<!--&lt;!&ndash;    clear(elem);&ndash;&gt;-->
+<!--&lt;!&ndash;</script>&ndash;&gt;-->
+
+<!--<body>-->
+<!--&lt;!&ndash;<div id="container"></div>&ndash;&gt;-->
+<!--<ul>-->
+<!--    <li>Animals-->
+<!--        <ul>-->
+<!--            <li>Mammals-->
+<!--                <ul>-->
+<!--                    <li>Cows</li>-->
+<!--                    <li>Donkeys</li>-->
+<!--                    <li>Dogs</li>-->
+<!--                    <li>Tigers</li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--            <li>Other-->
+<!--                <ul>-->
+<!--                    <li>Snakes</li>-->
+<!--                    <li>Birds</li>-->
+<!--                    <li>Lizards</li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </li>-->
+<!--    <li>Fishes-->
+<!--        <ul>-->
+<!--            <li>Aquarium-->
+<!--                <ul>-->
+<!--                    <li>Guppy</li>-->
+<!--                    <li>Angelfish</li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--            <li>Sea-->
+<!--                <ul>-->
+<!--                    <li>Sea trout</li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </li>-->
+<!--</ul>-->
+<!--</body>-->
+<!--<script>-->
+<!--    // let ul = document.createElement('ul');-->
+<!--    // document.body.append(ul);-->
+<!--    //-->
+<!--    // while (true) {-->
+<!--    //     let data = prompt("Enter the text for the list item", "");-->
+<!--    //-->
+<!--    //     if (!data) {-->
+<!--    //         break;-->
+<!--    //     }-->
+<!--    //-->
+<!--    //     let li = document.createElement('li');-->
+<!--    //     li.textContent = data;-->
+<!--    //     ul.append(li);-->
+<!--    // }-->
+
+
+<!--    // let ul = document.createElement('ul');-->
+<!--    // document.body.append(ul);-->
+<!--    // while (true) {-->
+<!--    //     let data = prompt("Enter the text for the list item", "");-->
+<!--    //-->
+<!--    //     if (!data) {-->
+<!--    //         break;-->
+<!--    //     }-->
+<!--    //-->
+<!--    //     let li = document.createElement('li');-->
+<!--    //     li.textContent = data;-->
+<!--    //     ul.append(li);-->
+<!--    // }-->
+
+
+<!--    // let data = {-->
+<!--    //     "Fish": {-->
+<!--    //         "trout": {},-->
+<!--    //         "salmon": {}-->
+<!--    //     },-->
+<!--    //-->
+<!--    //     "Tree": {-->
+<!--    //         "Huge": {-->
+<!--    //             "sequoia": {},-->
+<!--    //             "oak": {}-->
+<!--    //         },-->
+<!--    //         "Flowering": {-->
+<!--    //             "apple tree": {},-->
+<!--    //             "magnolia": {}-->
+<!--    //         }-->
+<!--    //     }-->
+<!--    // };-->
+
+<!--    // function createTree(container, obj) {-->
+<!--    //     container.innerHTML = createTreeText(obj);-->
+<!--    // }-->
+<!--    //-->
+<!--    // function createTreeText(obj) {-->
+<!--    //     let li = '';-->
+<!--    //     let ul;-->
+<!--    //     for (let objKey in obj) {-->
+<!--    //         li += '<li>' + objKey + createTreeText(obj[objKey]) + '</li>';-->
+<!--    //     }-->
+<!--    //     if (li) {-->
+<!--    //         ul = '<ul>' + li + '</ul>'-->
+<!--    //     }-->
+<!--    //     return ul || '';-->
+<!--    // }-->
+<!--    //-->
+<!--    // createTree(container, data);-->
+
+
+<!--    // function createTree(container, obj) {-->
+<!--    //     container.append(createTreeDom(obj));-->
+<!--    // }-->
+<!--    //-->
+<!--    // function createTreeDom(obj) {-->
+<!--    //     if (!Object.keys(obj).length) return;-->
+<!--    //-->
+<!--    //     let ul = document.createElement('ul');-->
+<!--    //-->
+<!--    //     for (let key in obj) {-->
+<!--    //         let li = document.createElement('li');-->
+<!--    //         li.innerHTML = key;-->
+<!--    //-->
+<!--    //         let childrenUl = createTreeDom(obj[key]);-->
+<!--    //         if (childrenUl) {-->
+<!--    //             li.append(childrenUl);-->
+<!--    //         }-->
+<!--    //-->
+<!--    //         ul.append(li);-->
+<!--    //     }-->
+<!--    //-->
+<!--    //     return ul;-->
+<!--    // }-->
+<!--    //-->
+<!--    // let container = document.getElementById('container');-->
+<!--    // createTree(container, data);-->
+
+
+<!--    let lis = document.getElementsByTagName('li');-->
+
+<!--    for (let li of lis) {-->
+<!--        let descendantsCount = li.getElementsByTagName('li').length;-->
+<!--        if (!descendantsCount) continue;-->
+
+<!--        li.firstChild.data += ' [' + descendantsCount + ']';-->
+<!--    }-->
+
+<!--</script>-->
+
+
+<!--<style>-->
+<!--    table {-->
+<!--        border-collapse: collapse;-->
+<!--    }-->
+
+<!--    td,-->
+<!--    th {-->
+<!--        border: 1px solid black;-->
+<!--        padding: 3px;-->
+<!--        text-align: center;-->
+<!--    }-->
+
+<!--    th {-->
+<!--        font-weight: bold;-->
+<!--        background-color: #E6E6E6;-->
+<!--    }-->
+<!--</style>-->
+
+
+<!--<body>-->
+<!--&lt;!&ndash;<div id="calendar"></div>&ndash;&gt;-->
+<!--<ul>-->
+<!--    <li>Animals-->
+<!--        <ul>-->
+<!--            <li>Mammals-->
+<!--                <ul>-->
+<!--                    <li>Cows</li>-->
+<!--                    <li>Donkeys</li>-->
+<!--                    <li>Dogs</li>-->
+<!--                    <li>Tigers</li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--            <li>Other-->
+<!--                <ul>-->
+<!--                    <li>Snakes</li>-->
+<!--                    <li>Birds</li>-->
+<!--                    <li>Lizards</li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </li>-->
+<!--    <li>Fishes-->
+<!--        <ul>-->
+<!--            <li>Aquarium-->
+<!--                <ul>-->
+<!--                    <li>Guppy</li>-->
+<!--                    <li>Angelfish</li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--            <li>Sea-->
+<!--                <ul>-->
+<!--                    <li>Sea trout</li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </li>-->
+<!--</ul>-->
+<!--</body>-->
+<!--<script>-->
+<!--    // function createCalendar(elem, year, month) {-->
+<!--    //     let mon = month - 1;-->
+<!--    //     let d = new Date(year, mon);-->
+<!--    //-->
+<!--    //     let table = `<table><tr>-->
+<!--    //                                 <th>MO</th>-->
+<!--    //                                 <th>TU</th>-->
+<!--    //                                 <th>WE</th>-->
+<!--    //                                 <th>TH</th>-->
+<!--    //                                 <th>FR</th>-->
+<!--    //                                 <th>SA</th>-->
+<!--    //                                 <th>SU</th>-->
+<!--    //                             </tr><tr>`;-->
+<!--    //     for (let i = 0; i < getDay(d); i++) {-->
+<!--    //         table += '<td></td>';-->
+<!--    //     }-->
+<!--    //-->
+<!--    //     while (d.getMonth() === mon) {-->
+<!--    //         table += '<td>' + d.getDate() + '</td>';-->
+<!--    //-->
+<!--    //         if (getDay(d) % 7 === 6) {-->
+<!--    //             table += '</tr><tr>';-->
+<!--    //         }-->
+<!--    //-->
+<!--    //         d.setDate(d.getDate() + 1);-->
+<!--    //     }-->
+<!--    //-->
+<!--    //     if (getDay(d) !== 0) {-->
+<!--    //         for (let i = getDay(d); i < 7; i++) {-->
+<!--    //             table += '<td></td>';-->
+<!--    //         }-->
+<!--    //     }-->
+<!--    //-->
+<!--    //     table += '</tr></table>';-->
+<!--    //-->
+<!--    //     elem.innerHTML = table;-->
+<!--    // }-->
+<!--    //-->
+<!--    // function getDay(date) {-->
+<!--    //     let day = date.getDay();-->
+<!--    //     if (day === 0) day = 7;-->
+<!--    //     return day - 1;-->
+<!--    // }-->
+<!--    //-->
+<!--    // createCalendar(calendar, 2021, 4);-->
+
+<!--    let lis = document.getElementsByTagName('li');-->
+
+<!--    for (let li of lis) {-->
+<!--        let descendantsCount = li.getElementsByTagName('li').length;-->
+<!--        if (!descendantsCount) continue;-->
+
+<!--        li.firstChild.data += ' [' + descendantsCount + ']';-->
+<!--    }-->
+<!--</script>-->
+
+
+<!--<div id="clock">-->
+<!--    <span class="hour">hh</span>:<span class="min">mm</span>:<span class="sec">ss</span>-->
+<!--</div>-->
+
+<!--<script>-->
+<!--    function update() {-->
+<!--        let clock = document.getElementById('clock');-->
+<!--        let date = new Date();-->
+<!--        let hours = date.getHours();-->
+<!--        if (hours < 10) hours = '0' + hours;-->
+<!--        clock.children[0].innerHTML = hours;-->
+
+<!--        let minutes = date.getMinutes();-->
+<!--        if (minutes < 10) minutes = '0' + minutes;-->
+<!--        clock.children[1].innerHTML = minutes;-->
+
+<!--        let seconds = date.getSeconds();-->
+<!--        if (seconds < 10) seconds = '0' + seconds;-->
+<!--        clock.children[2].innerHTML = seconds;-->
+<!--    }-->
+
+<!--    let timerId;-->
+
+<!--    function clockStart() {-->
+<!--        update();-->
+<!--        timerId = setInterval(update, 1000);-->
+<!--    }-->
+
+<!--    function clockStop() {-->
+<!--        clearInterval(timerId);-->
+<!--        timerId = null;-->
+<!--    }-->
+<!--</script>-->
+<!--&lt;!&ndash; click on this button calls clockStart() &ndash;&gt;-->
+<!--<input type="button" onclick="clockStart()" value="Start">-->
+
+<!--&lt;!&ndash; click on this button calls clockStop() &ndash;&gt;-->
+<!--<input type="button" onclick="clockStop()" value="Stop">-->
+
+<!--<body>-->
+<!--<ul id="ul">-->
+<!--    <li id="one">1</li>-->
+<!--    <li id="two">4</li>-->
+<!--</ul>-->
+<!--</body>-->
+<!--<script>-->
+<!--    one.insertAdjacentHTML('beforeend', '<li>2</li><li>3</li>');-->
+<!--</script>-->
+
+
+<!--<table id="table">-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <th>Name</th>-->
+<!--        <th>Surname</th>-->
+<!--        <th>Age</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr>-->
+<!--        <td>John</td>-->
+<!--        <td>Smith</td>-->
+<!--        <td>10</td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td>Pete</td>-->
+<!--        <td>Brown</td>-->
+<!--        <td>15</td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td>Ann</td>-->
+<!--        <td>Lee</td>-->
+<!--        <td>5</td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td>...</td>-->
+<!--        <td>...</td>-->
+<!--        <td>...</td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
+
+<!--<script>-->
+<!--    let sortedRows = Array.from(table.tBodies[0].rows)-->
+<!--        .sort((rowA, rowB) => rowA.cells[0].innerHTML.localeCompare(rowB.cells[0].innerHTML));-->
+
+<!--    table.tBodies[0].append(...sortedRows);-->
+<!--</script>-->
+
+
+<!--<style>-->
+<!--    .notification {-->
+<!--        position: fixed;-->
+<!--        z-index: 1000;-->
+<!--        padding: 5px;-->
+<!--        border: 1px solid black;-->
+<!--        font-size: 20px;-->
+<!--        background: white;-->
+<!--        text-align: center;-->
+<!--    }-->
+
+<!--    .welcome {-->
+<!--        background: #b80000;-->
+<!--        color: yellow;-->
+<!--    }-->
+<!--</style>-->
+<!--<body>-->
+<!--<h2>Notification is on the right</h2>-->
+
+<!--<p>-->
+<!--    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum aspernatur quam ex eaque inventore quod voluptatem-->
+<!--    adipisci omnis nemo nulla fugit iste numquam ducimus cumque minima porro ea quidem maxime necessitatibus beatae-->
+<!--    labore soluta voluptatum-->
+<!--    magnam consequatur sit laboriosam velit excepturi laborum sequi eos placeat et quia deleniti? Corrupti velit impedit-->
+<!--    autem et obcaecati fuga debitis nemo ratione iste veniam amet dicta hic ipsam unde cupiditate incidunt aut iure-->
+<!--    ipsum officiis soluta-->
+<!--    temporibus. Tempore dicta ullam delectus numquam consectetur quisquam explicabo culpa excepturi placeat quo sequi-->
+<!--    molestias reprehenderit hic at nemo cumque voluptates quidem repellendus maiores unde earum molestiae ad.-->
+<!--</p>-->
+<!--</body>-->
+
+<!--<script>-->
+<!--    function showNotification({top = 0, right = 0, className, html}) {-->
+<!--        let notification = document.createElement('div');-->
+<!--        notification.className = "notification";-->
+<!--        if (className) {-->
+<!--            notification.classList.add(className);-->
+<!--        }-->
+
+<!--        notification.style.top = top + 'px';-->
+<!--        notification.style.right = right + 'px';-->
+
+<!--        notification.innerHTML = html;-->
+<!--        document.body.append(notification);-->
+
+<!--        setTimeout(() => notification.remove(), 1500);-->
+<!--    }-->
+
+<!--    let i = 1;-->
+<!--    setInterval(() => {-->
+<!--        showNotification({-->
+<!--            top: 10,-->
+<!--            right: 10,-->
+<!--            html: 'Hello ' + i++,-->
+<!--            className: "welcome"-->
+<!--        });-->
+<!--    }, 2000);-->
+<!--</script>-->
+
+
+<!--<main style="position: relative" id="main">-->
+<!--    <article>-->
+<!--        <div id="example" style="position: absolute; left: 180px; top: 180px">...</div>-->
+<!--    </article>-->
+<!--</main>-->
+<!--<script>-->
+<!--    alert(example.offsetParent.id); // main-->
+<!--    alert(example.offsetLeft); // 180（注意：这是一个数字，不是字符串 "180px"）-->
+<!--    alert(example.offsetTop); // 180-->
+<!--</script>-->
+
+<!--<body>-->
+
+<!--</body>-->
+<!--<script>-->
+<!--    // 创建一个包含滚动条的 div-->
+<!--    let div = document.createElement('div');-->
+
+<!--    div.style.overflowY = 'scroll';-->
+<!--    div.style.width = '50px';-->
+<!--    div.style.height = '50px';-->
+
+<!--    // 必须将其放入文档（document）中，否则其大小将为 0-->
+<!--    document.body.append(div);-->
+<!--    let scrollWidth = div.offsetWidth - div.clientWidth;-->
+
+<!--    div.remove();-->
+
+<!--    alert(scrollWidth);-->
+<!--</script>-->
+
+
+<!--<!DOCTYPE HTML>-->
+<!--<html>-->
+
+<!--<head>-->
+<!--    <style>-->
+<!--        #field {-->
+<!--            width: 200px;-->
+<!--            border: 10px groove black;-->
+<!--            background-color: #00FF00;-->
+<!--            position: relative;-->
+<!--        }-->
+
+<!--        #ball {-->
+<!--            position: absolute;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+
+<!--<body>-->
+
+
+<!--<div id="field">-->
+<!--    <img src="https://en.js.cx/clipart/ball.svg" width="40" height="40" id="ball"> . . . . . . . . . . . . . . . . . . .-->
+<!--    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .-->
+<!--    . . . . . . . . .-->
+<!--    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .-->
+<!--    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .-->
+<!--</div>-->
+
+
+<!--<script>-->
+<!--    // ball.offsetWidth=0 before image loaded!-->
+<!--    // to fix: set width-->
+<!--    ball.style.left = Math.round(field.clientWidth / 2 - ball.offsetWidth / 2) + 'px'-->
+<!--    ball.style.top = Math.round(field.clientHeight / 2 - ball.offsetHeight / 2) + 'px'-->
+<!--</script>-->
+
+
+<!--</body>-->
+
+<!--</html>-->
+
+
+<!--<script>-->
+<!--    let elem = document.getElementById("coords-show-mark");-->
+
+<!--    function createMemssageUnder(elem, html) {-->
+<!--        let message = document.createElement('div');-->
+
+<!--        message.style.cssText-->
+<!--    }-->
+<!--</script>-->
+
+<!--<style>-->
+<!--    .note {-->
+<!--        position: absolute;-->
+<!--        z-index: 1000;-->
+<!--        padding: 5px;-->
+<!--        border: 1px solid black;-->
+<!--        background: white;-->
+<!--        text-align: center;-->
+<!--        font: italic 14px serif;-->
+<!--    }-->
+
+<!--    blockquote {-->
+<!--        background: #f9f9f9;-->
+<!--        border-left: 10px solid #ccc;-->
+<!--        margin: 0 0 0 100px;-->
+<!--        padding: .5em 10px;-->
+<!--        quotes: "\201C""\201D""\2018""\2019";-->
+<!--        display: inline-block;-->
+<!--        white-space: pre;-->
+<!--    }-->
+
+<!--    blockquote:before {-->
+<!--        color: #ccc;-->
+<!--        content: open-quote;-->
+<!--        font-size: 4em;-->
+<!--        line-height: .1em;-->
+<!--        margin-right: .25em;-->
+<!--        vertical-align: -.4em;-->
+<!--    }-->
+<!--</style>-->
+<!--<body style="height: 2000px">-->
+
+<!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit sint atque dolorum fuga ad incidunt-->
+<!--    voluptatum error fugiat animi amet! Odio temporibus nulla id unde quaerat dignissimos enim nisi rem provident-->
+<!--    molestias sit tempore omnis recusandae-->
+<!--    esse sequi officia sapiente.</p>-->
+
+<!--<blockquote>-->
+<!--    Teacher: Why are you late?-->
+<!--    Student: There was a man who lost a hundred dollar bill.-->
+<!--    Teacher: That's nice. Were you helping him look for it?-->
+<!--    Student: No. I was standing on it.-->
+<!--</blockquote>-->
+
+<!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit sint atque dolorum fuga ad incidunt-->
+<!--    voluptatum error fugiat animi amet! Odio temporibus nulla id unde quaerat dignissimos enim nisi rem provident-->
+<!--    molestias sit tempore omnis recusandae-->
+<!--    esse sequi officia sapiente.</p>-->
+
+
+<!--<script>-->
+<!--    function getCoords(elem) {-->
+<!--        let box = elem.getBoundingClientRect();-->
+
+<!--        return {-->
+<!--            top: box.top + window.pageYOffset,-->
+<!--            left: box.left + window.pageXOffset-->
+<!--        };-->
+<!--    }-->
+
+<!--    function positionAt(anchor, position, elem) {-->
+<!--        let anchorCoords = getCoords(anchor);-->
+
+<!--        switch (position) {-->
+<!--            case "top":-->
+<!--                elem.style.left = anchorCoords.left + 'px';-->
+<!--                elem.style.top = anchorCoords.top - elem.offsetHeight + 'px';-->
+<!--                break;-->
+<!--            case "right":-->
+<!--                elem.style.left = anchorCoords.left + anchor.offsetWidth + "px";-->
+<!--                elem.style.top = anchorCoords.top + "px";-->
+<!--                break;-->
+<!--            case "bottom":-->
+<!--                elem.style.left = anchorCoords.left + "px";-->
+<!--                elem.style.top = anchorCoords.top + anchor.offsetHeight + "px";-->
+<!--                break;-->
+<!--        }-->
+<!--    }-->
+
+<!--    function showNote(anchor, position, html) {-->
+<!--        let note = document.createElement('div');-->
+<!--        note.className = 'note';-->
+<!--        note.innerHTML = html;-->
+<!--        document.body.append(note);-->
+
+<!--        positionAt(anchor, position, note);-->
+<!--    }-->
+
+<!--    let blockquote = document.querySelector('blockquote');-->
+
+<!--    showNote(blockquote, "top", "note above");-->
+<!--    showNote(blockquote, "right", "note at the right");-->
+<!--    showNote(blockquote, "bottom", "note below");-->
+<!--</script>-->
+
+
+<!--</body>-->
+<!--</html>-->
+
+

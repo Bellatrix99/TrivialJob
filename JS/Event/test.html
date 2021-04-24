@@ -1,0 +1,929 @@
+<!--<body>-->
+
+<!--<input type="button" id="hider" value="Click to hide the text"/>-->
+
+<!--<div id="text">Text</div>-->
+
+<!--<script>-->
+<!--    let button = document.querySelector("#hider");-->
+<!--    // button.addEventListener('click', function () {-->
+<!--    //     this.hidden = true;-->
+<!--    // })-->
+
+<!--    function handler() {-->
+<!--        alert(1);-->
+<!--    }-->
+
+<!--    button.addEventListener("click", handler);-->
+<!--    button.removeEventListener("click", handler);-->
+<!--</script>-->
+
+<!--</body>-->
+
+
+<!--<!DOCTYPE HTML>-->
+<!--<html>-->
+
+<!--<head>-->
+<!--    <meta charset="utf-8">-->
+<!--    <style>-->
+<!--        #field {-->
+<!--            width: 200px;-->
+<!--            height: 150px;-->
+<!--            border: 10px solid black;-->
+<!--            background-color: #00FF00;-->
+<!--            position: relative;-->
+<!--            overflow: hidden;-->
+<!--            cursor: pointer;-->
+<!--        }-->
+
+<!--        #ball {-->
+<!--            position: absolute;-->
+<!--            left: 0;-->
+<!--            top: 0;-->
+<!--            width: 40px;-->
+<!--            height: 40px;-->
+<!--            transition: all 1s;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+
+<!--<body style="height:2000px">-->
+
+<!--Click on a field to move the ball there.-->
+<!--<br>-->
+
+
+<!--<div id="field">-->
+<!--    <img src="https://en.js.cx/clipart/ball.svg" id="ball"> . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .-->
+<!--    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .-->
+<!--</div>-->
+<!--<script>-->
+<!--    let field = document.querySelector("#field");-->
+<!--    let ball = document.querySelector("#ball")-->
+<!--    field.onclick = function (event) {-->
+<!--        let fieldCoords = this.getBoundingClientRect();-->
+
+<!--        let ballCoords = {-->
+<!--            top: event.clientY - fieldCoords.top - field.clientTop - ball.clientHeight / 2,-->
+<!--            left: event.clientX - fieldCoords.left - field.clientLeft - ball.clientWidth / 2-->
+<!--        };-->
+
+<!--        if (ballCoords.top < 0) ballCoords.top = 0;-->
+<!--        if (ballCoords.left < 0) ballCoords.left = 0;-->
+
+<!--        if (ballCoords.left + ball.clientLeft > field.clientWidth) {-->
+<!--            ballCoords.left = field.clientWidth - ball.clientWidth;-->
+<!--        }-->
+
+<!--        if (ballCoords.top + ball.clientHeight > field.clientHeight) {-->
+<!--            ballCoords.top = field.clientHeight - ball.clientHeight;-->
+<!--        }-->
+
+<!--        ball.style.left = ballCoords.left + 'px';-->
+<!--        ball.style.top = ballCoords.top + 'px';-->
+<!--    }-->
+<!--</script>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+<!--<!DOCTYPE HTML>-->
+<!--<html>-->
+
+<!--<head>-->
+<!--    <link rel="stylesheet" type="text/css" href="messages.css">-->
+<!--    <meta charset="utf-8">-->
+<!--</head>-->
+
+<!--<body>-->
+
+<!--The button code (may need to adjust CSS):-->
+<!--<button class="remove-button">[x]</button>-->
+
+<!--<div>-->
+<!--    <div class="pane">-->
+<!--        <h3>Horse</h3>-->
+<!--        <p>The horse is one of two extant subspecies of Equus ferus. It is an odd-toed ungulate mammal belonging to the taxonomic family Equidae. The horse has evolved over the past 45 to 55 million years from a small multi-toed creature, Eohippus, into the large, single-toed animal of today.</p>-->
+<!--    </div>-->
+<!--    <div class="pane">-->
+<!--        <h3>Donkey</h3>-->
+<!--        <p>The donkey or ass (Equus africanus asinus) is a domesticated member of the horse family, Equidae. The wild ancestor of the donkey is the African wild ass, E. africanus. The donkey has been used as a working animal for at least 5000 years.</p>-->
+<!--    </div>-->
+<!--    <div class="pane">-->
+<!--        <h3>Cat</h3>-->
+<!--        <p>The domestic cat (Latin: Felis catus) is a small, typically furry, carnivorous mammal. They are often called house cats when kept as indoor pets or simply cats when there is no need to distinguish them from other felids and felines. Cats are often valued by humans for companionship and for their ability to hunt vermin.-->
+<!--        </p>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--<script>-->
+<!--    let panes = document.querySelectorAll(".pane");-->
+<!--    for (let pane of panes) {-->
+<!--        pane.insertAdjacentHTML('afterbegin', '<button class="remove-button">[x]</button>');-->
+<!--        pane.firstChild.onclick = () => pane.remove();-->
+<!--    }-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!--<!DOCTYPE html>-->
+
+<!--<head>-->
+<!--    <meta charset="utf-8">-->
+<!--&lt;!&ndash;    <link rel="stylesheet" href="style.css">&ndash;&gt;-->
+<!--</head>-->
+<!--<style>-->
+<!--    body {-->
+<!--        padding: 10px;-->
+<!--    }-->
+
+<!--    .carousel {-->
+<!--        position: relative;-->
+<!--        width: 398px;-->
+<!--        padding: 10px 40px;-->
+<!--        border: 1px solid #CCC;-->
+<!--        border-radius: 15px;-->
+<!--        background: #eee;-->
+<!--    }-->
+
+<!--    .carousel img {-->
+<!--        width: 130px;-->
+<!--        height: 130px;-->
+<!--        /* make it block to remove space around images */-->
+<!--        display: block;-->
+<!--    }-->
+
+<!--    .arrow {-->
+<!--        position: absolute;-->
+<!--        top: 60px;-->
+<!--        padding: 0;-->
+<!--        background: #ddd;-->
+<!--        border-radius: 15px;-->
+<!--        border: 1px solid gray;-->
+<!--        font-size: 24px;-->
+<!--        line-height: 24px;-->
+<!--        color: #444;-->
+<!--        display: block;-->
+<!--    }-->
+
+<!--    .arrow:focus {-->
+<!--        outline: none;-->
+<!--    }-->
+
+<!--    .arrow:hover {-->
+<!--        background: #ccc;-->
+<!--        cursor: pointer;-->
+<!--    }-->
+
+<!--    .prev {-->
+<!--        left: 7px;-->
+<!--    }-->
+
+<!--    .next {-->
+<!--        right: 7px;-->
+<!--    }-->
+
+<!--    .gallery {-->
+<!--        width: 390px;-->
+<!--        overflow: hidden;-->
+<!--    }-->
+
+<!--    .gallery ul {-->
+<!--        height: 130px;-->
+<!--        width: 9999px;-->
+<!--        margin: 0;-->
+<!--        padding: 0;-->
+<!--        list-style: none;-->
+<!--        transition: margin-left 250ms;-->
+<!--        /* remove white-space between inline-block'ed li */-->
+<!--        /* http://davidwalsh.name/remove-whitespace-inline-block */-->
+<!--        font-size: 0;-->
+<!--    }-->
+
+<!--    .gallery li {-->
+<!--        display: inline-block;-->
+<!--    }-->
+<!--</style>-->
+<!--<body>-->
+
+<!--<div id="carousel" class="carousel">-->
+<!--    <button class="arrow prev">⇦</button>-->
+<!--    <div class="gallery">-->
+<!--        <ul class="images">-->
+<!--            <li><img src="https://en.js.cx/carousel/1.png"></li>-->
+<!--            <li><img src="https://en.js.cx/carousel/2.png"></li>-->
+<!--            <li><img src="https://en.js.cx/carousel/3.png"></li>-->
+<!--            <li><img src="https://en.js.cx/carousel/4.png"></li>-->
+<!--            <li><img src="https://en.js.cx/carousel/5.png"></li>-->
+<!--            <li><img src="https://en.js.cx/carousel/6.png"></li>-->
+<!--            <li><img src="https://en.js.cx/carousel/7.png"></li>-->
+<!--            <li><img src="https://en.js.cx/carousel/8.png"></li>-->
+<!--            <li><img src="https://en.js.cx/carousel/9.png"></li>-->
+<!--            <li><img src="https://en.js.cx/carousel/10.png"></li>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--    <button class="arrow next">⇨</button>-->
+<!--</div>-->
+
+<!--<script>-->
+<!--    let i = 1;-->
+<!--    for (let li of carousel.querySelectorAll(('li'))) {-->
+<!--        li.style.position = 'relative';-->
+<!--        li.insertAdjacentHTML('beforeend', `<span style="position:absolute;left:0;top:0">${i}</span>`)-->
+<!--        i++;-->
+<!--    }-->
+
+<!--    let width = 130;-->
+<!--    let count = 3;-->
+
+<!--    let list = carousel.querySelector('ul');-->
+<!--    let listElems = carousel.querySelectorAll('li');-->
+
+<!--    let position = 0;-->
+
+<!--    carousel.querySelector('.prev').onclick = function () {-->
+<!--        position += width * count;-->
+<!--        position = Math.min(position, 0);-->
+<!--        list.style.marginLeft = position + 'px';-->
+<!--    };-->
+
+<!--    carousel.querySelector('.next').onclick = function () {-->
+<!--        position -= width * count;-->
+<!--        position = Math.max(position, -width * (listElems.length - count));-->
+<!--        list.style.marginLeft = position + 'px';-->
+<!--    }-->
+
+<!--</script>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+<!--<div id="menu">-->
+<!--    <button data-action="save">Save</button>-->
+<!--    <button data-action="load">Load</button>-->
+<!--    <button data-action="search">Search</button>-->
+<!--</div>-->
+
+<!--<script>-->
+<!--    class Menu {-->
+<!--        constructor(elem) {-->
+<!--            // this._elem = elem;-->
+<!--            elem.onclick = this.onClick.bind(this);-->
+<!--        }-->
+
+<!--        save() {-->
+<!--            alert('saving');-->
+<!--        }-->
+
+<!--        load() {-->
+<!--            alert('loading');-->
+<!--        }-->
+
+<!--        search() {-->
+<!--            alert('searching');-->
+<!--        }-->
+
+<!--        onClick(event) {-->
+<!--            let action = event.target.dataset.action;-->
+<!--            if (action) {-->
+<!--                this[action]();-->
+<!--            }-->
+<!--        };-->
+<!--    }-->
+
+<!--    new Menu(menu);-->
+<!--</script>-->
+
+
+<!--<!DOCTYPE HTML>-->
+<!--<html>-->
+
+<!--<head>-->
+<!--    <style>-->
+<!--        .tree span:hover {-->
+<!--            font-weight: bold;-->
+<!--        }-->
+
+<!--        .tree span {-->
+<!--            cursor: pointer;-->
+<!--        }-->
+<!--    </style>-->
+<!--    <meta charset="utf-8">-->
+<!--</head>-->
+
+<!--<body>-->
+
+<!--<ul class="tree" id="tree">-->
+<!--    <li>Animals-->
+<!--        <ul>-->
+<!--            <li>Mammals-->
+<!--                <ul>-->
+<!--                    <li>Cows</li>-->
+<!--                    <li>Donkeys</li>-->
+<!--                    <li>Dogs</li>-->
+<!--                    <li>Tigers</li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--            <li>Other-->
+<!--                <ul>-->
+<!--                    <li>Snakes</li>-->
+<!--                    <li>Birds</li>-->
+<!--                    <li>Lizards</li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </li>-->
+<!--    <li>Fishes-->
+<!--        <ul>-->
+<!--            <li>Aquarium-->
+<!--                <ul>-->
+<!--                    <li>Guppy</li>-->
+<!--                    <li>Angelfish</li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--            <li>Sea-->
+<!--                <ul>-->
+<!--                    <li>Sea trout</li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </li>-->
+<!--</ul>-->
+
+<!--<script>-->
+<!--    // move all text into <span>-->
+<!--    // they occupy exactly the place necessary for the text,-->
+<!--    for (let li of tree.querySelectorAll('li')) {-->
+<!--        let span = document.createElement('span');-->
+<!--        li.prepend(span);-->
+<!--        span.append(span.nextSibling); // move the text node into span-->
+<!--    }-->
+
+<!--    // catch clicks on whole tree-->
+<!--    tree.onclick = function (event) {-->
+
+<!--        if (event.target.tagName !== 'SPAN') {-->
+<!--            return;-->
+<!--        }-->
+
+<!--        let childrenContainer = event.target.parentNode.querySelector('ul');-->
+<!--        if (!childrenContainer) return; // no children-->
+
+<!--        childrenContainer.hidden = !childrenContainer.hidden;-->
+<!--    }-->
+<!--</script>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+<!--<button id="elem" onclick="alert('Click!');">Autoclick</button>-->
+
+<!--<script>-->
+<!--    let event = new Event("click");-->
+<!--    elem.dispatchEvent(event);-->
+<!--</script>-->
+
+
+<!--<h1 id="elem">Hello from the script!</h1>-->
+
+<!--<script>-->
+<!--    // 在 document 上捕获...-->
+<!--    document.addEventListener("hello", function (event) { // (1)-->
+<!--        alert("Hello from " + event.target.tagName); // Hello from H1-->
+<!--    });-->
+
+<!--    // ...在 elem 上 dispatch！-->
+<!--    let event = new Event("hello", {bubbles: true}); // (2)-->
+<!--    elem.dispatchEvent(event);-->
+
+<!--    // 在 document 上的处理程序将被激活，并显示消息。-->
+
+<!--</script>-->
+
+
+<!--Before...-->
+<!--<b ondblclick="alert('Click!')" onmousedown="return false">-->
+<!--    Double-click me-->
+<!--</b>-->
+<!--...After-->
+
+
+<!--<div oncopy="alert('Copying forbidden!'); return false">-->
+<!--    Dear user,-->
+<!--    The copying is forbidden for you.-->
+<!--    If you know JS or HTML, then you can get everything from the page source though.-->
+<!--</div>-->
+
+
+<!--<!DOCTYPE HTML>-->
+<!--<html>-->
+
+<!--<head>-->
+<!--    <meta charset="utf-8">-->
+<!--    <style>-->
+<!--        .selected {-->
+<!--            background: #0f0;-->
+<!--        }-->
+
+<!--        li {-->
+<!--            cursor: pointer;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+
+<!--<body>-->
+
+<!--Click on a list item to select it.-->
+<!--<br>-->
+
+<!--<ul id="ul">-->
+<!--    <li>Christopher Robin</li>-->
+<!--    <li>Winnie-the-Pooh</li>-->
+<!--    <li>Tigger</li>-->
+<!--    <li>Kanga</li>-->
+<!--    <li>Rabbit. Just rabbit.</li>-->
+<!--</ul>-->
+
+<!--<script>-->
+<!--    let $clickUl = document.querySelector('ul');-->
+<!--    $clickUl.addEventListener("click", function (event) {-->
+<!--        let $target = event.target;-->
+<!--        if ($target.tagName !== 'LI') {-->
+<!--            return;-->
+<!--        }-->
+<!--        if (event.ctrlKey || event.metaKey) {-->
+<!--            toggleSelect($target);-->
+<!--        } else {-->
+<!--            singleSelect($target);-->
+<!--        }-->
+
+<!--        $clickUl.onmousedown = function () {-->
+<!--            return false;-->
+<!--        };-->
+
+<!--        function toggleSelect(li) {-->
+<!--            li.classList.toggle('selected');-->
+<!--        }-->
+
+<!--        function singleSelect(li) {-->
+<!--            let selected = $clickUl.querySelectorAll('.selected');-->
+<!--            for (let elem of selected) {-->
+<!--                elem.classList.remove('selected');-->
+<!--            }-->
+<!--            li.classList.add('selected');-->
+<!--        }-->
+<!--    })-->
+<!--</script>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+
+<!--<head>-->
+<!--    <meta charset="utf-8">-->
+<!--</head>-->
+<!--<style>-->
+<!--    .slider {-->
+<!--        border-radius: 5px;-->
+<!--        background: #E0E0E0;-->
+<!--        background: linear-gradient(left top, #E0E0E0, #EEEEEE);-->
+<!--        width: 310px;-->
+<!--        height: 15px;-->
+<!--        margin: 5px;-->
+<!--    }-->
+
+<!--    .thumb {-->
+<!--        width: 10px;-->
+<!--        height: 25px;-->
+<!--        border-radius: 3px;-->
+<!--        position: relative;-->
+<!--        left: 10px;-->
+<!--        top: -5px;-->
+<!--        background: blue;-->
+<!--        cursor: pointer;-->
+<!--    }-->
+<!--</style>-->
+<!--<body>-->
+<!--<div id="slider" class="slider">-->
+<!--    <div class="thumb"></div>-->
+<!--</div>-->
+<!--</body>-->
+
+<!--<script>-->
+<!--    let thumb = slider.querySelector('.thumb');-->
+
+<!--    thumb.onmousedown = function(event) {-->
+<!--        event.preventDefault(); // prevent selection start (browser action)-->
+
+<!--        let shiftX = event.clientX - thumb.getBoundingClientRect().left;-->
+<!--        // shiftY not needed, the thumb moves only horizontally-->
+
+<!--        document.addEventListener('mousemove', onMouseMove);-->
+<!--        document.addEventListener('mouseup', onMouseUp);-->
+
+<!--        function onMouseMove(event) {-->
+<!--            let newLeft = event.clientX - shiftX - slider.getBoundingClientRect().left;-->
+
+<!--            // the pointer is out of slider => lock the thumb within the bounaries-->
+<!--            if (newLeft < 0) {-->
+<!--                newLeft = 0;-->
+<!--            }-->
+<!--            let rightEdge = slider.offsetWidth - thumb.offsetWidth;-->
+<!--            if (newLeft > rightEdge) {-->
+<!--                newLeft = rightEdge;-->
+<!--            }-->
+
+<!--            thumb.style.left = newLeft + 'px';-->
+<!--        }-->
+
+<!--        function onMouseUp() {-->
+<!--            document.removeEventListener('mouseup', onMouseUp);-->
+<!--            document.removeEventListener('mousemove', onMouseMove);-->
+<!--        }-->
+
+<!--    };-->
+
+<!--    thumb.ondragstart = function() {-->
+<!--        return false;-->
+<!--    };-->
+
+<!--</script>-->
+
+
+<!--<!DOCTYPE HTML>-->
+<!--<html>-->
+
+<!--<head>-->
+<!--    <meta charset="utf-8">-->
+<!--    <style>-->
+<!--        #mouse {-->
+<!--            display: inline-block;-->
+<!--            cursor: pointer;-->
+<!--            margin: 0;-->
+<!--        }-->
+
+<!--        #mouse:focus {-->
+<!--            outline: 1px dashed black;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+
+<!--<body>-->
+
+<!--<p>用鼠标点击以下老鼠，并使用键盘的方向键移动它。</p>-->
+
+<!--<pre id="mouse">-->
+<!-- _   _-->
+<!--(q\_/p)-->
+<!-- /. .\-->
+<!--=\_t_/=   __-->
+<!-- /   \   (-->
+<!--((   ))   )-->
+<!--/\) (/\  /-->
+<!--\  Y  /-'-->
+<!-- nn^nn-->
+<!--</pre>-->
+
+
+<!--<script>-->
+<!--    mouse.tabIndex = 0;-->
+<!--    mouse.onclick = function () {-->
+<!--        this.style.left = this.getBoundingClientRect().left + 'px';-->
+<!--        this.style.top = this.getBoundingClientRect().top + 'px';-->
+
+<!--        this.style.position = 'fixed';-->
+<!--    };-->
+
+<!--    mouse.onkeydown = function (e) {-->
+<!--        switch (e.key) {-->
+<!--            case 'ArrowLeft':-->
+<!--                this.style.left = parseInt(this.style.left) - this.offsetWidth + 'px';-->
+<!--                return false;-->
+<!--            case 'ArrowUp':-->
+<!--                this.style.top = parseInt(this.style.top) - this.offsetHeight + 'px';-->
+<!--                return false;-->
+<!--            case 'ArrowRight':-->
+<!--                this.style.left = parseInt(this.style.left) + this.offsetWidth + 'px';-->
+<!--                return false;-->
+<!--            case 'ArrowDown':-->
+<!--                this.style.top = parseInt(this.style.top) + this.offsetHeight + 'px';-->
+<!--                return false;-->
+<!--        }-->
+<!--    };-->
+<!--</script>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+<!--<script>-->
+<!--    let form = document.createElement('form');-->
+<!--    form.action = 'https://baidu.com/search';-->
+<!--    form.method = 'GET';-->
+
+<!--    form.innerHTML = '<input name="q" value="test">';-->
+
+<!--    // 该表单必须在文档中才能提交-->
+<!--    document.body.append(form);-->
+
+<!--    form.submit();-->
+<!--</script>-->
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+
+<!--<head>-->
+<!--    <meta charset="utf-8">-->
+<!--</head>-->
+
+<!--<style>-->
+<!--    html,-->
+<!--    body {-->
+<!--        margin: 0;-->
+<!--        padding: 0;-->
+<!--        width: 100%;-->
+<!--        height: 100%;-->
+<!--    }-->
+
+<!--    #prompt-form {-->
+<!--        display: inline-block;-->
+<!--        padding: 5px 5px 5px 70px;-->
+<!--        width: 200px;-->
+<!--        border: 1px solid black;-->
+<!--        background: white url(https://en.js.cx/clipart/prompt.png) no-repeat left 5px;-->
+<!--        vertical-align: middle;-->
+<!--    }-->
+
+<!--    #prompt-form-container {-->
+<!--        position: fixed;-->
+<!--        top: 0;-->
+<!--        left: 0;-->
+<!--        z-index: 9999;-->
+<!--        display: none;-->
+<!--        width: 100%;-->
+<!--        height: 100%;-->
+<!--        text-align: center;-->
+<!--    }-->
+
+<!--    #prompt-form-container:before {-->
+<!--        display: inline-block;-->
+<!--        height: 100%;-->
+<!--        content: '';-->
+<!--        vertical-align: middle;-->
+<!--    }-->
+
+<!--    #cover-div {-->
+<!--        position: fixed;-->
+<!--        top: 0;-->
+<!--        left: 0;-->
+<!--        z-index: 9000;-->
+<!--        width: 100%;-->
+<!--        height: 100%;-->
+<!--        background-color: gray;-->
+<!--        opacity: 0.3;-->
+<!--    }-->
+
+<!--    #prompt-form input[name="text"] {-->
+<!--        display: block;-->
+<!--        margin: 5px;-->
+<!--        width: 180px;-->
+<!--    }-->
+<!--</style>-->
+<!--<body style="height:3000px">-->
+
+<!--<h2>Click the button below</h2>-->
+
+<!--<input type="button" value="Click to show the form" id="show-button">-->
+
+
+<!--<div id="prompt-form-container">-->
+<!--    <form id="prompt-form">-->
+<!--        <div id="prompt-message"></div>-->
+<!--        <input name="text" type="text">-->
+<!--        <input type="submit" value="Ok">-->
+<!--        <input type="button" name="cancel" value="Cancel">-->
+<!--    </form>-->
+<!--</div>-->
+
+<!--<script>-->
+<!--    // Show a half-transparent DIV to "shadow" the page-->
+<!--    // (the form is not inside, but near it, because it shouldn't be half-transparent)-->
+<!--    // 设置遮罩层-->
+<!--    function showCover() {-->
+<!--        let coverDiv = document.createElement('div');-->
+<!--        coverDiv.id = 'cover-div';-->
+
+<!--        // make the page unscrollable while the modal form is open-->
+<!--        document.body.style.overflowY = 'hidden';-->
+
+<!--        document.body.append(coverDiv);-->
+<!--    }-->
+
+<!--    // 去除遮罩层-->
+<!--    function hideCover() {-->
+<!--        document.getElementById('cover-div').remove();-->
+<!--        document.body.style.overflowY = '';-->
+<!--    }-->
+
+<!--    // 显示 modal 框-->
+<!--    function showPrompt(text, callback) {-->
+<!--        showCover();-->
+<!--        let form = document.getElementById('prompt-form');-->
+<!--        let container = document.getElementById('prompt-form-container');-->
+<!--        document.getElementById('prompt-message').innerHTML = text;-->
+<!--        form.text.value = '';-->
+
+<!--        // 完成之后的函数-隐藏遮罩层，隐藏 modal 框，键盘操作无反应-->
+<!--        function complete(value) {-->
+<!--            hideCover();-->
+<!--            container.style.display = 'none';-->
+<!--            document.onkeydown = null;-->
+<!--            callback(value);-->
+<!--        }-->
+
+<!--        // 表达提交时，value 拿到输入的值， 并调用 complete 函数-->
+<!--        form.onsubmit = function () {-->
+<!--            let value = form.text.value;-->
+<!--            if (value === '') return false; // ignore empty submit-->
+
+<!--            complete(value);-->
+<!--            return false;-->
+<!--        };-->
+
+<!--        // 如果表单的取消按钮被点击，则调用空的 complete 函数-->
+<!--        form.cancel.onclick = function () {-->
+<!--            complete(null);-->
+<!--        };-->
+
+<!--        // 当模态框显示时，按下的按键如果是 esc 则调用空的 complete 函数-->
+<!--        document.onkeydown = function (e) {-->
+<!--            if (e.key === 'Escape') {-->
+<!--                complete(null);-->
+<!--            }-->
+<!--        };-->
+
+<!--        // 拿到第一和最后一个元素-->
+<!--        let lastElem = form.elements[form.elements.length - 1];-->
+<!--        let firstElem = form.elements[0];-->
+
+<!--        // 最后一个元素当键盘按下时，如果按下 tab 则聚焦到第一个元素-->
+<!--        lastElem.onkeydown = function (e) {-->
+<!--            if (e.key === 'Tab' && !e.shiftKey) {-->
+<!--                firstElem.focus();-->
+<!--                return false;-->
+<!--            }-->
+<!--        };-->
+
+<!--        // 第一个元素当键盘按下时，如果按下 shift+tab 则最后一个元素被聚焦-->
+<!--        firstElem.onkeydown = function (e) {-->
+<!--            if (e.key === 'Tab' && e.shiftKey) {-->
+<!--                lastElem.focus();-->
+<!--                return false;-->
+<!--            }-->
+<!--        };-->
+
+<!--        // 表单的容器显示为 block；表单输入框被聚焦-->
+<!--        container.style.display = 'block';-->
+<!--        form.elements.text.focus();-->
+<!--    }-->
+
+<!--    document.getElementById('show-button').onclick = function () {-->
+<!--        showPrompt("Enter something<br>...smart :)", function (value) {-->
+<!--            alert("You entered: " + value);-->
+<!--        });-->
+<!--    };-->
+<!--</script>-->
+
+
+<!--</body>-->
+<!--</html>-->
+
+
+<!--<!DOCTYPE HTML>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <meta charset="utf-8">-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<script>-->
+<!--    function preloadImages(sources, callback) {-->
+<!--        let counter = 0;-->
+
+<!--        function onLoad() {-->
+<!--            counter++;-->
+<!--            if (counter === sources.length) callback();-->
+<!--        }-->
+
+<!--        for (let source of sources) {-->
+<!--            let img = document.createElement('img');-->
+<!--            img.onload = img.onerror = onLoad;-->
+<!--            img.src = source;-->
+<!--        }-->
+<!--    }-->
+
+<!--    let sources = [-->
+<!--        "https://en.js.cx/images-load/1.jpg",-->
+<!--        "https://en.js.cx/images-load/2.jpg",-->
+<!--        "https://en.js.cx/images-load/3.jpg"-->
+<!--    ];-->
+
+<!--    for (let i = 0; i < sources.length; i++) {-->
+<!--        sources[i] += '?' + Math.random();-->
+<!--    }-->
+
+<!--    function testLoaded() {-->
+<!--        let widthSum = 0;-->
+<!--        for (let i = 0; i < sources.length; i++) {-->
+<!--            let img = document.createElement('img');-->
+<!--            img.src = sources[i];-->
+<!--            widthSum += img.width;-->
+<!--        }-->
+<!--        alert(widthSum);-->
+<!--    }-->
+
+<!--    preloadImages(sources, testLoaded);-->
+<!--</script>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+<!--<p id="p">-->
+<!--    Selected me: <i>italic</i> and <b>bold</b>-->
+<!--</p>-->
+<!--From <input type="text" id="from" disabled> - To <input type="text" id="to" disabled>-->
+
+<!--<script>-->
+<!--    document.onselectionchange = function () {-->
+<!--        let {anchorNode, anchorOffset, focusNode, focusOffset} = document.getSelection();-->
+
+<!--        from.value = `${anchorNode && anchorNode.data}:${anchorOffset}`;-->
+<!--        to.value = `${focusNode && focusNode.data}:${focusOffset}`;-->
+<!--    }-->
+<!--</script>-->
+
+
+<!--<input id="input" style="width:200px" value="Select here and click the button">-->
+<!--<button id="button">Wrap selection in stars *...*</button>-->
+
+<!--<script>-->
+<!--    button.onclick = () => {-->
+<!--        if (input.selectionStart === input.selectionEnd) {-->
+<!--            return; // 什么都没选-->
+<!--        }-->
+<!--        console.log(window.getSelection().toString());-->
+
+<!--        let selected = input.value.slice(input.selectionStart, input.selectionEnd);-->
+<!--        input.setRangeText(`*${selected}*`);-->
+<!--    };-->
+<!--</script>-->
+
+
+<!--<input id="input" style="width:200px" value="Replace THIS in text">-->
+<!--<button id="button">Replace THIS</button>-->
+
+<!--<script>-->
+<!--    button.onclick = () => {-->
+<!--        let pos = input.value.indexOf("THIS");-->
+<!--        if (pos >= 0) {-->
+<!--            input.setRangeText("*THIS*", pos, pos + 4, "select");-->
+<!--            input.focus(); // 聚焦（focus），以使选择可见-->
+<!--        }-->
+<!--    };-->
+<!--</script>-->
+
+
+<script>
+    async function getUsers(names) {
+        let jobs = [];
+
+        for (let name of names) {
+            let job = fetch(`https://api.github.com/users/${name}`).then(
+                successResponse => {
+                    if (successResponse.status !== 200) {
+                        return null;
+                    } else {
+                        return successResponse.json();
+                    }
+                },
+                failResponse => {
+                    return null;
+                }
+            );
+            jobs.push(job);
+        }
+
+        return await Promise.all(jobs);
+    }
+
+</script>

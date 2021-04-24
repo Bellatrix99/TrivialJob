@@ -1,0 +1,49 @@
+<script>
+    // console.log("Breakfast at 09:00 in the room 123:456.".match(/\b\d\d:\d\d\b/));
+    // console.log("Chapter 5.1".match(/\d\.\d/));
+    // console.log("function g()".match(/g\(\)/));
+    // console.log("1\\2".match(/\\/));
+    // let reg = /[\-]/g;
+    //
+    // console.log("1 + 2 - 3".match(reg));
+
+    // console.log("JavaScript".match(/Java[^script]/));
+    //
+    // let reg = /\d\d[:-]\d\d/g;
+    // console.log("Breakfast at 09:00. Dinner at 21-30".match(reg));
+
+
+    // let str = "+7(123)-123-45-67";
+    //
+    // console.log(str.match(/\d+/g));
+    //
+    // console.log(str.match(/\d?/g));
+
+
+    // let reg = /\.{3,}/g;
+    // console.log("Hello!...How goes?.....".match(reg));
+
+
+    // let reg = /#[a-f0-9]{6}\b/gi;
+    // let str = "color:#121322; background-color:#AA00ef bad-colors:f#fddee #fd2 #12345678";
+    //
+    // console.log(str.match(reg));
+
+    // let str = '<h1>Hello, world!</h1>';
+    //
+    // let tag = str.match(/<(.*?)>/);
+    // console.log(tag[0]);
+    // console.log(tag[1]);
+
+
+    let reg = /\[(b|url|quote)][\s\S]*?\[\/\1]/g;
+
+    let str = `
+      [b]hello![/b]
+      [quote]
+        [url]https://google.com[/url]
+      [/quote]
+`;
+
+    console.log(str.match(reg));
+</script>

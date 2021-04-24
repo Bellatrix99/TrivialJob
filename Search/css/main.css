@@ -1,49 +1,49 @@
 all {
-    margin : 0;
+    margin: 0;
     padding: 0;
 }
 
 html,
 body {
     font-family: Microsoft YaHei;
-    font-size  : 0.8em;
-    width      : 100%;
-    height     : 100%;
+    font-size: 0.8em;
+    width: 100%;
+    height: 100%;
 }
 
 .notepad {
-    position        : absolute;
-    width           : 80%;
-    height          : 80%;
-    border          : 3px solid rgb(250, 239, 235);
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    border: 3px solid rgb(250, 239, 235);
     background-color: aliceblue;
-    margin          : auto;
-    top             : 0;
-    left            : 0;
-    right           : 0;
-    bottom          : 0;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 ul {
-    padding        : 0;
-    margin         : 5px 0 0 0;
+    padding: 0;
+    margin: 5px 0 0 0;
     list-style-type: none;
 }
 
 ul li {
-    display  : inline;
-    float    : left;
-    width    : 50px;
-    height   : 20px;
+    display: inline;
+    float: left;
+    width: 50px;
+    height: 20px;
     font-size: 0.8em;
 }
 
 ul:after {
     /*伪元素是行内元素 正常浏览器清除浮动方法*/
-    content   : "";
-    display   : block;
-    height    : 0;
-    clear     : both;
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
     visibility: hidden;
 }
 
@@ -53,7 +53,7 @@ ul:after {
 
 hr {
     margin: 0px 0;
-    color : rgb(182, 184, 184);
+    color: rgb(182, 184, 184);
 }
 
 .btn-search,
@@ -66,74 +66,104 @@ hr {
     margin: 10px;
 }
 
-#txtArea{
+#txtArea {
     margin: auto 1%;
-    min-width: 97%;
-    min-height: 85%;
+    width: 98%;
+    max-height: 60%;
 }
 
-#searchButton{
+/* #searchButton{
     margin-left: 50%;
+} */
+
+#fontList {
+    display: none;
 }
+
+#changePos {
+    display: none;
+}
+
+#edit {
+    box-sizing: border-box;
+}
+
+#edit:hover {
+    cursor: pointer;
+    border: 1px solid black;
+    background-color: rgb(194, 226, 235);
+}
+
+#checkPos {
+    box-sizing: border-box;
+}
+
+#checkPos:hover {
+    cursor: pointer;
+    border: 1px solid black;
+    background-color: rgb(194, 226, 235);
+}
+
 
 .mask {
-    height  : 100%;
-    left    : 0;
+    height: 100%;
+    left: 0;
     position: fixed;
-    top     : 0;
-    width   : 100%;
-    z-index : 10;
+    top: 0;
+    width: 100%;
+    z-index: 10;
 }
 
 .notepad-dlgbox {
-    border     : 1px solid #0f7fd6;
-    box-shadow : 10px 10px 10px #d6d6d6;
-    box-sizing : border-box;
-    cursor     : default;
-    margin     : 0 auto;
-    position   : relative;
-    top        : 100px;
+    border: 1px solid #0f7fd6;
+    box-shadow: 10px 10px 10px #d6d6d6;
+    box-sizing: border-box;
+    cursor: default;
+    margin: 0 auto;
+    position: relative;
+    top: 100px;
     user-select: none;
 }
 
 .titlebar {
     background-color: white;
-    font-size       : 1.3em;
-    height          : 30px;
+    font-size: 1.3em;
+    height: 30px;
 }
 
 .titlebar .title {
-    left       : 10px;
+    top: 10px;
+    left: 10px;
     line-height: 10px;
-    position   : absolute;
+    position: absolute;
 }
 
 .titlebar .close-btn {
-    color      : gray;
+    color: gray;
     line-height: 30px;
-    position   : absolute;
-    right      : 0;
-    text-align : center;
-    width      : 30px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    width: 30px;
 }
 
 .titlebar .close-btn:hover {
     background-color: red;
-    color           : white;
+    color: white;
 }
 
 .main {
     background-color: #f0f0f0;
-    box-sizing      : border-box;
-    font-size       : 1.1em;
-    padding         : 12px;
-    position        : relative;
-    margin          : 0;
+    box-sizing: border-box;
+    font-size: 1.1em;
+    padding: 12px;
+    position: relative;
+    margin: 0;
 }
 
 .main .btn {
     height: 28px;
-    width : 86px;
+    width: 86px;
 }
 
 .search {
@@ -142,42 +172,42 @@ hr {
 
 .search .dialogbox {
     height: 164px;
-    width : 414px;
+    width: 414px;
 }
 
 .search .main {
-    height : 132px;
+    height: 132px;
     padding: 6px;
 }
 
 .search .main .txt-content {
     box-sizing: border-box;
-    height    : 26px;
-    margin    : 10px;
-    width     : 224px;
+    height: 26px;
+    margin: 10px;
+    width: 224px;
 }
 
 .search .main .btn-search {
     position: absolute;
-    right   : 8px;
-    top     : 12px;
+    right: 8px;
+    top: 12px;
 }
 
 .search .main .btn-cancel {
-    bottom  : 56px;
+    bottom: 56px;
     position: absolute;
-    right   : 8px;
+    right: 8px;
 }
 
 .search .main .search-direction {
-    border    : 1px solid #dcdcdc;
+    border: 1px solid #dcdcdc;
     box-sizing: border-box;
-    height    : 52px;
-    left      : 172px;
-    padding   : 10px 5px;
-    position  : absolute;
-    top       : 64px;
-    width     : 136px;
+    height: 52px;
+    left: 172px;
+    padding: 10px 5px;
+    position: absolute;
+    top: 64px;
+    width: 136px;
 }
 
 .search .main input[value="down"] {
@@ -186,4 +216,11 @@ hr {
 
 .search .main input[value="capital-sense"] {
     margin-top: 30px;
+}
+
+.list1,
+.list2,
+.list3 {
+    display: inline-block;
+    margin: 10px 5px;
 }

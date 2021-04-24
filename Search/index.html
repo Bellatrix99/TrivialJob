@@ -5,44 +5,122 @@
     <meta charset="utf-8">
     <title>查找对话框</title>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/statusbar.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/dlg-common.css">
+    <link rel="stylesheet" href="css/list.css">
 </head>
 
 <body>
-    <div class="notepad">
-        <span id="title">记事本</span>
-        <div class="header-item">
-            <ul>
-                <li>文件(F)</li>
-                <li>编辑(E)</li>
-                <li>格式(O)</li>
-                <li>查看(V)</li>
-                <li>帮助(H)</li>
-            </ul>
-        </div>
-        <hr>
-        <textarea name="" id="txtArea" cols="50" rows="30"></textarea><br>
-        <input type="button" value="查询" id="searchButton" autofocus>
+<div class="notepad">
+    <span id="title">记事本</span>
+    <div class="header-item">
+        <ul id="ulList">
+            <li>文件(F)</li>
+            <li>编辑(E)</li>
+            <li id="edit">格式(O)</li>
+            <li id="checkPos">查看(V)</li>
+            <li>帮助(H)</li>
+        </ul>
     </div>
+    <div id="fontList">
+        <div class="list1"></div>
+        <div class="list2"></div>
+        <div class="list3"></div>
+        <button id="changeFont">Change</button>
+    </div>
+
+    <textarea id="txtArea" cols="50" rows="30" placeholder="点击格式更换字体样式,点击查看设置状态栏"></textarea>
+    <input type="button" value="查询" id="searchButton" autofocus>
+    <div id="changePos">
+        <input id="btn-test" type="button" value="隐藏状态栏"><br>
+        <label>行数：<input type="text" id="row"></label>
+        <label>列数：<input type="text" id="col"></label>
+        <input type="button" value="设置行列数" id="set-rc">
+    </div>
+</div>
 </body>
 
 <link rel="stylesheet" href="http://apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
 <script src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="http://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 <script src="js/main.js"></script>
+<script src="js/statusbar.js"></script>
+<script src="js/list.js"></script>
 <script>
     $(function () {
-        var $btnTest = $('div.notepad>input[type="button"]');
+        var fonts = ['Agency FB', 'Algerian', 'Arial', 'Arial Rounded MT', 'Axure Handwriting', 'Bahnschrift', 'Baskerville Old Face', 'Bauhaus 93', 'Bell MT', 'Berlin Sans FB', 'Bernard MT', 'BlackAdder ITC'],
+            styles = ['normal', 'italic', 'oblique', 'inherit'],
+            sizes = ['8', '9', '10', '11', '12', '14', '16', '18', '20', '22', '24', '26', '28', '36', '48', '72'];
+
+        var l1 = new comList();
+        l1.show({
+            container: '.list1',
+            width: '176px',
+            list: fonts,
+            isFont: true,
+            selectHandler: function (e) {
+                console.log(fonts[e]);
+            }
+        });
+
+        var l2 = new comList();
+        l2.show({
+            container: '.list2',
+            select: 3,
+            width: '132px',
+            list: styles,
+            isFontStyle: true,
+            selectHandler: function (e) {
+                console.log(styles[e]);
+            }
+        });
+
+        var l3 = new comList();
+        l3.show({
+            container: '.list3',
+            width: '64px',
+            list: sizes,
+            selectHandler: function (e) {
+                console.log(sizes[e]);
+            }
+        });
+    });
+
+    $(function () {
+        var $btnTest = $('div.notepad>input[id = "searchButton"]');
 
         $btnTest.click(function () {
             $dlgSearch.show(function (content) {
                 console.log("Below is a list of related properties");
                 console.log(content);
                 let inputValue = document.getElementById('inputValues');
-                alert(`You looked for `  + inputValue.value);
+                alert(`You looked for ` + inputValue.value);
                 alert("The related properties are displayed in the console")
             });
         });
     });
+    $(function () {
+        var bVisable = true;
+        $statusBar.init({row: 1, col: 1});
+
+        var $btnTest = $('#btn-test');
+
+        $btnTest.click(function () {
+            bVisable = !bVisable;
+            $statusBar.display(bVisable);
+
+            var title = bVisable ? '隐藏状态栏' : '显示状态栏';
+            $btnTest.val(title);
+        });
+
+        var $btnSetRC = $('#set-rc');
+
+        $btnSetRC.click(function () {
+            $statusBar.setRowCol($('#row').val(), $('#col').val());
+        });
+    });
+
 </script>
 
 </html>

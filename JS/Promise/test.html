@@ -1,0 +1,127 @@
+<script>
+    // function loadScript(src) {
+    //     return new Promise(function (resolve, reject) {
+    //         let script = document.createElement('script');
+    //         script.src = src;
+    //
+    //         script.onload = () => resolve(script);
+    //         script.onerror = () => reject(new Error(`Script load error for ${src}`));
+    //
+    //         document.head.append(script);
+    //     });
+    // }
+    //
+    // let promise = loadScript("https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js");
+    //
+    // promise.then(
+    //     script => alert(`${script.src} is loaded!`),
+    //     error => alert(`Error: ${error.message}`)
+    // );
+    //
+    // promise.then(script => alert('Another handler...'));
+
+
+    // function delay(ms) {
+    //     return new Promise(resolve => setTimeout(resolve, ms));
+    // }
+    //
+    // delay(3000).then(() => alert('runs after 3 seconds'));
+
+
+    // loadScript("one.js")
+    //     .then(function (script) {
+    //         return loadScript("two.js");
+    //     })
+    //     .then(function (script) {
+    //         return loadScript("three.js");
+    //     })
+    //     .then(function (script) {
+    //         one();
+    //         two();
+    //         three();
+    //     });
+
+
+    // function loadJson(url) {
+    //     return fetch(url)
+    //         .then(response => {
+    //             if (response.status == 200) {
+    //                 return response.json();
+    //             } else {
+    //                 throw new Error(response.status);
+    //             }
+    //         });
+    // }
+    //
+    // loadJson('no-such-user.json')
+    //     .catch(alert);
+
+
+    // async function loadJson(url) {
+    //     let response = await fetch(url);
+    //
+    //     if (response.status == 200) {
+    //         let json = await response.json();
+    //         return json;
+    //     }
+    //
+    //     throw new Error(response.status);
+    // }
+    //
+    // loadJson('no-such-user.json')
+    //     .catch(alert);
+
+
+    // class HttpError extends Error {
+    //     constructor(response) {
+    //         super(`${response.status} for ${response.url}`);
+    //         this.name = 'HttpError';
+    //         this.response = response;
+    //     }
+    // }
+    //
+    // async function loadJson(url) {
+    //     let response = await fetch(url);
+    //     if (response.status == 200) {
+    //         return response.json();
+    //     } else {
+    //         throw new HttpError(response);
+    //     }
+    // }
+    //
+    // async function demoGithubUser() {
+    //     let user;
+    //     while (true) {
+    //         let name = prompt("Enter a name?", "iliakan");
+    //
+    //         try {
+    //             user = await loadJson(`https://api.github.com/users/${name}`);
+    //             break;
+    //         } catch (err) {
+    //             if (err instanceof HttpError && err.response.status == 404) {
+    //                 alert("No such user, please reenter.");
+    //             } else {
+    //                 throw err;
+    //             }
+    //         }
+    //     }
+    //
+    //     alert(`Full name: ${user.name}.`);
+    //     return user;
+    // }
+    //
+    // demoGithubUser();
+
+
+    async function wait() {
+        await new Promise(resolve => setTimeout(resolve, 1000));
+
+        return 10;
+    }
+
+    function f() {
+        wait().then(result => alert(result));
+    }
+
+    f();
+</script>
